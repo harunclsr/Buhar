@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EBakkal">
         <activity
+            android:name=".AramaEkrani"
+            android:label="@string/title_activity_arama_ekrani"
+            android:theme="@style/Theme.EBakkal.NoActionBar"></activity>
+        <activity
             android:name=".İcecekler"
             android:label="@string/title_activity_scrolling"
-            android:theme="@style/Theme.EBakkal.NoActionBar"></activity>
+            android:theme="@style/Theme.EBakkal.NoActionBar" />
         <activity android:name=".AnaEkran" />
         <activity android:name=".MainActivity">
             <intent-filter>

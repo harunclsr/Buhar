@@ -46,5 +46,71 @@ public class AnaEkran extends AppCompatActivity {
 
             }
         });
+        Icecekler.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent( AnaEkran.this, Manav.class);
+
+                startActivity(intent);
+
+            }
+        });
+        Icecekler.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent( AnaEkran.this, Kisisel.class);
+
+                startActivity(intent);
+
+            }
+        });  Icecekler.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent( AnaEkran.this, Temizlik.class);
+
+                startActivity(intent);
+
+            }
+        });  Icecekler.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent( AnaEkran.this, Et.class);
+
+                startActivity(intent);
+
+            }
+        });  Icecekler.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent( AnaEkran.this, Ekmek.class);
+
+                startActivity(intent);
+
+            }
+        });  Icecekler.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent( AnaEkran.this, Atistirmalik.class);
+
+                startActivity(intent);
+
+            }
+        });  Icecekler.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent( AnaEkran.this, Kahvaltilik.class);
+
+                startActivity(intent);
+
+            }
+        });  Icecekler.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent( AnaEkran.this, Temel_Gida.class);
+
+                startActivity(intent);
+
+            }
+        });
     }
 }

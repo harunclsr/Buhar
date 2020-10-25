@@ -10,9 +10,41 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EBakkal">
         <activity
+            android:name=".Temel_Gida"
+            android:label="@string/title_activity_temel__gida"
+            android:theme="@style/Theme.EBakkal.NoActionBar"></activity>
+        <activity
+            android:name=".Kahvaltilik"
+            android:label="@string/title_activity_kahvaltilik"
+            android:theme="@style/Theme.EBakkal.NoActionBar" />
+        <activity
+            android:name=".Atistirmalik"
+            android:label="@string/title_activity_atistirmalik"
+            android:theme="@style/Theme.EBakkal.NoActionBar" />
+        <activity
+            android:name=".Ekmek"
+            android:label="@string/title_activity_ekmek"
+            android:theme="@style/Theme.EBakkal.NoActionBar" />
+        <activity
+            android:name=".Et"
+            android:label="@string/title_activity_et"
+            android:theme="@style/Theme.EBakkal.NoActionBar" />
+        <activity
+            android:name=".Temizlik"
+            android:label="@string/title_activity_temizlik"
+            android:theme="@style/Theme.EBakkal.NoActionBar" />
+        <activity
+            android:name=".Kisisel"
+            android:label="@string/title_activity_kisisel"
+            android:theme="@style/Theme.EBakkal.NoActionBar" />
+        <activity
+            android:name=".Manav"
+            android:label="@string/title_activity_manav"
+            android:theme="@style/Theme.EBakkal.NoActionBar" />
+        <activity
             android:name=".AramaEkrani"
             android:label="@string/title_activity_arama_ekrani"
-            android:theme="@style/Theme.EBakkal.NoActionBar"></activity>
+            android:theme="@style/Theme.EBakkal.NoActionBar" />
         <activity
             android:name=".İcecekler"
             android:label="@string/title_activity_scrolling"

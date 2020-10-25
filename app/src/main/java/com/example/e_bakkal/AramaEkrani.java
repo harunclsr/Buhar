@@ -20,7 +20,7 @@ public class AramaEkrani extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_arama_ekrani);
-        Anasayfadonus = (ImageButton) findViewById(R.id.Anasayfadonus);
+        Anasayfadonus= (ImageButton) findViewById(R.id.anasayfadonus2);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         CollapsingToolbarLayout toolBarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);

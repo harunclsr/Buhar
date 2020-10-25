@@ -20,7 +20,8 @@ public class Manav extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manav);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        Anasayfadonus = (ImageButton) findViewById(R.id.Anasayfadonus);
+
+        Anasayfadonus = (ImageButton) findViewById(R.id.anasayfadonus7);
         setSupportActionBar(toolbar);
         CollapsingToolbarLayout toolBarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
         toolBarLayout.setTitle(getTitle());

@@ -20,7 +20,7 @@ public class Temizlik extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_temizlik);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        Anasayfadonus = (ImageButton) findViewById(R.id.Anasayfadonus);
+        Anasayfadonus = (ImageButton) findViewById(R.id.anasayfadonus9);
         setSupportActionBar(toolbar);
         CollapsingToolbarLayout toolBarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
         toolBarLayout.setTitle(getTitle());

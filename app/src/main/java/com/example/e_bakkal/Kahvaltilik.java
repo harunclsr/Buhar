@@ -20,7 +20,7 @@ public class Kahvaltilik extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kahvaltilik);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        Anasayfadonus = (ImageButton) findViewById(R.id.Anasayfadonus);
+        Anasayfadonus = (ImageButton) findViewById(R.id.anasayfadonus);
         setSupportActionBar(toolbar);
         CollapsingToolbarLayout toolBarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
         toolBarLayout.setTitle(getTitle());

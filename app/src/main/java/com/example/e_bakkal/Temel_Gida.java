@@ -20,7 +20,7 @@ public class Temel_Gida extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_temel__gida);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        Anasayfadonus = (ImageButton) findViewById(R.id.Anasayfadonus);
+        Anasayfadonus = (ImageButton) findViewById(R.id.anasayfadonus8);
         setSupportActionBar(toolbar);
         CollapsingToolbarLayout toolBarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
         toolBarLayout.setTitle(getTitle());

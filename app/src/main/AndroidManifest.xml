@@ -49,10 +49,7 @@
             android:name="com.kodlar.buhar.Manav"
             android:label="@string/title_activity_manav"
             android:theme="@style/Theme.EBakkal.NoActionBar" />
-        <activity
-            android:name=".İcecekler"
-            android:label="@string/title_activity_scrolling"
-            android:theme="@style/Theme.EBakkal.NoActionBar" />
+
         <activity android:name="com.kodlar.buhar.AnaEkran" />
         <activity android:name="com.kodlar.buhar.MainActivity">
             <intent-filter>

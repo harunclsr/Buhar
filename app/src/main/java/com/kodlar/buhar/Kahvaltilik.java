@@ -1,4 +1,4 @@
-package com.example.buhar;
+package com.kodlar.buhar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,14 +13,14 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageButton;
 
-public class Atistirmalik extends AppCompatActivity {
+public class Kahvaltilik extends AppCompatActivity {
     private ImageButton Anasayfadonus;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_atistirmalik);
+        setContentView(R.layout.activity_kahvaltilik);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        Anasayfadonus = (ImageButton) findViewById(R.id.anasayfadonus3);
+        Anasayfadonus = (ImageButton) findViewById(R.id.anasayfadonus);
         setSupportActionBar(toolbar);
         CollapsingToolbarLayout toolBarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
         toolBarLayout.setTitle(getTitle());
@@ -36,7 +36,7 @@ public class Atistirmalik extends AppCompatActivity {
         Anasayfadonus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent( Atistirmalik.this, AnaEkran.class);
+                Intent intent= new Intent( Kahvaltilik.this, AnaEkran.class);
 
                 startActivity(intent);
 

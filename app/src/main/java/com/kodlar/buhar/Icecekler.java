@@ -1,4 +1,4 @@
-package com.example.buhar;
+package com.kodlar.buhar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,14 +13,18 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageButton;
 
-public class Temel_Gida extends AppCompatActivity {
+public class Icecekler extends AppCompatActivity {
+
     private ImageButton Anasayfadonus;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_temel__gida);
+        setContentView(R.layout.activity_icecekler);
+
+        Anasayfadonus = (ImageButton) findViewById(R.id.Anasayfadonus);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        Anasayfadonus = (ImageButton) findViewById(R.id.anasayfadonus8);
         setSupportActionBar(toolbar);
         CollapsingToolbarLayout toolBarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
         toolBarLayout.setTitle(getTitle());
@@ -32,15 +36,18 @@ public class Temel_Gida extends AppCompatActivity {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
+
         });
         Anasayfadonus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent( Temel_Gida.this, AnaEkran.class);
+                Intent intent= new Intent( Icecekler.this, AnaEkran.class);
 
                 startActivity(intent);
 
             }
         });
+
     }
+
 }

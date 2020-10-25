@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.buhar">
+    package="com.kodlar.buhar">
 
     <application
         android:allowBackup="true"
@@ -10,51 +10,51 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EBakkal">
         <activity
-            android:name="com.example.buhar.AramaEkrani"
+            android:name="com.kodlar.buhar.AramaEkrani"
             android:label="@string/title_activity_arama_ekrani"
             android:theme="@style/Theme.EBakkal.NoActionBar"></activity>
         <activity
-            android:name="com.example.buhar.Icecekler"
+            android:name="com.kodlar.buhar.Icecekler"
             android:label="@string/title_activity_icecekler"
             android:theme="@style/Theme.EBakkal.NoActionBar" />
         <activity
-            android:name="com.example.buhar.Temel_Gida"
+            android:name="com.kodlar.buhar.Temel_Gida"
             android:label="@string/title_activity_temel__gida"
             android:theme="@style/Theme.EBakkal.NoActionBar" />
         <activity
-            android:name="com.example.buhar.Kahvaltilik"
+            android:name="com.kodlar.buhar.Kahvaltilik"
             android:label="@string/title_activity_kahvaltilik"
             android:theme="@style/Theme.EBakkal.NoActionBar" />
         <activity
-            android:name="com.example.buhar.Atistirmalik"
+            android:name="com.kodlar.buhar.Atistirmalik"
             android:label="@string/title_activity_atistirmalik"
             android:theme="@style/Theme.EBakkal.NoActionBar" />
         <activity
-            android:name="com.example.buhar.Ekmek"
+            android:name="com.kodlar.buhar.Ekmek"
             android:label="@string/title_activity_ekmek"
             android:theme="@style/Theme.EBakkal.NoActionBar" />
         <activity
-            android:name="com.example.buhar.Et"
+            android:name="com.kodlar.buhar.Et"
             android:label="@string/title_activity_et"
             android:theme="@style/Theme.EBakkal.NoActionBar" />
         <activity
-            android:name="com.example.buhar.Temizlik"
+            android:name="com.kodlar.buhar.Temizlik"
             android:label="@string/title_activity_temizlik"
             android:theme="@style/Theme.EBakkal.NoActionBar" />
         <activity
-            android:name="com.example.buhar.Kisisel"
+            android:name="com.kodlar.buhar.Kisisel"
             android:label="@string/title_activity_kisisel"
             android:theme="@style/Theme.EBakkal.NoActionBar" />
         <activity
-            android:name="com.example.buhar.Manav"
+            android:name="com.kodlar.buhar.Manav"
             android:label="@string/title_activity_manav"
             android:theme="@style/Theme.EBakkal.NoActionBar" />
         <activity
             android:name=".İcecekler"
             android:label="@string/title_activity_scrolling"
             android:theme="@style/Theme.EBakkal.NoActionBar" />
-        <activity android:name="com.example.buhar.AnaEkran" />
-        <activity android:name="com.example.buhar.MainActivity">
+        <activity android:name="com.kodlar.buhar.AnaEkran" />
+        <activity android:name="com.kodlar.buhar.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

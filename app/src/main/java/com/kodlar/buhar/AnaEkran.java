@@ -1,4 +1,4 @@
-package com.example.buhar;
+package com.kodlar.buhar;
 
 import androidx.appcompat.app.AppCompatActivity;
 

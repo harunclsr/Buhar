@@ -1,4 +1,4 @@
-package com.example.buhar;
+package com.kodlar.buhar;
 
 import android.content.Intent;
 import android.os.Bundle;

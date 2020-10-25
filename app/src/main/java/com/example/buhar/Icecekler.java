@@ -1,4 +1,4 @@
-package com.example.e_bakkal;
+package com.example.buhar;
 
 import android.content.Intent;
 import android.os.Bundle;

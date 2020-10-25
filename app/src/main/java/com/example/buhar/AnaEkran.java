@@ -1,4 +1,4 @@
-package com.example.e_bakkal;
+package com.example.buhar;
 
 import androidx.appcompat.app.AppCompatActivity;
 

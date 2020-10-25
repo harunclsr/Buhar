@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".MainActivity">
 
     <EditText
@@ -15,10 +16,10 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.283"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.262" />
+        app:layout_constraintVertical_bias="0.265" />
 
     <EditText
         android:id="@+id/userSifre"
@@ -29,10 +30,10 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.283"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userEmail"
-        app:layout_constraintVertical_bias="0.101" />
+        app:layout_constraintVertical_bias="0.102" />
 
     <Button
         android:id="@+id/userGiris"
@@ -41,22 +42,10 @@
         android:text="Giriş"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.554"
+        app:layout_constraintHorizontal_bias="0.687"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userSifre"
-        app:layout_constraintVertical_bias="0.117" />
-
-    <TextView
-        android:id="@+id/tvInfo"
-        android:layout_width="227dp"
-        android:layout_height="21dp"
-        android:text="Giriş Hakkı"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.309"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userGiris"
-        app:layout_constraintVertical_bias="0.132" />
+        app:layout_constraintVertical_bias="0.118" />
 
     <Button
         android:id="@+id/button"
@@ -65,8 +54,20 @@
         android:text="Kayıt Ol"
         app:layout_constraintBottom_toTopOf="@+id/tvInfo"
         app:layout_constraintEnd_toStartOf="@+id/userGiris"
-        app:layout_constraintHorizontal_bias="0.721"
+        app:layout_constraintHorizontal_bias="0.819"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userSifre"
         app:layout_constraintVertical_bias="0.518" />
+
+    <TextView
+        android:id="@+id/tvInfo"
+        android:layout_width="227dp"
+        android:layout_height="21dp"
+        android:text="Giriş Hakkı"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userGiris"
+        app:layout_constraintVertical_bias="0.13" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -37,16 +37,25 @@ public class AnaEkran extends AppCompatActivity {
         Kahvaltilik=(ImageButton)findViewById(R.id.kahvaltilik);
         Temel_Gida=(ImageButton)findViewById(R.id.temel_gida);
 
-        Icecekler.setOnClickListener(new View.OnClickListener() {
+        Arama.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent( AnaEkran.this, İcecekler.class);
+                Intent intent= new Intent( AnaEkran.this, AramaEkrani.class);
 
                 startActivity(intent);
 
             }
         });
         Icecekler.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent( AnaEkran.this, Icecekler.class);
+
+                startActivity(intent);
+
+            }
+        });
+        Manav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent= new Intent( AnaEkran.this, Manav.class);
@@ -55,7 +64,7 @@ public class AnaEkran extends AppCompatActivity {
 
             }
         });
-        Icecekler.setOnClickListener(new View.OnClickListener() {
+        Kisisel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent= new Intent( AnaEkran.this, Kisisel.class);
@@ -63,7 +72,7 @@ public class AnaEkran extends AppCompatActivity {
                 startActivity(intent);
 
             }
-        });  Icecekler.setOnClickListener(new View.OnClickListener() {
+        });  Temizlik.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent= new Intent( AnaEkran.this, Temizlik.class);
@@ -71,7 +80,7 @@ public class AnaEkran extends AppCompatActivity {
                 startActivity(intent);
 
             }
-        });  Icecekler.setOnClickListener(new View.OnClickListener() {
+        });  Et.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent= new Intent( AnaEkran.this, Et.class);
@@ -79,7 +88,7 @@ public class AnaEkran extends AppCompatActivity {
                 startActivity(intent);
 
             }
-        });  Icecekler.setOnClickListener(new View.OnClickListener() {
+        });  Ekmek.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent= new Intent( AnaEkran.this, Ekmek.class);
@@ -87,7 +96,7 @@ public class AnaEkran extends AppCompatActivity {
                 startActivity(intent);
 
             }
-        });  Icecekler.setOnClickListener(new View.OnClickListener() {
+        });  Atistirmalik.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent= new Intent( AnaEkran.this, Atistirmalik.class);
@@ -95,7 +104,7 @@ public class AnaEkran extends AppCompatActivity {
                 startActivity(intent);
 
             }
-        });  Icecekler.setOnClickListener(new View.OnClickListener() {
+        });  Kahvaltilik.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent= new Intent( AnaEkran.this, Kahvaltilik.class);
@@ -103,7 +112,7 @@ public class AnaEkran extends AppCompatActivity {
                 startActivity(intent);
 
             }
-        });  Icecekler.setOnClickListener(new View.OnClickListener() {
+        });  Temel_Gida.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent= new Intent( AnaEkran.this, Temel_Gida.class);

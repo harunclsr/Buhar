@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class GirisEkrani extends AppCompatActivity {
 
     private EditText Email;
     private EditText Password;
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         Kayit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent( MainActivity.this, KullaniciKayit.class);
+                Intent intent= new Intent( GirisEkrani.this, KullaniciKayit.class);
 
                 startActivity(intent);
 
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     private void validate( String userEmail, String userSifre){
 
         if((userEmail.equals("Admin")) && (userSifre.equals("1234"))){
-            Intent intent= new Intent(MainActivity.this, AnaEkran.class);
+            Intent intent= new Intent(GirisEkrani.this, AnaEkran.class);
 
             startActivity(intent);
         }else{

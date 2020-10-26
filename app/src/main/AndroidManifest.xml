@@ -51,7 +51,7 @@
             android:label="@string/title_activity_manav"
             android:theme="@style/Theme.EBakkal.NoActionBar" />
         <activity android:name=".AnaEkran" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".GirisEkrani">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

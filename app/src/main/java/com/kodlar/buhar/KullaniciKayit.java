@@ -20,7 +20,7 @@ public class KullaniciKayit extends AppCompatActivity {
         B_Geri.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent( KullaniciKayit.this, MainActivity.class);
+                Intent intent= new Intent( KullaniciKayit.this, GirisEkrani.class);
 
                 startActivity(intent);
 
@@ -29,7 +29,7 @@ public class KullaniciKayit extends AppCompatActivity {
         Kaydet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent( KullaniciKayit.this, MainActivity.class);
+                Intent intent= new Intent( KullaniciKayit.this, GirisEkrani.class);
 
                 startActivity(intent);
 

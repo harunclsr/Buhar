@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText Password;
     private TextView Info;
     private Button Login;
+    private Button Kayit;
     private int counter=3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,17 @@ public class MainActivity extends AppCompatActivity {
         Info = (TextView) findViewById(R.id.tvInfo);
         Login = (Button) findViewById(R.id.userGiris);
         Info.setText("Giris Hakkı=3");
+        Kayit = (Button) findViewById(R.id.B_Kayit);
+
+        Kayit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent( MainActivity.this, KullaniciKayit.class);
+
+                startActivity(intent);
+
+            }
+        });
         Login.setOnClickListener( new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -35,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
     }
 
     private void validate( String userEmail, String userSifre){

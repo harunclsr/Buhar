@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.google.android.material.snackbar.Snackbar;
+
 public class KullaniciKayit extends AppCompatActivity {
     private ImageButton B_Geri;
     private Button Kaydet;
@@ -30,7 +32,8 @@ public class KullaniciKayit extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent= new Intent( KullaniciKayit.this, GirisEkrani.class);
-
+                Snackbar.make(view, "Kayıt Tamamlandı.", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
                 startActivity(intent);
 
             }

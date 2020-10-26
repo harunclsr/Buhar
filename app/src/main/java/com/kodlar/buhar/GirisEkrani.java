@@ -35,9 +35,7 @@ public class GirisEkrani extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent= new Intent( GirisEkrani.this, KullaniciKayit.class);
-
                 startActivity(intent);
-
             }
         });
         Login.setOnClickListener( new View.OnClickListener(){

@@ -141,5 +141,13 @@
         app:layout_constraintVertical_bias="0.696"
         app:srcCompat="@drawable/kategoriyazi" />
 
+    <ImageButton
+        android:id="@+id/LogOut"
+        android:layout_width="65dp"
+        android:layout_height="70dp"
+        app:srcCompat="@drawable/common_full_open_on_phone"
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="18dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.content.Intent;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class AnaEkran extends AppCompatActivity {
 
     private ImageButton Arama;
@@ -19,7 +21,9 @@ public class AnaEkran extends AppCompatActivity {
     private ImageButton Atistirmalik;
     private ImageButton Kahvaltilik;
     private ImageButton Temel_Gida;
-
+    private ImageButton Logout;
+    FirebaseAuth mFirebaseAuth;
+    private FirebaseAuth.AuthStateListener mAuthStateListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +41,17 @@ public class AnaEkran extends AppCompatActivity {
         Kahvaltilik=(ImageButton)findViewById(R.id.kahvaltilik);
         Temel_Gida=(ImageButton)findViewById(R.id.temel_gida);
 
+        Logout = (ImageButton)findViewById(R.id.LogOut);
+
+        Logout.setOnClickListener(new View.OnClickListener(){
+            @Override
+                    public void onClick(View v){
+                FirebaseAuth.getInstance().signOut();
+                Intent intToMain = new Intent(AnaEkran.this,GirisEkrani.class);
+                startActivity(intToMain);
+            }
+
+        });
         Arama.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

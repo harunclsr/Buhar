@@ -21,8 +21,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class GirisEkrani extends AppCompatActivity {
     private FirebaseAuth mAuth;
-    private EditText Email;
-    private EditText Password;
+     EditText Email;
+     EditText Password;
     private TextView Info;
     private Button Login;
     private Button Kayit;
@@ -86,30 +86,7 @@ public class GirisEkrani extends AppCompatActivity {
             });
 
         }
-        /*Login.setOnClickListener( new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                validate (Email.getText().toString(),Password.getText().toString());
-
-            }
-        });*/
 
     }
 
-
-    /*private void validate( String userEmail, String userSifre){
-
-        if((userEmail.equals("Admin")) && (userSifre.equals("1234"))){
-            Intent intent= new Intent(GirisEkrani.this, AnaEkran.class);
-
-            startActivity(intent);
-        }else{
-            counter--;
-
-            Info.setText("Giriş Hakkı="+String.valueOf(counter));
-            if(counter== 0){
-                Login.setEnabled(false);
-            }
-        }
-    }*/
 

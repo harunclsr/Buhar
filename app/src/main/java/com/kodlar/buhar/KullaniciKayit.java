@@ -28,7 +28,7 @@ public class KullaniciKayit extends AppCompatActivity {
 
             }
         });
-        Kaydet.setOnClickListener(new View.OnClickListener() {
+        /*Kaydet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent= new Intent( KullaniciKayit.this, GirisEkrani.class);
@@ -37,6 +37,6 @@ public class KullaniciKayit extends AppCompatActivity {
                 startActivity(intent);
 
             }
-        });
+        });*/
     }
 }

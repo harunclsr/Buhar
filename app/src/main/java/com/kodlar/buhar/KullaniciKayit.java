@@ -25,7 +25,7 @@ public class KullaniciKayit extends AppCompatActivity {
    FirebaseAuth mAuth;
 
     private EditText Adi;
-private FirebaseAuth.AuthStateListener mAuthStateListener;
+    private FirebaseAuth.AuthStateListener mAuthStateListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,12 +45,13 @@ private FirebaseAuth.AuthStateListener mAuthStateListener;
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser mFirebaseUser = mAuth.getCurrentUser();
                 if(mFirebaseUser !=  null){
-                    Toast.makeText(KullaniciKayit.this,"Giriş Başarılı",Toast.LENGTH_LONG).show();
-              Intent i = new Intent( KullaniciKayit.this,GirisEkrani.class);
-              startActivity(i);
+                    Toast.makeText(KullaniciKayit.this,"Kayıt Başarılı",Toast.LENGTH_LONG).show();
+
                 }
                 else {
                     Toast.makeText(KullaniciKayit.this, "Lütfen Giris yapın", Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent( KullaniciKayit.this,GirisEkrani.class);
+                    startActivity(i);
                 }
             }
         };
@@ -82,13 +83,13 @@ private FirebaseAuth.AuthStateListener mAuthStateListener;
                     Toast.makeText(KullaniciKayit.this,"Alanlar boş",Toast.LENGTH_SHORT).show();
                 }
                 else if(!(userEmail.isEmpty() && userSifre.isEmpty())){
-                    mAuth.signInWithEmailAndPassword(userEmail,userSifre).addOnCompleteListener(KullaniciKayit.this, new OnCompleteListener<AuthResult>() {
+                    mAuth.createUserWithEmailAndPassword(userEmail,userSifre).addOnCompleteListener(KullaniciKayit.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (!task.isSuccessful()) {
                                 Toast.makeText(KullaniciKayit.this, "Hatalı Giriş,Tekrar deneyiniz", Toast.LENGTH_SHORT).show();
                             } else {
-                                Intent intToHome = new Intent(KullaniciKayit.this, AnaEkran.class);
+                                Intent intToHome = new Intent(KullaniciKayit.this, GirisEkrani.class);
                                 startActivity(intToHome);
                             }
                         }
@@ -103,17 +104,11 @@ private FirebaseAuth.AuthStateListener mAuthStateListener;
 
             }
         });
-    Kaydet.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Intent intSignUp = new Intent (KullaniciKayit.this,GirisEkrani.class);
-       startActivity(intSignUp);
-        }
-    });
             }
     @Override
     protected void onStart(){
         super.onStart();
         mAuth.addAuthStateListener(mAuthStateListener);
     }
+
 }

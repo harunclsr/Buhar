@@ -65,13 +65,14 @@ public class GirisEkrani extends AppCompatActivity {
                     Toast.makeText(GirisEkrani.this,"Alanlar boş",Toast.LENGTH_SHORT).show();
                 }
                 else if(!(userEmail.isEmpty() && userSifre.isEmpty())){
-                    mAuth.createUserWithEmailAndPassword(userEmail,userSifre).addOnCompleteListener(GirisEkrani.this, new OnCompleteListener<AuthResult>() {
+                    mAuth.signInWithEmailAndPassword(userEmail,userSifre).addOnCompleteListener(GirisEkrani.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(!task.isSuccessful()){
                                 Toast.makeText(GirisEkrani.this,"Giriş Başarısız,Tekrar Deneyin",Toast.LENGTH_SHORT).show();
                             }
                             else{
+
                                 startActivity(new Intent(GirisEkrani.this,AnaEkran.class));
                             }
                         }

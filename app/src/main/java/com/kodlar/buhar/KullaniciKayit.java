@@ -22,7 +22,7 @@ public class KullaniciKayit extends AppCompatActivity {
     private Button Kaydet;
     private EditText Email;
     private EditText Password;
-   FirebaseAuth mAuth;
+    FirebaseAuth mAuth;
 
     private EditText Adi;
     private FirebaseAuth.AuthStateListener mAuthStateListener;

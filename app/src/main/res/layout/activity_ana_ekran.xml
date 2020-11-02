@@ -10,15 +10,15 @@
 
     <ImageButton
         android:id="@+id/arama"
-        android:layout_width="70dp"
-        android:layout_height="54dp"
+        android:layout_width="59dp"
+        android:layout_height="53dp"
         android:background="@drawable/aramacubugu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.954"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.019" />
 
     <ImageButton
         android:id="@+id/icecekler"
@@ -143,11 +143,15 @@
 
     <ImageButton
         android:id="@+id/LogOut"
-        android:layout_width="65dp"
-        android:layout_height="70dp"
-        app:srcCompat="@drawable/common_full_open_on_phone"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
+        android:layout_width="49dp"
+        android:layout_height="50dp"
+        android:background="@drawable/exit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/arama"
+        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

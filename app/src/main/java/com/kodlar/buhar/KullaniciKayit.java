@@ -39,19 +39,19 @@ public class KullaniciKayit extends AppCompatActivity {
         Password = (EditText)findViewById(R.id.userSifre);
         Adi = (EditText)findViewById(R.id.K_Adi);
 
-        mAuthStateListener= new FirebaseAuth.AuthStateListener() {
+       mAuthStateListener= new FirebaseAuth.AuthStateListener() {
 
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser mFirebaseUser = mAuth.getCurrentUser();
                 if(mFirebaseUser !=  null){
-                    Toast.makeText(KullaniciKayit.this,"Kayıt Başarılı",Toast.LENGTH_LONG).show();
+                    Toast.makeText(KullaniciKayit.this,"Kayıt Oluşturunuz.",Toast.LENGTH_LONG).show();
 
                 }
                 else {
                     Toast.makeText(KullaniciKayit.this, "Lütfen Giris yapın", Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent( KullaniciKayit.this,GirisEkrani.class);
-                    startActivity(i);
+                 /*   Intent i = new Intent( KullaniciKayit.this,GirisEkrani.class);
+                    startActivity(i);*/
                 }
             }
         };

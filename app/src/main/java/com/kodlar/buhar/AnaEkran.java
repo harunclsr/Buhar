@@ -1,13 +1,20 @@
 package com.kodlar.buhar;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.content.Intent;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class AnaEkran extends AppCompatActivity {
 
@@ -22,13 +29,16 @@ public class AnaEkran extends AppCompatActivity {
     private ImageButton Kahvaltilik;
     private ImageButton Temel_Gida;
     private ImageButton Logout;
+
     FirebaseAuth mFirebaseAuth;
+
     private FirebaseAuth.AuthStateListener mAuthStateListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ana_ekran);
+
 
         Arama = (ImageButton)findViewById(R.id.arama);
         Icecekler = (ImageButton)findViewById(R.id.icecekler);
@@ -64,9 +74,8 @@ public class AnaEkran extends AppCompatActivity {
         Icecekler.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent( AnaEkran.this, Icecekler.class);
-
-                startActivity(intent);
+               Intent intent= new Intent( AnaEkran.this, Icecekler.class);
+                   startActivity(intent);
 
             }
         });
@@ -137,4 +146,5 @@ public class AnaEkran extends AppCompatActivity {
             }
         });
     }
+
 }

@@ -1,6 +1,6 @@
 package com.kodlar.buhar;
 
-
+//Güncel
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

@@ -1,74 +1,74 @@
-package com.kodlar.buhar;
+package com.kodlar.buhar.ui.iceceklerpcg;
 
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.tabs.TabLayout;
+
+import androidx.annotation.NonNull;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.kodlar.buhar.AnaEkran;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+import com.kodlar.buhar.R;
+import com.kodlar.buhar.ui.uimain.SectionsPagerAdapter;
+import com.squareup.picasso.Picasso;
 
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.TextView;
-
-public class Icecekler extends AppCompatActivity {
-
-
-    private ImageButton Anasayfadonus;
-    private Button Su;
+public class icecekler2 extends AppCompatActivity {
     private TextView gor;
     FirebaseDatabase db;
+    private ImageView gorsel;
+    private ImageButton Anasayfadonus;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_icecekler);
-        db=FirebaseDatabase.getInstance();
+        setContentView(R.layout.activity_icecekler2);
         Anasayfadonus = (ImageButton) findViewById(R.id.Anasayfadonus);
-        Su= (Button) findViewById(R.id.Su);
-       gor =(TextView) findViewById(R.id.gosterurun);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        CollapsingToolbarLayout toolBarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
-        toolBarLayout.setTitle(getTitle());
+        gor = (TextView) findViewById(R.id.suurun);
+        db= FirebaseDatabase.getInstance();
+        gorsel=(ImageView) findViewById(R.id.sugorseli);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+
+
+        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
+        ViewPager viewPager = findViewById(R.id.view_pager);
+        viewPager.setAdapter(sectionsPagerAdapter);
+        TabLayout tabs = findViewById(R.id.tabs);
+        tabs.setupWithViewPager(viewPager);
+        FloatingActionButton fab = findViewById(R.id.fab);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-
-        });
-        Su.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                urunlisteleme();
-
-            }
         });
         Anasayfadonus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Icecekler.this, AnaEkran.class);
+                Intent intent = new Intent(icecekler2.this, AnaEkran.class);
 
                 startActivity(intent);
 
             }
         });
-
-}
+    }
     public void urunlisteleme() {
+
         DatabaseReference okuma = db.getReference("Kampus").child("icecekler").child("Su");
         okuma.addValueEventListener(new ValueEventListener() {
             @Override
@@ -78,6 +78,7 @@ public class Icecekler extends AppCompatActivity {
 
                     gor.append(key.getValue().toString() + " \n");
 
+                    Picasso.with(icecekler2.this).load(gorsel.toString()).into(gorsel);
                 }
             }
 

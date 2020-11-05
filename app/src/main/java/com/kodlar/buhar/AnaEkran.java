@@ -1,20 +1,14 @@
 package com.kodlar.buhar;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.content.Intent;
-import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.kodlar.buhar.ui.iceceklerpcg.icecekler2;
 
 public class AnaEkran extends AppCompatActivity {
 
@@ -74,7 +68,7 @@ public class AnaEkran extends AppCompatActivity {
         Icecekler.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               Intent intent= new Intent( AnaEkran.this, Icecekler.class);
+               Intent intent= new Intent( AnaEkran.this, icecekler2.class);
                    startActivity(intent);
 
             }

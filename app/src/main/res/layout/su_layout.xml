@@ -24,4 +24,12 @@
         tools:layout_editor_absoluteX="45dp"
         tools:layout_editor_absoluteY="16dp" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="139dp"
+        android:layout_height="41dp"
+        android:text="BURASI SUDUR"
+        tools:layout_editor_absoluteX="150dp"
+        tools:layout_editor_absoluteY="263dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

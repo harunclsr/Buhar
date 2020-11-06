@@ -3,11 +3,14 @@ package com.kodlar.buhar.ui.iceceklerpcg;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,24 +27,22 @@ import com.google.firebase.database.ValueEventListener;
 import com.kodlar.buhar.AnaEkran;
 
 import com.kodlar.buhar.R;
+import com.kodlar.buhar.Urun;
 import com.kodlar.buhar.ui.uimain.SectionsPagerAdapter;
 import com.squareup.picasso.Picasso;
 
 public class icecekler2 extends AppCompatActivity {
-    private TextView gor;
+
+
     FirebaseDatabase db;
-    private ImageView gorsel;
+
     private ImageButton Anasayfadonus;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_icecekler2);
         Anasayfadonus = (ImageButton) findViewById(R.id.Anasayfadonus);
-        gor = (TextView) findViewById(R.id.suurun);
         db= FirebaseDatabase.getInstance();
-        gorsel=(ImageView) findViewById(R.id.sugorseli);
-
-
 
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
         ViewPager viewPager = findViewById(R.id.view_pager);
@@ -66,8 +67,9 @@ public class icecekler2 extends AppCompatActivity {
 
             }
         });
+
     }
-    public void urunlisteleme() {
+   /* public void urunlisteleme() {
 
         DatabaseReference okuma = db.getReference("Kampus").child("icecekler").child("Su");
         okuma.addValueEventListener(new ValueEventListener() {
@@ -88,6 +90,6 @@ public class icecekler2 extends AppCompatActivity {
             }
         });
 
-    }
+    }*/
 
 }

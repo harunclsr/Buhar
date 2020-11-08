@@ -1,11 +1,14 @@
 package com.kodlar.buhar.ui.iceceklerpcg;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,25 +19,30 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.kodlar.buhar.GirisEkrani;
 import com.kodlar.buhar.Urun;
 import com.kodlar.buhar.ui.iceceklerpcg.icecekler2;
 import com.kodlar.buhar.R;
 import com.squareup.picasso.Picasso;
+
+import org.w3c.dom.Text;
 
 
 public class Su extends Fragment  {
 
     private View SuView;
     private RecyclerView mySulist;
-    private DatabaseReference SuRef;
+    private DatabaseReference SuRef,ContacsRef;
     private FirebaseAuth mAuth;
-
+    private String currentUserID;
+    private TextView denemetext;
 public Su(){
 
 }
@@ -48,8 +56,11 @@ public Su(){
         mySulist=(RecyclerView) SuView.findViewById(R.id.su_list);
         mySulist.setLayoutManager(new LinearLayoutManager(getContext()));
         mAuth=FirebaseAuth.getInstance();
+        currentUserID = mAuth.getCurrentUser().getUid();
 
-        SuRef = FirebaseDatabase.getInstance().getReference("Kampus").child("icecekler").child("Su");
+
+       // ContacsRef = FirebaseDatabase.getInstance().getReference().child("Kampus").child("icecekler").child("Su").child(currentUserID);
+        SuRef = FirebaseDatabase.getInstance().getReference().child("Kampus").child("icecekler").child("Su");
 
 
 
@@ -67,33 +78,35 @@ public Su(){
             @Override
             protected void onBindViewHolder(@NonNull final SuViewHolder suViewHolder, int i, @NonNull Urun urun) {
 
-                final String userIDs = getRef(i).getKey();
+             //   final String userIDs = getRef(i).getKey();
 
-                SuRef.child(userIDs).addValueEventListener(new ValueEventListener() {
+                SuRef.addValueEventListener(new ValueEventListener() {
+
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot)
+
                     {
-                        if (dataSnapshot.exists())
-                        {
-                            if (dataSnapshot.child("icecekler").hasChild("Su"))
-                            {
+                     Snackbar.make(SuView, "İlk ife girdi !!!!!!", Snackbar.LENGTH_LONG)
+                                .setAction("Action", null).show();
 
-                                String urunfotografi = dataSnapshot.child("image").getValue().toString();
-                                String urunAdi = dataSnapshot.child("Marka").getValue().toString();
-                                String urunfiyat = dataSnapshot.child("Fiyat").getValue().toString();
-                                String urunagirlik = dataSnapshot.child("Agirlik").getValue().toString();
+                         //    String urunfotografi = dataSnapshot.child("Su").child("image").getValue(String.class);
+                                String urunadi = dataSnapshot.child("Kampus").child("icecekler").child("Su").child("43534535").child("Marka").getValue(String.class);
+                                String urunfiyat = dataSnapshot.child("Kampus").child("icecekler").child("Su").child("43534535").child("Fiyat").getValue(String.class);
+                                String urunagirlik = dataSnapshot.child("Kampus").child("icecekler").child("Su").child("43534535").child("Agirlik").getValue(String.class);
 
-                                suViewHolder.urunAdi.setText(urunAdi );
-                                suViewHolder.urunfiyat.setText(urunfiyat);
+                               suViewHolder.urunAdi.setText(urunadi);
+                                suViewHolder.urunFiyat.setText(urunfiyat);
                                 suViewHolder.urunAgirlik.setText(urunagirlik);
-                            }
 
-                        }
+                            // suViewHolder.urunfotografi.setImageURI(Uri.parse(urunfotografi));
+
+
                     }
 
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
-
+                        Snackbar.make(SuView, "HATA!!!!!!", Snackbar.LENGTH_LONG)
+                                .setAction("Action", null).show();
                     }
                 });
             }
@@ -115,15 +128,16 @@ public Su(){
 
     public static class SuViewHolder extends RecyclerView.ViewHolder{
 
-    TextView urunAdi,urunfiyat,urunAgirlik;
+    TextView urunAdi,urunFiyat,urunAgirlik;
     ImageFilterView urunfotografi;
 
       public SuViewHolder(@NonNull View itemView) {
         super(itemView);
         urunAdi= itemView.findViewById(R.id.urunAdi);
-        urunfiyat= itemView.findViewById(R.id.urunFiyat);
+        urunFiyat= itemView.findViewById(R.id.urunFiyat);
         urunAgirlik= itemView.findViewById(R.id.urunAgirlik);
         urunfotografi=itemView.findViewById(R.id.urunfotografi);
+
     }
 }
 

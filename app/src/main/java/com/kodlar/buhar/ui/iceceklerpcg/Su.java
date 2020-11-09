@@ -79,7 +79,7 @@ public Su(){
             protected void onBindViewHolder(@NonNull final SuViewHolder suViewHolder, int i, @NonNull Urun urun) {
 
              //   final String userIDs = getRef(i).getKey();
-
+//Deneme
                 SuRef.addValueEventListener(new ValueEventListener() {
 
                     @Override

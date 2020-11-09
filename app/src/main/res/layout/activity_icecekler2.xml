@@ -13,9 +13,9 @@
 
         <ImageButton
             android:id="@+id/Anasayfadonus"
-            android:layout_width="82dp"
-            android:layout_height="75dp"
-            app:srcCompat="@drawable/back" />
+            android:layout_width="55dp"
+            android:layout_height="46dp"
+            android:background="@drawable/back" />
 
         <TextView
             android:id="@+id/title"

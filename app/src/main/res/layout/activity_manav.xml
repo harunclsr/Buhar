@@ -33,9 +33,9 @@
 
             <ImageButton
                 android:id="@+id/anasayfadonus7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@android:drawable/btn_dialog" />
+                android:layout_width="55dp"
+                android:layout_height="45dp"
+                android:background="@drawable/back" />
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>

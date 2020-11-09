@@ -90,13 +90,13 @@ public Su(){
                                 .setAction("Action", null).show();
 
                          //    String urunfotografi = dataSnapshot.child("Su").child("image").getValue(String.class);
-                                String urunadi = dataSnapshot.child("Kampus").child("icecekler").child("Su").child("43534535").child("Marka").getValue(String.class);
-                                String urunfiyat = dataSnapshot.child("Kampus").child("icecekler").child("Su").child("43534535").child("Fiyat").getValue(String.class);
-                                String urunagirlik = dataSnapshot.child("Kampus").child("icecekler").child("Su").child("43534535").child("Agirlik").getValue(String.class);
+                                String urunadi = dataSnapshot.child("2334545453").child("urunadi").getValue(String.class);
+                                String urunagirlik = dataSnapshot.child("2334545453").child("urunagirlik").getValue(String.class);
+                                String urunfiyat = dataSnapshot.child("2334545453").child("urunfiyati").getValue(String.class);
 
-                               suViewHolder.urunAdi.setText(urunadi);
-                                suViewHolder.urunFiyat.setText(urunfiyat);
-                                suViewHolder.urunAgirlik.setText(urunagirlik);
+                               suViewHolder.urunadi.setText(urunadi);
+                                suViewHolder.urunfiyat.setText(urunfiyat);
+                                suViewHolder.urunagirlik.setText(urunagirlik);
 
                             // suViewHolder.urunfotografi.setImageURI(Uri.parse(urunfotografi));
 
@@ -128,15 +128,15 @@ public Su(){
 
     public static class SuViewHolder extends RecyclerView.ViewHolder{
 
-    TextView urunAdi,urunFiyat,urunAgirlik;
+    TextView urunadi,urunfiyat,urunagirlik;
     ImageFilterView urunfotografi;
 
       public SuViewHolder(@NonNull View itemView) {
         super(itemView);
-        urunAdi= itemView.findViewById(R.id.urunAdi);
-        urunFiyat= itemView.findViewById(R.id.urunFiyat);
-        urunAgirlik= itemView.findViewById(R.id.urunAgirlik);
-        urunfotografi=itemView.findViewById(R.id.urunfotografi);
+          urunadi= itemView.findViewById(R.id.urunAdi);
+          urunfiyat= itemView.findViewById(R.id.urunFiyat);
+          urunagirlik= itemView.findViewById(R.id.urunAgirlik);
+          urunfotografi=itemView.findViewById(R.id.urunfotografi);
 
     }
 }

@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.iceceklerpcg.icecekler2">
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/su_list"
         android:layout_width="match_parent"

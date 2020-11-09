@@ -1,22 +1,22 @@
 package com.kodlar.buhar;
 
 public class Urun {
-    public String urunadi,urunfiyati,urunagirlik,image;
-    public Urun(){
+    public String urunadi, urunfiyati, urunagirlik, image;
+
+    public Urun() {
 
     }
-    public Urun(String urunadi,String urunfiyati,String urunagirlik,String image){
-        this.urunadi=urunadi;
-        this.urunfiyati=urunfiyati;
-        this.urunagirlik=urunagirlik;
-        this.image=image;
-
+    public Urun(String urunadi, String urunfiyati, String urunagirlik, String image) {
+        this.urunadi = urunadi;
+        this.urunfiyati = urunfiyati;
+        this.urunagirlik = urunagirlik;
+        this.image = image;
+    }
+    public String getUrunadi() {
+        return urunadi;
     }
 
-    public String getUrunadi(){return urunadi;}
-    public String urunfiyati(){return urunfiyati;}
-    public String urunagirlik(){return urunagirlik;}
-    public String image(){return image;}
+
 
     public void setUrunadi(String urunadi) {
         this.urunadi = urunadi;

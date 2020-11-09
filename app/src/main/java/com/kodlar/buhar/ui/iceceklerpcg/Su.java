@@ -78,28 +78,24 @@ public Su(){
             @Override
             protected void onBindViewHolder(@NonNull final SuViewHolder suViewHolder, int i, @NonNull Urun urun) {
 
-             //   final String userIDs = getRef(i).getKey();
-//Deneme
-                SuRef.addValueEventListener(new ValueEventListener() {
+                String userIDs = getRef(i).getKey();
+
+                SuRef.child(userIDs).addValueEventListener(new ValueEventListener(){
 
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot)
-
                     {
-                     Snackbar.make(SuView, "İlk ife girdi !!!!!!", Snackbar.LENGTH_LONG)
-                                .setAction("Action", null).show();
 
-                         //    String urunfotografi = dataSnapshot.child("Su").child("image").getValue(String.class);
-                                String urunadi = dataSnapshot.child("2334545453").child("urunadi").getValue(String.class);
-                                String urunagirlik = dataSnapshot.child("2334545453").child("urunagirlik").getValue(String.class);
-                                String urunfiyat = dataSnapshot.child("2334545453").child("urunfiyati").getValue(String.class);
+                            //    String urunfotografi = dataSnapshot.child("Su").child("image").getValue(String.class);
+                            String urunadi = dataSnapshot.child("urunadi").getValue(String.class);
+                            String urunagirlik = dataSnapshot.child("urunagirlik").getValue(String.class);
+                            String urunfiyat = dataSnapshot.child("urunfiyati").getValue(String.class);
 
-                               suViewHolder.urunadi.setText(urunadi);
-                                suViewHolder.urunfiyat.setText(urunfiyat);
-                                suViewHolder.urunagirlik.setText(urunagirlik);
+                            suViewHolder.urunadi.setText(urunadi);
+                            suViewHolder.urunfiyat.setText(urunfiyat);
+                            suViewHolder.urunagirlik.setText(urunagirlik);
 
                             // suViewHolder.urunfotografi.setImageURI(Uri.parse(urunfotografi));
-
 
                     }
 

@@ -1,4 +1,4 @@
-package com.kodlar.buhar.ui.uimain;
+package com.kodlar.buhar.ui.iceceklerpcg;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -17,14 +17,14 @@ import com.kodlar.buhar.R;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class PlaceholderFragment extends Fragment {
+public class iceceklerPlaceholderFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
 
-    private PageViewModel pageViewModel;
+    private iceceklerPageViewModel iceceklerPageViewModel;
 
-    public static PlaceholderFragment newInstance(int index) {
-        PlaceholderFragment fragment = new PlaceholderFragment();
+    public static iceceklerPlaceholderFragment newInstance(int index) {
+        iceceklerPlaceholderFragment fragment = new iceceklerPlaceholderFragment();
         Bundle bundle = new Bundle();
         bundle.putInt(ARG_SECTION_NUMBER, index);
         fragment.setArguments(bundle);
@@ -34,12 +34,12 @@ public class PlaceholderFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        pageViewModel = new ViewModelProvider(this).get(PageViewModel.class);
+        iceceklerPageViewModel = new ViewModelProvider(this).get(iceceklerPageViewModel.class);
         int index = 1;
         if (getArguments() != null) {
             index = getArguments().getInt(ARG_SECTION_NUMBER);
         }
-        pageViewModel.setIndex(index);
+        iceceklerPageViewModel.setIndex(index);
     }
 
     @Override
@@ -48,7 +48,7 @@ public class PlaceholderFragment extends Fragment {
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_icecekler2, container, false);
         final TextView textView = root.findViewById(R.id.section_label);
-        pageViewModel.getText().observe(this, new Observer<String>() {
+        iceceklerPageViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

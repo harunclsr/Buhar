@@ -1,4 +1,4 @@
-package com.kodlar.buhar.ui.uimain;
+package com.kodlar.buhar.ui.iceceklerpcg;
 
 import android.content.Context;
 
@@ -17,13 +17,13 @@ import com.kodlar.buhar.ui.iceceklerpcg.icecekler2;
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
  * one of the sections/tabs/pages.
  */
-public class SectionsPagerAdapter extends FragmentPagerAdapter {
+public class iceceklerSectionsPagerAdapter extends FragmentPagerAdapter {
     icecekler2 i2 = new icecekler2();
     @StringRes
     private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1,R.string.tab_text_2,R.string.tab_text_3};
     private final Context mContext;
 
-    public SectionsPagerAdapter(Context context, FragmentManager fm) {
+    public iceceklerSectionsPagerAdapter(Context context, FragmentManager fm) {
         super(fm);
         mContext = context;
     }

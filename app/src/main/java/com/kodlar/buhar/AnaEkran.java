@@ -1,12 +1,10 @@
 package com.kodlar.buhar;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.content.Intent;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.kodlar.buhar.ui.iceceklerpcg.icecekler2;
 
@@ -23,9 +21,7 @@ public class AnaEkran extends AppCompatActivity {
     private ImageButton Kahvaltilik;
     private ImageButton Temel_Gida;
     private ImageButton Logout;
-
     FirebaseAuth mFirebaseAuth;
-
     private FirebaseAuth.AuthStateListener mAuthStateListener;
 
     @Override

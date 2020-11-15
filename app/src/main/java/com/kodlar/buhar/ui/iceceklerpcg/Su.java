@@ -1,4 +1,5 @@
 package com.kodlar.buhar.ui.iceceklerpcg;
+import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -43,6 +44,7 @@ public class Su extends Fragment  {
     private FirebaseAuth mAuth;
     private String currentUserID;
     private TextView denemetext;
+
 public Su(){
 
 }
@@ -86,7 +88,7 @@ public Su(){
                     public void onDataChange(DataSnapshot dataSnapshot)
                     {
 
-                            //    String urunfotografi = dataSnapshot.child("Su").child("image").getValue(String.class);
+                           String urunfotografi = dataSnapshot.child("image").getValue(String.class);
                             String urunadi = dataSnapshot.child("urunadi").getValue(String.class);
                             String urunagirlik = dataSnapshot.child("urunagirlik").getValue(String.class);
                             String urunfiyat = dataSnapshot.child("urunfiyati").getValue(String.class);
@@ -94,8 +96,8 @@ public Su(){
                             suViewHolder.urunadi.setText(urunadi);
                             suViewHolder.urunfiyat.setText(urunfiyat);
                             suViewHolder.urunagirlik.setText(urunagirlik);
+                            Picasso.get().load(urunfotografi.toString()).into(suViewHolder.urunfotografi);
 
-                            // suViewHolder.urunfotografi.setImageURI(Uri.parse(urunfotografi));
 
                     }
 

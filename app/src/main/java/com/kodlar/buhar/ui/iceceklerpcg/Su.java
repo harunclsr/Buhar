@@ -35,7 +35,7 @@ import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
-
+//Deneme
 public class Su extends Fragment  {
 
     private View SuView;

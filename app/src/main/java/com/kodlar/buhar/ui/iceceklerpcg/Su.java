@@ -64,7 +64,7 @@ public Su(){
        // ContacsRef = FirebaseDatabase.getInstance().getReference().child("Kampus").child("icecekler").child("Su").child(currentUserID);
         SuRef = FirebaseDatabase.getInstance().getReference().child("Kampus").child("icecekler").child("Su");
 
-
+// urunekle(FirebaseDatabase.getInstance().getReference().child("Kampus").child("icecekler").child("Su");)
 
     return SuView;
     }

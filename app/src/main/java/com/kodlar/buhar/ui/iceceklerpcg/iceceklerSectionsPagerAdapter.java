@@ -20,7 +20,7 @@ import com.kodlar.buhar.ui.iceceklerpcg.icecekler2;
 public class iceceklerSectionsPagerAdapter extends FragmentPagerAdapter {
     icecekler2 i2 = new icecekler2();
     @StringRes
-    private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1,R.string.tab_text_2,R.string.tab_text_3};
+    private static final int[] TAB_TITLES = new int[]{R.string.tab_icecekler_Su,R.string.tab_icecekler_Gazli,R.string.tab_icecekler_Gazsiz};
     private final Context mContext;
 
     public iceceklerSectionsPagerAdapter(Context context, FragmentManager fm) {

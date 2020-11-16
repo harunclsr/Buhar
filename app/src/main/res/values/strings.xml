@@ -19,8 +19,8 @@
     <string name="title_activity_temel__gida">ScrollingActivity</string>
     <string name="title_activity_icecekler">ScrollingActivity</string>
     <string name="title_activity_icecekler2">icecekler2</string>
-    <string name="tab_text_1">Su</string>
-    <string name="tab_text_2">Gazlı İçecek</string>
-    <string name="tab_text_3">Gazsız İçecek</string>
+    <string name="tab_icecekler_Su">Su</string>
+    <string name="tab_icecekler_Gazli">Gazlı İçecek</string>
+    <string name="tab_icecekler_Gazsiz">Gazsız İçecek</string>
     <string name="title_activity_atistirmalik2">Atistirmalik2</string>
 </resources>

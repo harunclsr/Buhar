@@ -1,6 +1,6 @@
 package com.kodlar.buhar;
 
-//Güncel
+
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,11 +18,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-//Deneme
+
 public class GirisEkrani extends AppCompatActivity {
     private FirebaseAuth mAuth;
-     EditText Email;
-     EditText Password;
+    private  EditText Email;
+    private EditText Password;
     private TextView Info;
     private Button Login;
     private Button Kayit;

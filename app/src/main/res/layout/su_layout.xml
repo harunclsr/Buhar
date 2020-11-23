@@ -7,7 +7,7 @@
     tools:context=".ui.iceceklerpcg.icecekler2">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/su_list"
+        android:id="@+id/kuruyemis_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true"

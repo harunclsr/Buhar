@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.content.Intent;
 import com.google.firebase.auth.FirebaseAuth;
+import com.kodlar.buhar.ui.atistirmalikpcg.Atistirmalik2;
 import com.kodlar.buhar.ui.iceceklerpcg.icecekler2;
 
 public class AnaEkran extends AppCompatActivity {
@@ -113,7 +114,7 @@ public class AnaEkran extends AppCompatActivity {
         });  Atistirmalik.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent( AnaEkran.this, Atistirmalik.class);
+                Intent intent= new Intent( AnaEkran.this, Atistirmalik2.class);
 
                 startActivity(intent);
 

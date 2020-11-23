@@ -1,15 +1,9 @@
 package com.kodlar.buhar.ui.iceceklerpcg;
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,13 +21,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.kodlar.buhar.GirisEkrani;
 import com.kodlar.buhar.Urun;
-import com.kodlar.buhar.ui.iceceklerpcg.icecekler2;
 import com.kodlar.buhar.R;
 import com.squareup.picasso.Picasso;
-
-import org.w3c.dom.Text;
 
 //Deneme
 public class Su extends Fragment  {
@@ -55,7 +45,7 @@ public Su(){
 
         SuView= inflater.inflate(R.layout.su_layout,container,false);
 
-        mySulist=(RecyclerView) SuView.findViewById(R.id.su_list);
+        mySulist=(RecyclerView) SuView.findViewById(R.id.kuruyemis_list);
         mySulist.setLayoutManager(new LinearLayoutManager(getContext()));
         mAuth=FirebaseAuth.getInstance();
         currentUserID = mAuth.getCurrentUser().getUid();

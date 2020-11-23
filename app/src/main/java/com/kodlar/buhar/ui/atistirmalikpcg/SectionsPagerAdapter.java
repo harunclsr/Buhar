@@ -10,6 +10,9 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 
 import com.kodlar.buhar.R;
+import com.kodlar.buhar.ui.iceceklerpcg.Gazliicecek;
+import com.kodlar.buhar.ui.iceceklerpcg.Gazsizicecek;
+import com.kodlar.buhar.ui.iceceklerpcg.Su;
 
 
 /**
@@ -19,7 +22,7 @@ import com.kodlar.buhar.R;
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @StringRes
-    private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_2};
+    private static final int[] TAB_TITLES = new int[]{R.string.tab_atistimalik_Cikolata, R.string.tab_atistimalik_Cips,R.string.tab_atistimalik_Kuruyemis};
     private final Context mContext;
 
     public SectionsPagerAdapter(Context context, FragmentManager fm) {
@@ -29,9 +32,20 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        // getItem is called to instantiate the fragment for the given page.
-        // Return a PlaceholderFragment (defined as a static inner class below).
-        return PlaceholderFragment.newInstance(position + 1);
+        Fragment fragment= null;
+        switch (position){
+            case 0:
+                fragment = new Cikolata();
+                break;
+            case 1:
+                fragment= new Cips();
+                break;
+
+            case 2:
+                fragment=new Kuruyemis();
+                break;
+        }
+        return fragment;
     }
 
     @Nullable

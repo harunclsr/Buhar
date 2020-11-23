@@ -4,12 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.atistirmalikpcg.Atistirmalik2">
+    tools:context=".ui.iceceklerpcg.icecekler2">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/Theme.EBakkal.AppBarOverlay">
+
+        <ImageButton
+            android:id="@+id/Anasayfadonus"
+            android:layout_width="55dp"
+            android:layout_height="46dp"
+            android:background="@drawable/back" />
 
         <TextView
             android:id="@+id/title"
@@ -25,13 +31,19 @@
             android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary" />
+            android:background="@android:color/holo_blue_dark"
+            app:tabIconTint="@color/teal_200"
+            app:tabIndicator="@color/black"
+            app:tabIndicatorColor="@color/teal_200"
+            app:tabTextColor="@color/purple_500" />
+
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/background"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

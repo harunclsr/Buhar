@@ -39,10 +39,6 @@
             android:label="@string/title_activity_kahvaltilik"
             android:theme="@style/Theme.EBakkal.NoActionBar" />
         <activity
-            android:name=".Atistirmalik"
-            android:label="@string/title_activity_atistirmalik"
-            android:theme="@style/Theme.EBakkal.NoActionBar" />
-        <activity
             android:name=".Ekmek"
             android:label="@string/title_activity_ekmek"
             android:theme="@style/Theme.EBakkal.NoActionBar" />

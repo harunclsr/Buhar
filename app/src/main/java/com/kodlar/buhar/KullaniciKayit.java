@@ -45,7 +45,7 @@ public class KullaniciKayit extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser mFirebaseUser = mAuth.getCurrentUser();
                 if(mFirebaseUser !=  null){
-                    Toast.makeText(KullaniciKayit.this,"Kayıt Oluşturunuz.",Toast.LENGTH_LONG).show();
+                    Toast.makeText(KullaniciKayit.this,"Kayıt Oluşturuldu..",Toast.LENGTH_LONG).show();
 
                 }
                 else {
@@ -87,7 +87,7 @@ public class KullaniciKayit extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (!task.isSuccessful()) {
-                                Toast.makeText(KullaniciKayit.this, "Hatalı Giriş,Tekrar deneyiniz", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(KullaniciKayit.this, "Hatalı Kayıt,Tekrar deneyiniz", Toast.LENGTH_SHORT).show();
                             } else {
                                 Intent intToHome = new Intent(KullaniciKayit.this, GirisEkrani.class);
                                 startActivity(intToHome);

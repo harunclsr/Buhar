@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EBakkal">
         <activity
+            android:name=".ui.manavpckg.Manav2"
+            android:label="@string/title_activity_manav2"
+            android:theme="@style/Theme.EBakkal.NoActionBar"></activity>
+        <activity
             android:name=".ui.atistirmalikpcg.Atistirmalik2"
             android:label="@string/title_activity_atistirmalik2"
-            android:theme="@style/Theme.EBakkal.NoActionBar"></activity>
+            android:theme="@style/Theme.EBakkal.NoActionBar" />
         <activity
             android:name=".Atistirmalik2"
             android:label="@string/title_activity_atistirmalik2"

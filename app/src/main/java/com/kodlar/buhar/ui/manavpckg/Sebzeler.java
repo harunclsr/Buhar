@@ -1,4 +1,4 @@
-package com.kodlar.buhar.ui.atistirmalikpcg;
+package com.kodlar.buhar.ui.manavpckg;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -26,10 +26,10 @@ import com.kodlar.buhar.R;
 import com.kodlar.buhar.Urun;
 import com.squareup.picasso.Picasso;
 
-public class Kuruyemis extends Fragment {
-    private View KuruyemisView;
-    private RecyclerView myKuruyemisList;
-    private DatabaseReference KuruyemisRef,ContacsRef;
+public class Sebzeler extends Fragment {
+    private View SebzelerView;
+    private RecyclerView mySebzelerList;
+    private DatabaseReference SebzelerRef,ContacsRef;
     private FirebaseAuth mAuth;
     private String currentUserID;
 
@@ -37,36 +37,36 @@ public class Kuruyemis extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        KuruyemisView= inflater.inflate(R.layout.kuruyemis_layout,container,false);
+        SebzelerView= inflater.inflate(R.layout.sebzeler_layout,container,false);
 
-        myKuruyemisList=(RecyclerView) KuruyemisView.findViewById(R.id.kuruyemis_list);
-        myKuruyemisList.setLayoutManager(new LinearLayoutManager(getContext()));
+        mySebzelerList=(RecyclerView) SebzelerView.findViewById(R.id.sebzeler_list);
+        mySebzelerList.setLayoutManager(new LinearLayoutManager(getContext()));
         mAuth= FirebaseAuth.getInstance();
         currentUserID = mAuth.getCurrentUser().getUid();
 
 
         // ContacsRef = FirebaseDatabase.getInstance().getReference().child("Kampus").child("icecekler").child("Su").child(currentUserID);
-        KuruyemisRef = FirebaseDatabase.getInstance().getReference().child("Kampus").child("Atistirmalik").child("Kuruyemis");
+        SebzelerRef = FirebaseDatabase.getInstance().getReference().child("Kampus").child("Manav").child("Sebzeler");
 
 
 
-        return KuruyemisView;
+        return SebzelerView;
     }
     @Override
     public void onStart(){
         super.onStart();
         FirebaseRecyclerOptions options=
                 new FirebaseRecyclerOptions.Builder<Urun>()
-                        .setQuery(KuruyemisRef,Urun.class)
+                        .setQuery(SebzelerRef,Urun.class)
                         .build();
 
-        final FirebaseRecyclerAdapter<Urun, KuruyemisViewHolder> adapter = new FirebaseRecyclerAdapter<Urun, KuruyemisViewHolder>(options) {
+        final FirebaseRecyclerAdapter<Urun, SebzelerViewHolder> adapter = new FirebaseRecyclerAdapter<Urun, SebzelerViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull final KuruyemisViewHolder KuruyemisViewHolder, int i, @NonNull Urun urun) {
+            protected void onBindViewHolder(@NonNull final SebzelerViewHolder SebzelerViewHolder, int i, @NonNull Urun urun) {
 
                 String userIDs = getRef(i).getKey();
 
-                KuruyemisRef.child(userIDs).addValueEventListener(new ValueEventListener(){
+                SebzelerRef.child(userIDs).addValueEventListener(new ValueEventListener(){
 
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot)
@@ -77,17 +77,17 @@ public class Kuruyemis extends Fragment {
                         String urunagirlik = dataSnapshot.child("urunagirlik").getValue(String.class);
                         String urunfiyat = dataSnapshot.child("urunfiyati").getValue(String.class);
 
-                        KuruyemisViewHolder.urunadi.setText(urunadi);
-                        KuruyemisViewHolder.urunfiyat.setText(urunfiyat);
-                        KuruyemisViewHolder.urunagirlik.setText(urunagirlik);
-                        Picasso.get().load(urunfotografi.toString()).into(KuruyemisViewHolder.urunfotografi);
+                        SebzelerViewHolder.urunadi.setText(urunadi);
+                        SebzelerViewHolder.urunfiyat.setText(urunfiyat);
+                        SebzelerViewHolder.urunagirlik.setText(urunagirlik);
+                        Picasso.get().load(urunfotografi.toString()).into(SebzelerViewHolder.urunfotografi);
 
 
                     }
 
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
-                        Snackbar.make(KuruyemisView, "HATA!!!!!!", Snackbar.LENGTH_LONG)
+                        Snackbar.make(SebzelerView, "HATA!!!!!!", Snackbar.LENGTH_LONG)
                                 .setAction("Action", null).show();
                     }
                 });
@@ -95,25 +95,25 @@ public class Kuruyemis extends Fragment {
 
             @NonNull
             @Override
-            public KuruyemisViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
+            public SebzelerViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
 
                 View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.urun,viewGroup,false);
-                KuruyemisViewHolder viewHolder = new KuruyemisViewHolder(view);
+                SebzelerViewHolder viewHolder = new SebzelerViewHolder(view);
                 return viewHolder;
             }
         };
-        myKuruyemisList.setAdapter(adapter);
+        mySebzelerList.setAdapter(adapter);
         adapter.startListening();
 
 
     }
 
-    public static class KuruyemisViewHolder extends RecyclerView.ViewHolder{
+    public static class SebzelerViewHolder extends RecyclerView.ViewHolder{
 
         TextView urunadi,urunfiyat,urunagirlik;
         ImageFilterView urunfotografi;
 
-        public KuruyemisViewHolder(@NonNull View itemView) {
+        public SebzelerViewHolder(@NonNull View itemView) {
             super(itemView);
             urunadi= itemView.findViewById(R.id.urunAdi);
             urunfiyat= itemView.findViewById(R.id.urunFiyat);
@@ -124,3 +124,5 @@ public class Kuruyemis extends Fragment {
     }
 
 }
+
+

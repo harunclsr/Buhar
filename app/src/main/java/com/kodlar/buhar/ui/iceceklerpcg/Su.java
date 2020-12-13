@@ -45,7 +45,7 @@ public Su(){
 
         SuView= inflater.inflate(R.layout.su_layout,container,false);
 
-        mySulist=(RecyclerView) SuView.findViewById(R.id.kuruyemis_list);
+        mySulist=(RecyclerView) SuView.findViewById(R.id.su_list);
         mySulist.setLayoutManager(new LinearLayoutManager(getContext()));
         mAuth=FirebaseAuth.getInstance();
         currentUserID = mAuth.getCurrentUser().getUid();

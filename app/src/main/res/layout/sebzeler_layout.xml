@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.iceceklerpcg.icecekler2">
+    tools:context=".ui.manavpckg.Manav2">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/su_list"
+        android:id="@+id/sebzeler_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
-    />
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

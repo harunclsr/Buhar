@@ -8,6 +8,7 @@ import android.content.Intent;
 import com.google.firebase.auth.FirebaseAuth;
 import com.kodlar.buhar.ui.atistirmalikpcg.Atistirmalik2;
 import com.kodlar.buhar.ui.iceceklerpcg.icecekler2;
+import com.kodlar.buhar.ui.manavpckg.Manav2;
 
 public class AnaEkran extends AppCompatActivity {
 
@@ -73,7 +74,7 @@ public class AnaEkran extends AppCompatActivity {
         Manav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent( AnaEkran.this, Manav.class);
+                Intent intent= new Intent( AnaEkran.this, Manav2.class);
 
                 startActivity(intent);
 

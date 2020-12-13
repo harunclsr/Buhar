@@ -1,4 +1,4 @@
-package com.kodlar.buhar.ui.atistirmalikpcg;
+package com.kodlar.buhar.ui.manavpckg;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -24,12 +24,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.kodlar.buhar.R;
 import com.kodlar.buhar.Urun;
+
 import com.squareup.picasso.Picasso;
 
-public class Kuruyemis extends Fragment {
-    private View KuruyemisView;
-    private RecyclerView myKuruyemisList;
-    private DatabaseReference KuruyemisRef,ContacsRef;
+public class Meyveler extends Fragment {
+    private View MeyvelerView;
+    private RecyclerView myMeyvelerList;
+    private DatabaseReference MeyvelerRef,ContacsRef;
     private FirebaseAuth mAuth;
     private String currentUserID;
 
@@ -37,36 +38,36 @@ public class Kuruyemis extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        KuruyemisView= inflater.inflate(R.layout.kuruyemis_layout,container,false);
+        MeyvelerView= inflater.inflate(R.layout.meyveler_layout,container,false);
 
-        myKuruyemisList=(RecyclerView) KuruyemisView.findViewById(R.id.kuruyemis_list);
-        myKuruyemisList.setLayoutManager(new LinearLayoutManager(getContext()));
+        myMeyvelerList=(RecyclerView) MeyvelerView.findViewById(R.id.meyveler_list);
+        myMeyvelerList.setLayoutManager(new LinearLayoutManager(getContext()));
         mAuth= FirebaseAuth.getInstance();
         currentUserID = mAuth.getCurrentUser().getUid();
 
 
         // ContacsRef = FirebaseDatabase.getInstance().getReference().child("Kampus").child("icecekler").child("Su").child(currentUserID);
-        KuruyemisRef = FirebaseDatabase.getInstance().getReference().child("Kampus").child("Atistirmalik").child("Kuruyemis");
+        MeyvelerRef = FirebaseDatabase.getInstance().getReference().child("Kampus").child("Manav").child("Meyveler");
 
 
 
-        return KuruyemisView;
+        return MeyvelerView;
     }
     @Override
     public void onStart(){
         super.onStart();
         FirebaseRecyclerOptions options=
                 new FirebaseRecyclerOptions.Builder<Urun>()
-                        .setQuery(KuruyemisRef,Urun.class)
+                        .setQuery(MeyvelerRef,Urun.class)
                         .build();
 
-        final FirebaseRecyclerAdapter<Urun, KuruyemisViewHolder> adapter = new FirebaseRecyclerAdapter<Urun, KuruyemisViewHolder>(options) {
+        final FirebaseRecyclerAdapter<Urun, MeyvelerViewHolder> adapter = new FirebaseRecyclerAdapter<Urun, MeyvelerViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull final KuruyemisViewHolder KuruyemisViewHolder, int i, @NonNull Urun urun) {
+            protected void onBindViewHolder(@NonNull final MeyvelerViewHolder MeyvelerViewHolder, int i, @NonNull Urun urun) {
 
                 String userIDs = getRef(i).getKey();
 
-                KuruyemisRef.child(userIDs).addValueEventListener(new ValueEventListener(){
+                MeyvelerRef.child(userIDs).addValueEventListener(new ValueEventListener(){
 
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot)
@@ -77,17 +78,17 @@ public class Kuruyemis extends Fragment {
                         String urunagirlik = dataSnapshot.child("urunagirlik").getValue(String.class);
                         String urunfiyat = dataSnapshot.child("urunfiyati").getValue(String.class);
 
-                        KuruyemisViewHolder.urunadi.setText(urunadi);
-                        KuruyemisViewHolder.urunfiyat.setText(urunfiyat);
-                        KuruyemisViewHolder.urunagirlik.setText(urunagirlik);
-                        Picasso.get().load(urunfotografi.toString()).into(KuruyemisViewHolder.urunfotografi);
+                        MeyvelerViewHolder.urunadi.setText(urunadi);
+                        MeyvelerViewHolder.urunfiyat.setText(urunfiyat);
+                        MeyvelerViewHolder.urunagirlik.setText(urunagirlik);
+                        Picasso.get().load(urunfotografi.toString()).into(MeyvelerViewHolder.urunfotografi);
 
 
                     }
 
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
-                        Snackbar.make(KuruyemisView, "HATA!!!!!!", Snackbar.LENGTH_LONG)
+                        Snackbar.make(MeyvelerView, "HATA!!!!!!", Snackbar.LENGTH_LONG)
                                 .setAction("Action", null).show();
                     }
                 });
@@ -95,25 +96,25 @@ public class Kuruyemis extends Fragment {
 
             @NonNull
             @Override
-            public KuruyemisViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
+            public MeyvelerViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
 
                 View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.urun,viewGroup,false);
-                KuruyemisViewHolder viewHolder = new KuruyemisViewHolder(view);
+                MeyvelerViewHolder viewHolder = new MeyvelerViewHolder(view);
                 return viewHolder;
             }
         };
-        myKuruyemisList.setAdapter(adapter);
+        myMeyvelerList.setAdapter(adapter);
         adapter.startListening();
 
 
     }
 
-    public static class KuruyemisViewHolder extends RecyclerView.ViewHolder{
+    public static class MeyvelerViewHolder extends RecyclerView.ViewHolder{
 
         TextView urunadi,urunfiyat,urunagirlik;
         ImageFilterView urunfotografi;
 
-        public KuruyemisViewHolder(@NonNull View itemView) {
+        public MeyvelerViewHolder(@NonNull View itemView) {
             super(itemView);
             urunadi= itemView.findViewById(R.id.urunAdi);
             urunfiyat= itemView.findViewById(R.id.urunFiyat);
@@ -124,3 +125,5 @@ public class Kuruyemis extends Fragment {
     }
 
 }
+
+

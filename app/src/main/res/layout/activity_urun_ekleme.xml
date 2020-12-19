@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical">
+    tools:context=".UrunEkleme">
+
+    <TextView
+        android:id="@+id/Sube"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Şube Adı" />
+
+    <Spinner
+        android:id="@+id/SubeAdi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:id="@+id/kategori"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ürün Kategorisi" />
+
+    <Spinner
+        android:id="@+id/UrunKategori"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:id="@+id/altkategori"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ürün Alt Kategorisi" />
+
+    <Spinner
+        android:id="@+id/UrunAltKategori"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+
+        android:id="@+id/denemetext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Ürün Adı" />
+
+    <EditText
+        android:id="@+id/ekleAd"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:textSize="14sp" />
+
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Ürün Ağırlığı" />
+
+    <EditText
+        android:id="@+id/ekleAgirlik"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:textSize="14sp" />
+
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Ürün Fiyatı" />
+
+    <EditText
+        android:id="@+id/ekleFiyat"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/uruninsert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ürünü Ekle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.562" />
+
+</LinearLayout>

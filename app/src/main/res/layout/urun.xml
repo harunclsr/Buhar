@@ -17,6 +17,7 @@
         android:layout_marginRight="15dp"
         android:layout_marginBottom="15dp"
         android:orientation="horizontal">
+
         <androidx.constraintlayout.utils.widget.ImageFilterView
             android:id="@+id/urunfotografi"
             android:layout_width="85dp"
@@ -49,6 +50,7 @@
                     android:textStyle="bold" />
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -82,6 +84,32 @@
             </LinearLayout>
 
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="31dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/sepetarti"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_weight="1"
+                app:srcCompat="@android:drawable/ic_input_add" />
+
+            <TextView
+                android:id="@+id/sepettext"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_weight="1" />
+
+            <ImageButton
+                android:id="@+id/sepeteksi"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_weight="1"
+                app:srcCompat="@android:drawable/button_onoff_indicator_on" />
         </LinearLayout>
 
     </LinearLayout>

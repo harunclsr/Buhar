@@ -26,12 +26,14 @@ public class GirisEkrani extends AppCompatActivity {
     private TextView Info;
     private Button Login;
     private Button Kayit;
+    private Button Urunekleme;
+    private Button Yetkiligiris;
     private int counter=3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+    Urunekleme=(Button)findViewById(R.id.eklemeEkrani);
         mAuth = FirebaseAuth.getInstance();
         Email = (EditText)findViewById(R.id.userEmail);
         Password = (EditText)findViewById(R.id.userSifre);
@@ -39,7 +41,15 @@ public class GirisEkrani extends AppCompatActivity {
         Login = (Button) findViewById(R.id.userGiris);
         Info.setText("Giris Hakkı=3");
         Kayit = (Button) findViewById(R.id.B_Kayit);
+        Yetkiligiris=(Button) findViewById(R.id.Byetkili);
 
+        Yetkiligiris.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent( GirisEkrani.this, YetkiliGirisi.class);
+                startActivity(intent);
+            }
+        });
         Kayit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,7 +57,15 @@ public class GirisEkrani extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        Urunekleme.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                FirebaseAuth.getInstance().signOut();
+                Intent intToMain = new Intent(GirisEkrani.this,UrunEkleme.class);
+                startActivity(intToMain);
+            }
 
+        });
         Login.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){

@@ -90,6 +90,17 @@
         android:layout_marginTop="10dp"
         android:textSize="14sp" />
 
+    <ImageView
+        android:id="@+id/UrunFoto"
+        android:layout_width="match_parent"
+        android:layout_height="97dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:srcCompat="@drawable/add_image" />
+
     <Button
         android:id="@+id/uruninsert"
         android:layout_width="match_parent"
@@ -100,17 +111,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.562" />
-
-    <ImageView
-        android:id="@+id/UrunFoto"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-
-        app:srcCompat="@drawable/beyaz" />
 
     <ProgressBar
         android:id="@+id/progressBar"

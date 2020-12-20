@@ -1,4 +1,4 @@
-package com.kodlar.buhar.ui.atistirmalikpcg;
+package com.kodlar.buhar.ui.unveunlumamullerpcg;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,24 +16,23 @@ import com.kodlar.buhar.R;
 import android.view.View;
 import android.widget.ImageButton;
 
-public class Atistirmalik2 extends AppCompatActivity {
+public class UnveUnluMamuller extends AppCompatActivity {
     private ImageButton Anasayfadonus;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Anasayfadonus = (ImageButton) findViewById(R.id.AnasayfadonusAtistirmalik);
-        setContentView(R.layout.activity_atistirmalik2);
+        setContentView(R.layout.activity_unveunlumamuller);
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
         ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
         FloatingActionButton fab = findViewById(R.id.fab);
-
+        Anasayfadonus = (ImageButton) findViewById(R.id.Anasayfadonusunveunlu);
         Anasayfadonus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Atistirmalik2.this, AnaEkran.class);
+                Intent intent = new Intent(UnveUnluMamuller.this, AnaEkran.class);
 
                 startActivity(intent);
 

@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EBakkal">
-        <activity android:name=".YetkiliGirisi"></activity>
+        <activity android:name=".ui.unveunlumamullerpcg.unlumamuller"></activity>
+        <activity android:name=".ui.unveunlumamullerpcg.Un" />
+        <activity
+            android:name=".ui.unveunlumamullerpcg.UnveUnluMamuller"
+            android:label="@string/title_activity_ekmek2"
+            android:theme="@style/Theme.EBakkal.NoActionBar" />
+        <activity android:name=".YetkiliGirisi" />
         <activity android:name=".UrunEkleme" />
         <activity
             android:name=".ui.manavpckg.Manav2"

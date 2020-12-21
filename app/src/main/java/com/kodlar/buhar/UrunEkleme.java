@@ -58,13 +58,14 @@ public class UrunEkleme extends AppCompatActivity {
     ArrayList<String>   arrayList_Merkez;
     ArrayAdapter<String>    arrayAdapter_Merkez;
     Adres adres = new Adres();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_urun_ekleme);
         SSubeAdi=(Spinner) findViewById(R.id.SubeAdi);
         SUrunKategori=(Spinner) findViewById(R.id.UrunKategori);
-       SUrunAltKategori=(Spinner) findViewById(R.id.UrunAltKategori);
+        SUrunAltKategori=(Spinner) findViewById(R.id.UrunAltKategori);
         Denemeyazisi=(TextView)findViewById(R.id.denemetext);
         uruninsert=(Button)findViewById(R.id.uruninsert);
         urunAdi= (EditText)findViewById(R.id.ekleAd);
@@ -103,7 +104,7 @@ public class UrunEkleme extends AppCompatActivity {
                    arrayList_Kampus.add("Atistirmalik");
                    arrayList_Kampus.add("Manav");
                    arrayList_Kampus.add("Et");
-                   arrayList_Kampus.add("Ekmek");
+                   arrayList_Kampus.add("UnveUnlumamuller");
                    arrayAdapter_Kampus=new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item,arrayList_Kampus);
                    SUrunKategori.setAdapter(arrayAdapter_Kampus);
 
@@ -161,7 +162,7 @@ public class UrunEkleme extends AppCompatActivity {
                    arrayList_Merkez.add("Atistirmalik");
                    arrayList_Merkez.add("Manav");
                    arrayList_Merkez.add("Et");
-                   arrayList_Merkez.add("Ekmek");
+                   arrayList_Merkez.add("UnveUnlumamuller");
                    arrayAdapter_Merkez=new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item,arrayList_Merkez);
                    SUrunKategori.setAdapter(arrayAdapter_Merkez);
 
@@ -237,7 +238,7 @@ public class UrunEkleme extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode==2 && resultCode== RESULT_OK&& data!= null){
+        if(requestCode==2 && resultCode== RESULT_OK && data!= null){
 
             imageUri=data.getData();
             imageView.setImageURI(imageUri);
@@ -250,8 +251,7 @@ public class UrunEkleme extends AppCompatActivity {
 
     private void insertUrun(){
     UrunRef = FirebaseDatabase.getInstance().getReference().child(adres.getSubeadi()).child(adres.getKategori()).child(adres.getAltkategori());
-
-        StorageReference fileRef =reference.child(System.currentTimeMillis()+"."+getFileExtension(imageUri));
+    StorageReference fileRef =reference.child(System.currentTimeMillis()+"."+getFileExtension(imageUri));
     String  urunadi= urunAdi.getText().toString();
     String  urunfiyati= urunFiyati.getText().toString();
     String  urunagirlik= urunAgirlik.getText().toString();
@@ -267,7 +267,7 @@ public class UrunEkleme extends AppCompatActivity {
 
 
                  String   image=uri.toString();
-                 String urunid= UrunRef.push().getKey();
+               //  String urunid= UrunRef.push().getKey();
 
                  Urun urunler = new Urun(urunadi,urunfiyati,urunagirlik,image);
 
@@ -275,7 +275,7 @@ public class UrunEkleme extends AppCompatActivity {
                     progressBar.setVisibility(View.VISIBLE);
 
 
-                    Toast.makeText(UrunEkleme.this,"Yükleme Başarılı!",Toast.LENGTH_SHORT).show();;
+                    Toast.makeText(UrunEkleme.this,"Urun eklendi.",Toast.LENGTH_SHORT).show();;
                     progressBar.setVisibility(View.INVISIBLE);
                 }
             });
@@ -294,7 +294,7 @@ public class UrunEkleme extends AppCompatActivity {
     });
 
 
-    Toast.makeText(UrunEkleme.this,"Urun eklendi.",Toast.LENGTH_SHORT).show();
+
 }
 
 private String getFileExtension(Uri mUri){

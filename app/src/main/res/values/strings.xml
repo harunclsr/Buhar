@@ -32,4 +32,8 @@
     <string name="title_activity_ekmek2">Ekmek</string>
     <string name="tab_UnvUnlu_Un">Un</string>
     <string name="tab_UnvUnlu_Unlumamuller">Unlumamuller</string>
+    <string name="title_activity_et2">Et2</string>
+    <string name="tab_Et_KırmızıEt">Kırmızı Et</string>
+    <string name="tab_Et_BeyazEt">Beyaz Et</string>
+    <string name="tab_Et_Balık">Balık</string>
 </resources>

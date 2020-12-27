@@ -1,4 +1,4 @@
-package com.kodlar.buhar.ui.unveunlumamullerpcg;
+package com.kodlar.buhar.ui.Etpcg;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,13 +25,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.kodlar.buhar.R;
 import com.kodlar.buhar.Urun;
+import com.kodlar.buhar.ui.unveunlumamullerpcg.unlumamuller;
 import com.squareup.picasso.Picasso;
 
-public class unlumamuller extends Fragment {
+public class BeyazEt extends Fragment {
 
-    private View unluView;
-    private RecyclerView myUnluList;
-    private DatabaseReference UnluRef,ContacsRef;
+    private View beyazEtView;
+    private RecyclerView myBeyazEtList;
+    private DatabaseReference BeyazEtRef,ContacsRef;
     private FirebaseAuth mAuth;
     private String currentUserID;
 
@@ -39,36 +40,36 @@ public class unlumamuller extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        unluView= inflater.inflate(R.layout.activity_unlumamuller,container,false);
+        beyazEtView= inflater.inflate(R.layout.activity_beyaz_et,container,false);
 
-        myUnluList=(RecyclerView) unluView.findViewById(R.id.unlumamuller_list);
-        myUnluList.setLayoutManager(new LinearLayoutManager(getContext()));
+        myBeyazEtList=(RecyclerView) beyazEtView.findViewById(R.id.beyazEt_list);
+        myBeyazEtList.setLayoutManager(new LinearLayoutManager(getContext()));
         mAuth= FirebaseAuth.getInstance();
         currentUserID = mAuth.getCurrentUser().getUid();
 
 
         // ContacsRef = FirebaseDatabase.getInstance().getReference().child("Kampus").child("icecekler").child("Su").child(currentUserID);
-        UnluRef = FirebaseDatabase.getInstance().getReference().child("Kampus").child("UnveUnluMamulleri").child("UnluMamulleri");
+        BeyazEtRef = FirebaseDatabase.getInstance().getReference().child("Kampus").child("Et").child("Beyaz Et");
 
 
 
-        return unluView;
+        return beyazEtView;
     }
     @Override
     public void onStart(){
         super.onStart();
         FirebaseRecyclerOptions options=
                 new FirebaseRecyclerOptions.Builder<Urun>()
-                        .setQuery(UnluRef,Urun.class)
+                        .setQuery(BeyazEtRef,Urun.class)
                         .build();
 
-        final FirebaseRecyclerAdapter<Urun, UnluViewHolder> adapter = new FirebaseRecyclerAdapter<Urun, UnluViewHolder>(options) {
+        final FirebaseRecyclerAdapter<Urun, BeyazEtViewHolder> adapter = new FirebaseRecyclerAdapter<Urun, BeyazEtViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull final UnluViewHolder UnluViewHolder, int i, @NonNull Urun urun) {
+            protected void onBindViewHolder(@NonNull final BeyazEtViewHolder BeyazEtViewHolder, int i, @NonNull Urun urun) {
 
                 String userIDs = getRef(i).getKey();
 
-                UnluRef.child(userIDs).addValueEventListener(new ValueEventListener(){
+                BeyazEtRef.child(userIDs).addValueEventListener(new ValueEventListener(){
 
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot)
@@ -79,17 +80,17 @@ public class unlumamuller extends Fragment {
                         String urunagirlik = dataSnapshot.child("urunagirlik").getValue(String.class);
                         String urunfiyat = dataSnapshot.child("urunfiyati").getValue(String.class);
 
-                        UnluViewHolder.urunadi.setText(urunadi);
-                        UnluViewHolder.urunfiyat.setText(urunfiyat);
-                        UnluViewHolder.urunagirlik.setText(urunagirlik);
-                        Picasso.get().load(urunfotografi.toString()).into(UnluViewHolder.urunfotografi);
+                        BeyazEtViewHolder.urunadi.setText(urunadi);
+                        BeyazEtViewHolder.urunfiyat.setText(urunfiyat);
+                        BeyazEtViewHolder.urunagirlik.setText(urunagirlik);
+                        Picasso.get().load(urunfotografi.toString()).into(BeyazEtViewHolder.urunfotografi);
 
 
                     }
 
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
-                        Snackbar.make(unluView, "HATA!!!!!!", Snackbar.LENGTH_LONG)
+                        Snackbar.make(beyazEtView, "HATA!!!!!!", Snackbar.LENGTH_LONG)
                                 .setAction("Action", null).show();
                     }
                 });
@@ -97,25 +98,25 @@ public class unlumamuller extends Fragment {
 
             @NonNull
             @Override
-            public UnluViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
+            public BeyazEtViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
 
                 View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.urun,viewGroup,false);
-                UnluViewHolder viewHolder = new UnluViewHolder(view);
+                BeyazEtViewHolder viewHolder = new BeyazEtViewHolder(view);
                 return viewHolder;
             }
         };
-        myUnluList.setAdapter(adapter);
+        myBeyazEtList.setAdapter(adapter);
         adapter.startListening();
 
 
     }
 
-    public static class UnluViewHolder extends RecyclerView.ViewHolder{
+    public static class BeyazEtViewHolder extends RecyclerView.ViewHolder{
 
         TextView urunadi,urunfiyat,urunagirlik;
         ImageFilterView urunfotografi;
 
-        public UnluViewHolder(@NonNull View itemView) {
+        public BeyazEtViewHolder(@NonNull View itemView) {
             super(itemView);
             urunadi= itemView.findViewById(R.id.urunAdi);
             urunfiyat= itemView.findViewById(R.id.urunFiyat);

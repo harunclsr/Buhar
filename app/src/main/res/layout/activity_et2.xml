@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.unveunlumamullerpcg.UnPlaceholderFragment">
+    tools:context=".ui.Etpcg.Et2">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -12,7 +12,7 @@
         android:theme="@style/Theme.EBakkal.AppBarOverlay">
 
         <ImageButton
-            android:id="@+id/Anasayfadonusunveunlu"
+            android:id="@+id/AnasayfadonusEt"
             android:layout_width="55dp"
             android:layout_height="46dp"
             android:background="@drawable/back" />

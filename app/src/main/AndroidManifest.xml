@@ -9,7 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EBakkal">
-        <activity android:name=".ui.unveunlumamullerpcg.unlumamuller"></activity>
+        <activity android:name=".ui.Etpcg.Balik"></activity>
+        <activity android:name=".ui.Etpcg.BeyazEt" />
+        <activity android:name=".ui.Etpcg.KirmiziEt" />
+        <activity
+            android:name=".ui.Etpcg.Et2"
+            android:label="@string/title_activity_et2"
+            android:theme="@style/Theme.EBakkal.NoActionBar" />
+        <activity android:name=".ui.unveunlumamullerpcg.unlumamuller" />
         <activity android:name=".ui.unveunlumamullerpcg.Un" />
         <activity
             android:name=".ui.unveunlumamullerpcg.UnveUnluMamuller"

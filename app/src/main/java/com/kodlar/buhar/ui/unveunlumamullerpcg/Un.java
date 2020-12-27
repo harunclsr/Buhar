@@ -47,7 +47,7 @@ public class Un extends Fragment {
 
 
         // ContacsRef = FirebaseDatabase.getInstance().getReference().child("Kampus").child("icecekler").child("Su").child(currentUserID);
-        UnRef = FirebaseDatabase.getInstance().getReference().child("Kampus").child("UnveUnluMamuller").child("Un");
+        UnRef = FirebaseDatabase.getInstance().getReference().child("Kampus").child("UnveUnluMamulleri").child("Un");
 
 
 

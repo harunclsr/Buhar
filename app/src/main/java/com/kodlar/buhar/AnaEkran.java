@@ -127,7 +127,7 @@ public class AnaEkran extends AppCompatActivity {
         });  Kahvaltilik.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent( AnaEkran.this, Kahvaltilik.class);
+                Intent intent= new Intent( AnaEkran.this, AnaEkran.class);
 
                 startActivity(intent);
 
@@ -135,7 +135,7 @@ public class AnaEkran extends AppCompatActivity {
         });  Temel_Gida.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent( AnaEkran.this, Temel_Gida.class);
+                Intent intent= new Intent( AnaEkran.this, AnaEkran.class);
 
                 startActivity(intent);
 

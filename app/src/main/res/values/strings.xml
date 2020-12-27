@@ -8,7 +8,8 @@
 
     </string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_arama_ekrani">ScrollingActivity</string>
+
+
     <string name="title_activity_manav">ScrollingActivity</string>
     <string name="title_activity_kisisel">ScrollingActivity</string>
     <string name="title_activity_temizlik">ScrollingActivity</string>
@@ -18,29 +19,32 @@
     <string name="title_activity_kahvaltilik">ScrollingActivity</string>
     <string name="title_activity_temel__gida">ScrollingActivity</string>
     <string name="title_activity_icecekler">ScrollingActivity</string>
-    <string name="title_activity_icecekler2">icecekler2</string>
+
+    <string name="title_activity_arama_ekrani">Arama Ekranı</string>
+    <string name="title_activity_icecekler2">icecekler</string>
     <string name="tab_atistimalik_Cikolata">Çikolata</string>
     <string name="tab_atistimalik_Cips">Cips</string>
     <string name="tab_atistimalik_Kuruyemis">Kuruyemiş</string>
     <string name="tab_icecekler_Su">Su</string>
     <string name="tab_icecekler_Gazli">Gazlı İçecek</string>
     <string name="tab_icecekler_Gazsiz">Gazsız İçecek</string>
-    <string name="title_activity_atistirmalik2">Atistirmalik2</string>
+    <string name="title_activity_atistirmalik2">Atıştırmalık</string>
     <string name="tab_manav_Meyveler">Meyveler</string>
     <string name="tab_manav_Sebzeler">Sebzeler</string>
     <string name="title_activity_manav2">Manav</string>
     <string name="title_activity_ekmek2">Ekmek</string>
+    <string name="title_activity_unveunlumamuller">Un ve Unlu Mamüller</string>
     <string name="tab_UnvUnlu_Un">Un</string>
     <string name="tab_UnvUnlu_Unlumamuller">Unlumamuller</string>
-    <string name="title_activity_et2">Et2</string>
+    <string name="title_activity_et2">Et</string>
     <string name="tab_Et_KırmızıEt">Kırmızı Et</string>
     <string name="tab_Et_BeyazEt">Beyaz Et</string>
     <string name="tab_Et_Balık">Balık</string>
-    <string name="title_activity_kisisel_bakim">KisiselBakim</string>
+    <string name="title_activity_kisisel_bakim">Kişisel Bakım</string>
     <string name="tab_kisiselbakım_Agiz">Ağız Bakım </string>
     <string name="tab_kisiselbakım_Cilt">Cilt Bakım </string>
     <string name="tab_kisiselbakım_Sac">Saç Bakım</string>
-    <string name="title_activity_temizlik2">Temizlik2</string>
+    <string name="title_activity_temizlik2">Temizlik</string>
     <string name="tab_Temizlik_Deterjan">Deterjan</string>
     <string name="tab_Temizlik_GenelTemizlik">Genel Temizlik</string>
     <string name="tab_Temizlik_TemizlikMalzemeleri">Temizlik Malzemeleri</string>

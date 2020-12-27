@@ -22,8 +22,8 @@ public class KisiselBakim extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_kisisel_bakim);
+
         Anasayfadonuskisisel = (ImageButton) findViewById(R.id.AnasayfadonusK);
         KisiselSectionsPagerAdapter kisiselSectionsPagerAdapter = new KisiselSectionsPagerAdapter(this, getSupportFragmentManager());
         ViewPager viewPager = findViewById(R.id.view_pager);

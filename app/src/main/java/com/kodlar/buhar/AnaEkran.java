@@ -7,6 +7,8 @@ import android.widget.ImageButton;
 import android.content.Intent;
 import com.google.firebase.auth.FirebaseAuth;
 import com.kodlar.buhar.ui.Etpcg.Et2;
+import com.kodlar.buhar.ui.KisiselBakimpcg.KisiselBakim;
+import com.kodlar.buhar.ui.Temizlikpcg.Temizlik2;
 import com.kodlar.buhar.ui.atistirmalikpcg.Atistirmalik2;
 import com.kodlar.buhar.ui.unveunlumamullerpcg.UnveUnluMamuller;
 import com.kodlar.buhar.ui.iceceklerpcg.icecekler2;
@@ -85,7 +87,7 @@ public class AnaEkran extends AppCompatActivity {
         Kisisel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent( AnaEkran.this, Kisisel.class);
+                Intent intent= new Intent( AnaEkran.this, KisiselBakim.class);
 
                 startActivity(intent);
 
@@ -93,7 +95,7 @@ public class AnaEkran extends AppCompatActivity {
         });  Temizlik.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent( AnaEkran.this, Temizlik.class);
+                Intent intent= new Intent( AnaEkran.this, Temizlik2.class);
 
                 startActivity(intent);
 

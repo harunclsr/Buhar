@@ -19,13 +19,13 @@ import com.kodlar.buhar.ui.iceceklerpcg.Su;
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
  * one of the sections/tabs/pages.
  */
-public class SectionsPagerAdapter extends FragmentPagerAdapter {
+public class AtistirmalikSectionsPagerAdapter extends FragmentPagerAdapter {
 
     @StringRes
     private static final int[] TAB_TITLES = new int[]{R.string.tab_atistimalik_Cikolata, R.string.tab_atistimalik_Cips,R.string.tab_atistimalik_Kuruyemis};
     private final Context mContext;
 
-    public SectionsPagerAdapter(Context context, FragmentManager fm) {
+    public AtistirmalikSectionsPagerAdapter(Context context, FragmentManager fm) {
         super(fm);
         mContext = context;
     }

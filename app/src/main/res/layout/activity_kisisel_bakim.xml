@@ -4,15 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.atistirmalikpcg.Atistirmalik2">
+    tools:context=".ui.KisiselBakimpcg.KisiselBakim">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/Theme.EBakkal.AppBarOverlay">
 
+
         <ImageButton
-            android:id="@+id/Anasayfadonusatistirmalik"
+            android:id="@+id/AnasayfadonusK"
             android:layout_width="55dp"
             android:layout_height="46dp"
             android:background="@drawable/back" />

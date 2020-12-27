@@ -21,11 +21,12 @@ public class Atistirmalik2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Anasayfadonus = (ImageButton) findViewById(R.id.AnasayfadonusAtistirmalik);
         setContentView(R.layout.activity_atistirmalik2);
-        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
+        Anasayfadonus = (ImageButton) findViewById(R.id.Anasayfadonusatistirmalik);
+
+        AtistirmalikSectionsPagerAdapter atistirmalikSectionsPagerAdapter = new AtistirmalikSectionsPagerAdapter(this, getSupportFragmentManager());
         ViewPager viewPager = findViewById(R.id.view_pager);
-        viewPager.setAdapter(sectionsPagerAdapter);
+        viewPager.setAdapter(atistirmalikSectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -33,8 +34,7 @@ public class Atistirmalik2 extends AppCompatActivity {
         Anasayfadonus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Atistirmalik2.this, AnaEkran.class);
-
+                Intent intent= new Intent( Atistirmalik2.this, AnaEkran.class);
                 startActivity(intent);
 
             }

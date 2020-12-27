@@ -9,7 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EBakkal">
-        <activity android:name=".ui.Etpcg.Balik"></activity>
+        <activity android:name=".ui.Temizlikpcg.TemizlikMalzemeleri"></activity>
+        <activity android:name=".ui.Temizlikpcg.GenelTemizlik" />
+        <activity android:name=".ui.Temizlikpcg.Deterjan" />
+        <activity
+            android:name=".ui.Temizlikpcg.Temizlik2"
+            android:label="@string/title_activity_temizlik2"
+            android:theme="@style/Theme.EBakkal.NoActionBar" />
+        <activity android:name=".ui.KisiselBakimpcg.SacBakim" />
+        <activity android:name=".ui.KisiselBakimpcg.CiltBakim" />
+        <activity android:name=".ui.KisiselBakimpcg.AgizBakim" />
+        <activity
+            android:name=".ui.KisiselBakimpcg.KisiselBakim"
+            android:label="@string/title_activity_kisisel_bakim"
+            android:theme="@style/Theme.EBakkal.NoActionBar" />
+        <activity android:name=".ui.Etpcg.Balik" />
         <activity android:name=".ui.Etpcg.BeyazEt" />
         <activity android:name=".ui.Etpcg.KirmiziEt" />
         <activity

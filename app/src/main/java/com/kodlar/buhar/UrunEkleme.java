@@ -57,6 +57,13 @@ public class UrunEkleme extends AppCompatActivity {
     ArrayAdapter<String> arrayAdapter_UrunAltKategori;
     ArrayList<String>   arrayList_Merkez;
     ArrayAdapter<String>    arrayAdapter_Merkez;
+    ArrayList<String> arrayList_Temizlik;
+    ArrayList<String> arrayList_KisiselBakim;
+    ArrayList<String> arrayList_Kahvaltilik;
+    ArrayList<String> arrayList_TemelGida;
+    ArrayList<String> arrayList_Manav;
+    ArrayList<String> arrayList_Et;
+    ArrayList<String> arrayList_UnveUnluMamulleri;
     Adres adres = new Adres();
 
     @Override
@@ -104,7 +111,11 @@ public class UrunEkleme extends AppCompatActivity {
                    arrayList_Kampus.add("Atistirmalik");
                    arrayList_Kampus.add("Manav");
                    arrayList_Kampus.add("Et");
-                   arrayList_Kampus.add("UnveUnlumamuller");
+                   arrayList_Kampus.add("UnveUnluMamuller");
+                   arrayList_Kampus.add("Temizlik");
+                   arrayList_Kampus.add("KisiselBakim");
+                   arrayList_Kampus.add("Kahvaltilik");
+                   arrayList_Kampus.add("TemelGida");
                    arrayAdapter_Kampus=new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item,arrayList_Kampus);
                    SUrunKategori.setAdapter(arrayAdapter_Kampus);
 
@@ -117,7 +128,7 @@ public class UrunEkleme extends AppCompatActivity {
                                arrayList_icecekler.add("Gazliicecekler");
                                arrayList_icecekler.add("Gazsizicecekler");
                                arrayAdapter_UrunAltKategori = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList_icecekler);
-
+                               SUrunAltKategori.setAdapter(arrayAdapter_UrunAltKategori);
                            }
                            if (position == 1) {
                                arrayList_Atistirmalik = new ArrayList<>();
@@ -125,10 +136,73 @@ public class UrunEkleme extends AppCompatActivity {
                                arrayList_Atistirmalik.add("Cips");
                                arrayList_Atistirmalik.add("Kuruyemis");
                                arrayAdapter_UrunAltKategori = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList_Atistirmalik);
-
+                               SUrunAltKategori.setAdapter(arrayAdapter_UrunAltKategori);
 
                            }
-                           SUrunAltKategori.setAdapter(arrayAdapter_UrunAltKategori);
+                           if (position == 2) {
+                               arrayList_Manav = new ArrayList<>();
+                               arrayList_Manav.add("Meyveler");
+                               arrayList_Manav.add("Sebzeler");
+
+                               arrayAdapter_UrunAltKategori = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList_Manav);
+                               SUrunAltKategori.setAdapter(arrayAdapter_UrunAltKategori);
+
+                           }
+                           if (position == 3) {
+                               arrayList_Et = new ArrayList<>();
+                               arrayList_Et.add("Balık");
+                               arrayList_Et.add("Beyaz Et");
+                               arrayList_Et.add("Kırmızı Et");
+                               arrayAdapter_UrunAltKategori = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList_Et);
+                               SUrunAltKategori.setAdapter(arrayAdapter_UrunAltKategori);
+
+                           }
+                           if (position == 4) {
+                               arrayList_UnveUnluMamulleri = new ArrayList<>();
+                               arrayList_UnveUnluMamulleri.add("Un");
+                               arrayList_UnveUnluMamulleri.add("UnluMamulleri");
+
+                               arrayAdapter_UrunAltKategori = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList_UnveUnluMamulleri);
+                               SUrunAltKategori.setAdapter(arrayAdapter_UrunAltKategori);
+
+                           }
+                           if (position == 5) {
+                               arrayList_Temizlik = new ArrayList<>();
+                               arrayList_Temizlik.add("Deterjan");
+                               arrayList_Temizlik.add("GenelTemizlik");
+                               arrayList_Temizlik.add("TemizlikMalzemeleri");
+                               arrayAdapter_UrunAltKategori = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList_Temizlik);
+                               SUrunAltKategori.setAdapter(arrayAdapter_UrunAltKategori);
+
+                           }
+                           if (position == 6) {
+                               arrayList_KisiselBakim = new ArrayList<>();
+                               arrayList_KisiselBakim.add("AgizBakim");
+                               arrayList_KisiselBakim.add("CiltBakim");
+                               arrayList_KisiselBakim.add("SacBakim");
+                               arrayAdapter_UrunAltKategori = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList_KisiselBakim);
+                               SUrunAltKategori.setAdapter(arrayAdapter_UrunAltKategori);
+
+                           }
+                           if (position == 7) {
+                               arrayList_Kahvaltilik = new ArrayList<>();
+                               arrayList_Kahvaltilik.add("Kahvaltiliklar");
+                               arrayList_Kahvaltilik.add("Sut Urunleri");
+
+                               arrayAdapter_UrunAltKategori = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList_Kahvaltilik);
+                               SUrunAltKategori.setAdapter(arrayAdapter_UrunAltKategori);
+
+                           }
+                           if (position == 8) {
+                               arrayList_TemelGida = new ArrayList<>();
+                               arrayList_TemelGida.add("MakarnaBakliyat");
+                               arrayList_TemelGida.add("TuzSekerBaharat");
+                               arrayList_TemelGida.add("Yag");
+                               arrayAdapter_UrunAltKategori = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList_TemelGida);
+                               SUrunAltKategori.setAdapter(arrayAdapter_UrunAltKategori);
+                           }
+
+
                             adres.setKategori(SUrunKategori.getSelectedItem().toString());
                        }
                        @Override
@@ -158,11 +232,16 @@ public class UrunEkleme extends AppCompatActivity {
 
                if(position==1){
                    arrayList_Merkez=new ArrayList<>();
+                   arrayList_Merkez=new ArrayList<>();
                    arrayList_Merkez.add("icecekler");
                    arrayList_Merkez.add("Atistirmalik");
                    arrayList_Merkez.add("Manav");
                    arrayList_Merkez.add("Et");
-                   arrayList_Merkez.add("UnveUnlumamuller");
+                   arrayList_Merkez.add("UnveUnluMamuller");
+                   arrayList_Merkez.add("Temizlik");
+                   arrayList_Merkez.add("KisiselBakim");
+                   arrayList_Merkez.add("Kahvaltilik");
+                   arrayList_Merkez.add("TemelGida");
                    arrayAdapter_Merkez=new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item,arrayList_Merkez);
                    SUrunKategori.setAdapter(arrayAdapter_Merkez);
 
@@ -175,7 +254,7 @@ public class UrunEkleme extends AppCompatActivity {
                                arrayList_icecekler.add("Gazliicecekler");
                                arrayList_icecekler.add("Gazsizicecekler");
                                arrayAdapter_UrunAltKategori = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList_icecekler);
-
+                               SUrunAltKategori.setAdapter(arrayAdapter_UrunAltKategori);
                            }
                            if (position == 1) {
                                arrayList_Atistirmalik = new ArrayList<>();
@@ -183,10 +262,74 @@ public class UrunEkleme extends AppCompatActivity {
                                arrayList_Atistirmalik.add("Cips");
                                arrayList_Atistirmalik.add("Kuruyemis");
                                arrayAdapter_UrunAltKategori = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList_Atistirmalik);
-
+                               SUrunAltKategori.setAdapter(arrayAdapter_UrunAltKategori);
 
                            }
-                           SUrunAltKategori.setAdapter(arrayAdapter_UrunAltKategori);
+                           if (position == 2) {
+                               arrayList_Manav = new ArrayList<>();
+                               arrayList_Manav.add("Meyveler");
+                               arrayList_Manav.add("Sebzeler");
+
+                               arrayAdapter_UrunAltKategori = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList_Manav);
+                               SUrunAltKategori.setAdapter(arrayAdapter_UrunAltKategori);
+
+                           }
+                           if (position == 3) {
+                               arrayList_Et = new ArrayList<>();
+                               arrayList_Et.add("Balık");
+                               arrayList_Et.add("Beyaz Et");
+                               arrayList_Et.add("Kırmızı Et");
+                               arrayAdapter_UrunAltKategori = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList_Et);
+                               SUrunAltKategori.setAdapter(arrayAdapter_UrunAltKategori);
+
+                           }
+                           if (position == 4) {
+                               arrayList_UnveUnluMamulleri = new ArrayList<>();
+                               arrayList_UnveUnluMamulleri.add("Un");
+                               arrayList_UnveUnluMamulleri.add("UnluMamulleri");
+
+                               arrayAdapter_UrunAltKategori = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList_UnveUnluMamulleri);
+                               SUrunAltKategori.setAdapter(arrayAdapter_UrunAltKategori);
+
+                           }
+                           if (position == 5) {
+                               arrayList_Temizlik = new ArrayList<>();
+                               arrayList_Temizlik.add("Deterjan");
+                               arrayList_Temizlik.add("GenelTemizlik");
+                               arrayList_Temizlik.add("TemizlikMalzemeleri");
+                               arrayAdapter_UrunAltKategori = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList_Temizlik);
+                               SUrunAltKategori.setAdapter(arrayAdapter_UrunAltKategori);
+
+                           }
+                           if (position == 6) {
+                               arrayList_KisiselBakim = new ArrayList<>();
+                               arrayList_KisiselBakim.add("AgızBakim");
+                               arrayList_KisiselBakim.add("CiltBakim");
+                               arrayList_KisiselBakim.add("SacBakim");
+                               arrayAdapter_UrunAltKategori = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList_KisiselBakim);
+                               SUrunAltKategori.setAdapter(arrayAdapter_UrunAltKategori);
+
+                           }
+                           if (position == 7) {
+                               arrayList_Kahvaltilik = new ArrayList<>();
+                               arrayList_Kahvaltilik.add("Kahvaltiliklar");
+                               arrayList_Kahvaltilik.add("Sut Urunleri");
+
+                               arrayAdapter_UrunAltKategori = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList_Kahvaltilik);
+                               SUrunAltKategori.setAdapter(arrayAdapter_UrunAltKategori);
+
+                           }
+                           if (position == 8) {
+                               arrayList_TemelGida = new ArrayList<>();
+                               arrayList_TemelGida.add("MakarnaBakliyat");
+                               arrayList_TemelGida.add("TuzSekerBaharat");
+                               arrayList_TemelGida.add("Yag");
+                               arrayAdapter_UrunAltKategori = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList_TemelGida);
+                               SUrunAltKategori.setAdapter(arrayAdapter_UrunAltKategori);
+                           }
+
+
+
                            adres.setKategori(SUrunKategori.getSelectedItem().toString());
                        }
                        @Override

@@ -22,6 +22,7 @@
 
     <string name="title_activity_arama_ekrani">Arama Ekranı</string>
     <string name="title_activity_icecekler2">icecekler</string>
+    <string name="title_activity_kahvaltilik2">Kahvaltılık</string>
     <string name="tab_atistimalik_Cikolata">Çikolata</string>
     <string name="tab_atistimalik_Cips">Cips</string>
     <string name="tab_atistimalik_Kuruyemis">Kuruyemiş</string>
@@ -48,4 +49,10 @@
     <string name="tab_Temizlik_Deterjan">Deterjan</string>
     <string name="tab_Temizlik_GenelTemizlik">Genel Temizlik</string>
     <string name="tab_Temizlik_TemizlikMalzemeleri">Temizlik Malzemeleri</string>
+    <string name="tab_Kahvaltilik_Kahvaltiliklar">Kahvaltılıklar</string>
+    <string name="tab_Kahvaltilik_SutveSuturunleri">Süt ve Süt Ürünleri</string>
+    <string name="title_activity_temel_gida">Temel Gıda</string>
+    <string name="tab_TemelGida_MakarnaBakliyat">Makarna-           Bakliyat</string>
+    <string name="tab_TemelGida_Yag">Yağ</string>
+    <string name="tab_TemelGida_TuzSekerBaharat">Tuz-Şeker-       Baharat</string>
 </resources>

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.content.Intent;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.kodlar.buhar.ui.Etpcg.Et2;
 import com.kodlar.buhar.ui.Kahvaltilikpcg.Kahvaltilik;
@@ -29,6 +30,7 @@ public class AnaEkran extends AppCompatActivity {
     private ImageButton Kahvaltilik;
     private ImageButton Temel_Gida;
     private ImageButton Logout;
+    private ImageButton ProfilButon;
     FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
 
@@ -48,8 +50,19 @@ public class AnaEkran extends AppCompatActivity {
         Atistirmalik=(ImageButton)findViewById(R.id.atistirmalik);
         Kahvaltilik=(ImageButton)findViewById(R.id.kahvaltilik);
         Temel_Gida=(ImageButton)findViewById(R.id.temel_gida);
-
+        ProfilButon=(ImageButton)findViewById(R.id.ProfilButton);
         Logout = (ImageButton)findViewById(R.id.LogOut);
+
+
+        ProfilButon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent( AnaEkran.this, ProfilEkrani.class);
+
+                startActivity(intent);
+
+            }
+        });
 
         Logout.setOnClickListener(new View.OnClickListener(){
             @Override

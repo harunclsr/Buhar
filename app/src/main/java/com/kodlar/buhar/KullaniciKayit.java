@@ -45,7 +45,7 @@ public class KullaniciKayit extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser mFirebaseUser = mAuth.getCurrentUser();
                 if(mFirebaseUser !=  null){
-                    Toast.makeText(KullaniciKayit.this,"Kayıt Oluşturuldu..",Toast.LENGTH_LONG).show();
+                    Toast.makeText(KullaniciKayit.this,"Kayıt Oluşturuldu.",Toast.LENGTH_LONG).show();
 
                 }
                 else {

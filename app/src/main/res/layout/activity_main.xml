@@ -73,15 +73,6 @@
         app:layout_constraintVertical_bias="0.404" />
 
     <Button
-        android:id="@+id/eklemeEkrani"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Urun Ekleme"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvInfo"
-        tools:layout_editor_absoluteX="136dp" />
-
-    <Button
         android:id="@+id/Byetkili"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

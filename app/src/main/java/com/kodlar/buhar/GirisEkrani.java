@@ -33,7 +33,7 @@ public class GirisEkrani extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    Urunekleme=(Button)findViewById(R.id.eklemeEkrani);
+        Urunekleme=(Button)findViewById(R.id.eklemeEkrani);
         mAuth = FirebaseAuth.getInstance();
         Email = (EditText)findViewById(R.id.userEmail);
         Password = (EditText)findViewById(R.id.userSifre);
@@ -57,15 +57,7 @@ public class GirisEkrani extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        Urunekleme.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                FirebaseAuth.getInstance().signOut();
-                Intent intToMain = new Intent(GirisEkrani.this,UrunEkleme.class);
-                startActivity(intToMain);
-            }
 
-        });
         Login.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){

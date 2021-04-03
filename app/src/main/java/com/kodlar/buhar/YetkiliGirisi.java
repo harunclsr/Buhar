@@ -23,7 +23,7 @@ public class YetkiliGirisi extends AppCompatActivity {
     EditText Yadi, Ysifre;
     Button YetkiliGirisi;
     RadioButton Bilgiislem, SubeGorevlisi;
-    TextView denemeyazisi;
+
     private DatabaseReference ref;
 
     @Override
@@ -32,12 +32,12 @@ public class YetkiliGirisi extends AppCompatActivity {
         setContentView(R.layout.activity_yetkili_girisi);
         Yadi = findViewById(R.id.y_adi);
         Ysifre = findViewById(R.id.y_sifre);
-        denemeyazisi=findViewById(R.id.deneme44);
+
         YetkiliGirisi = findViewById(R.id.Yetkiligirisi);
         Bilgiislem = (RadioButton) findViewById(R.id.Bilgiislemradio);
         SubeGorevlisi = (RadioButton) findViewById(R.id.Subegorevlisiradio);
         ref = FirebaseDatabase.getInstance().getReference().child("YetkiliGirisi");
-//
+
 
 
         YetkiliGirisi.setOnClickListener(new View.OnClickListener() {
@@ -77,7 +77,7 @@ public class YetkiliGirisi extends AppCompatActivity {
                     });
 
                 }
-                else if (SubeGorevlisi.isChecked()) {
+                 if (SubeGorevlisi.isChecked()) {
                     String SubeGorevlisiid = Yadi.getText().toString();
                     String SubeGorevlisiSifre = Ysifre.getText().toString();
 
@@ -109,6 +109,9 @@ public class YetkiliGirisi extends AppCompatActivity {
                     });
 
                 }
+                 else{
+                     Toast.makeText(YetkiliGirisi.this, "Seçim yapınız.", Toast.LENGTH_SHORT).show();
+                 }
 
             }
         });

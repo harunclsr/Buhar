@@ -8,7 +8,7 @@
     tools:context=".YetkiliGirisi">
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/y_adi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="144dp"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/y_sifre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
@@ -30,42 +30,51 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/y_adi" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/Yetkiligirisi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Yetkili Girişi"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
+        app:layout_constraintTop_toBottomOf="@+id/y_sifre"
         app:layout_constraintVertical_bias="0.351" />
 
     <RadioGroup
         android:layout_width="144dp"
         android:layout_height="93dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/Yetkiligirisi"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.37"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
+        app:layout_constraintTop_toBottomOf="@+id/y_sifre"
         app:layout_constraintVertical_bias="0.0">
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/Bilgiislemradio"
             android:layout_width="117dp"
             android:layout_height="27dp"
             android:layout_marginTop="24dp"
             android:text="Bilgi İşlem" />
 
         <RadioButton
-            android:id="@+id/radioButton3"
+            android:id="@+id/Subegorevlisiradio"
             android:layout_width="136dp"
             android:layout_height="23dp"
             android:layout_marginTop="8dp"
             android:text="Şube Görevlisi" />
     </RadioGroup>
+
+    <TextView
+        android:id="@+id/deneme44"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Yetkiligirisi"
+        tools:layout_editor_absoluteX="161dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

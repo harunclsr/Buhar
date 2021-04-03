@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "243536235299",
+    "firebase_url": "https://buhar-a3bdf.firebaseio.com",
+    "project_id": "buhar-a3bdf",
+    "storage_bucket": "buhar-a3bdf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:243536235299:android:7566f5776fcdb1eb085a96",
+        "android_client_info": {
+          "package_name": "com.kodlar.buhar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "243536235299-5573b64t9i29q8kiobv0fbrlnrdru52r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAZDKRO96yDPE2SCaK3IoG6IhjFd-BU8o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "243536235299-5573b64t9i29q8kiobv0fbrlnrdru52r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

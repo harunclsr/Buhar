@@ -36,28 +36,29 @@ public class YetkiliGirisi extends AppCompatActivity {
         YetkiliGirisi = findViewById(R.id.Yetkiligirisi);
         Bilgiislem = (RadioButton) findViewById(R.id.Bilgiislemradio);
         SubeGorevlisi = (RadioButton) findViewById(R.id.Subegorevlisiradio);
-        ref = FirebaseDatabase.getInstance().getReference().child("YetkiliGirisi").child("Bilgiislem");
+        ref = FirebaseDatabase.getInstance().getReference().child("YetkiliGirisi");
 
 
 
         YetkiliGirisi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String Bilgiislemid = Yadi.getText().toString();
-                String YetkiliSifre = Ysifre.getText().toString();
+
 
 
                 if (Bilgiislem.isChecked()) {
+                    String Bilgiislemid = Yadi.getText().toString();
+                    String BilgiislemSifre = Ysifre.getText().toString();
 
 
-                    ref.child(Bilgiislemid).addValueEventListener(new ValueEventListener() {
+                    ref.child("Bilgiislem").child(Bilgiislemid).addValueEventListener(new ValueEventListener() {
 
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            YetkiliKullanıcılar kullanici= snapshot.getValue(YetkiliKullanıcılar.class);
+                            BilgiislemKullanicilar kullanici= snapshot.getValue(BilgiislemKullanicilar.class);
 
 
-                            if (YetkiliSifre.equals(kullanici.getBilgiislemSifre())) {
+                            if (BilgiislemSifre.equals(kullanici.getBilgiislemSifre())) {
 
                                 startActivity(new Intent(YetkiliGirisi.this, BilgiislemEkrani.class));
                                 Toast.makeText(YetkiliGirisi.this, "Giris Başarılı", Toast.LENGTH_SHORT).show();
@@ -76,6 +77,39 @@ public class YetkiliGirisi extends AppCompatActivity {
                     });
 
                 }
+                else if (SubeGorevlisi.isChecked()) {
+                    String SubeGorevlisiid = Yadi.getText().toString();
+                    String SubeGorevlisiSifre = Ysifre.getText().toString();
+
+
+                    ref.child("SubeGorevlisi").child(SubeGorevlisiid).addValueEventListener(new ValueEventListener() {
+
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            SubeKullanicilar Subekullanici= snapshot.getValue(SubeKullanicilar.class);
+
+
+                            if (SubeGorevlisiSifre.equals(Subekullanici.getSubeGorevlisiSifre())) {
+
+
+                                startActivity(new Intent(YetkiliGirisi.this, SubeKullaniciEkrani.class));
+                                Toast.makeText(YetkiliGirisi.this, "Giris Başarılı", Toast.LENGTH_SHORT).show();
+
+                            }
+                            else {
+                                Toast.makeText(YetkiliGirisi.this, "Giris Hatalı!!", Toast.LENGTH_SHORT).show();
+
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+                            Toast.makeText(YetkiliGirisi.this, "ELSEE", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                }
+
             }
         });
 

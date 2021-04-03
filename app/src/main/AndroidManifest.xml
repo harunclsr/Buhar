@@ -11,10 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EBakkal">
+        <activity android:name=".SubeKullaniciEkrani"></activity>
         <activity
             android:name=".BilgiislemEkrani"
             android:label="@string/title_activity_bilgiislem_ekrani"
-            android:theme="@style/Theme.EBakkal.NoActionBar"></activity>
+            android:theme="@style/Theme.EBakkal.NoActionBar" />
         <activity android:name=".ui.TemelGidapcg.TuzSekerBaharat" />
         <activity android:name=".ui.TemelGidapcg.Yag" />
         <activity android:name=".ui.TemelGidapcg.MakarnaBakliyat" />

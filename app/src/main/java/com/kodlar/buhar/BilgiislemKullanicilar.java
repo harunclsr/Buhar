@@ -1,14 +1,14 @@
 package com.kodlar.buhar;
 
-public class YetkiliKullanıcılar {
+public class BilgiislemKullanicilar {
     private String BilgiislemAdi;
     private String BilgiislemSifre;
     private String Bilgiislemid;
 
-    public YetkiliKullanıcılar() {
+    public BilgiislemKullanicilar() {
     }
 
-    public YetkiliKullanıcılar(String bilgiislemAdi, String bilgiislemSifre, String bilgiislemid) {
+    public BilgiislemKullanicilar(String bilgiislemAdi, String bilgiislemSifre, String bilgiislemid) {
         BilgiislemAdi = bilgiislemAdi;
         BilgiislemSifre = bilgiislemSifre;
         Bilgiislemid = bilgiislemid;

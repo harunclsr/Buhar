@@ -37,7 +37,7 @@ public class YetkiliGirisi extends AppCompatActivity {
         Bilgiislem = (RadioButton) findViewById(R.id.Bilgiislemradio);
         SubeGorevlisi = (RadioButton) findViewById(R.id.Subegorevlisiradio);
         ref = FirebaseDatabase.getInstance().getReference().child("YetkiliGirisi");
-
+//
 
 
         YetkiliGirisi.setOnClickListener(new View.OnClickListener() {

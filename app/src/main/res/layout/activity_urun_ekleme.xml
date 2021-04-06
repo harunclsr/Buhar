@@ -90,6 +90,18 @@
         android:layout_marginTop="10dp"
         android:textSize="14sp" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Barkod Numarası" />
+
+    <EditText
+        android:id="@+id/ekleID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
     <ImageView
         android:id="@+id/UrunFoto"
         android:layout_width="match_parent"

@@ -89,7 +89,16 @@
         <LinearLayout
             android:layout_width="31dp"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"><![CDATA[
+
+            android:clickable="true"
+            android:layout_centerVertical="true"
+            android:layout_centerInParent="true"
+            android:src="@drawable/myimage"
+            android:onClick="onClick"/>
+
+
+            ]]>
 
             <ImageButton
                 android:id="@+id/sepetarti"
@@ -102,7 +111,8 @@
                 android:id="@+id/sepettext"
                 android:layout_width="match_parent"
                 android:layout_height="5dp"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:text="0" />
 
             <ImageButton
                 android:id="@+id/sepeteksi"

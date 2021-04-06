@@ -38,7 +38,7 @@ public class ProfilEkrani extends AppCompatActivity {
         ProfilAdres = findViewById(R.id.ProfilAdres);
         Profilid = findViewById(R.id.Profilid);
         final FirebaseAuth auth = FirebaseAuth.getInstance();
-        ProfilBilgileri = FirebaseDatabase.getInstance().getReference().child("kullanıcılar");
+        ProfilBilgileri = FirebaseDatabase.getInstance().getReference().child("Kullanıcılar").child("Profil");
 
 
 

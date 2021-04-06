@@ -37,6 +37,7 @@ public class UrunEkleme extends AppCompatActivity {
     private EditText urunAdi;
     private EditText urunAgirlik;
     private EditText urunFiyati;
+    private EditText idurun;
     private DatabaseReference UrunRef;
     private TextView Denemeyazisi;
     private ImageView imageView;
@@ -80,7 +81,7 @@ public class UrunEkleme extends AppCompatActivity {
         urunFiyati= (EditText)findViewById(R.id.ekleFiyat);
         progressBar=(ProgressBar)findViewById(R.id.progressBar);
         imageView=(ImageView) findViewById(R.id.UrunFoto);
-
+        idurun= (EditText)findViewById(R.id.ekleID);
         progressBar.setVisibility(View.INVISIBLE);
 
             imageView.setOnClickListener(new View.OnClickListener() {
@@ -398,6 +399,7 @@ public class UrunEkleme extends AppCompatActivity {
     String  urunadi= urunAdi.getText().toString();
     String  urunfiyati= urunFiyati.getText().toString();
     String  urunagirlik= urunAgirlik.getText().toString();
+     String  urunid= idurun.getText().toString();
 
 
 
@@ -410,13 +412,12 @@ public class UrunEkleme extends AppCompatActivity {
 
 
                  String   image=uri.toString();
-               //  String urunid= UrunRef.push().getKey();
 
-                 Urun urunler = new Urun(urunadi,urunfiyati,urunagirlik,image);
+                 Urun urunler = new Urun(urunadi,urunfiyati,urunagirlik,image,urunid);
 
                     UrunRef.push().setValue(urunler);
-                    progressBar.setVisibility(View.VISIBLE);
 
+                    progressBar.setVisibility(View.VISIBLE);
 
                     Toast.makeText(UrunEkleme.this,"Urun eklendi.",Toast.LENGTH_SHORT).show();;
                     progressBar.setVisibility(View.INVISIBLE);

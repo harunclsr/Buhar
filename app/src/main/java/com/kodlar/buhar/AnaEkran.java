@@ -31,6 +31,7 @@ public class AnaEkran extends AppCompatActivity {
     private ImageButton Temel_Gida;
     private ImageButton Logout;
     private ImageButton ProfilButon;
+    private ImageButton Sepet;
     FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
 
@@ -52,8 +53,17 @@ public class AnaEkran extends AppCompatActivity {
         Temel_Gida=(ImageButton)findViewById(R.id.temel_gida);
         ProfilButon=(ImageButton)findViewById(R.id.ProfilButton);
         Logout = (ImageButton)findViewById(R.id.LogOut);
+        Sepet=(ImageButton)findViewById(R.id.sepet);
 
+        Sepet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent( AnaEkran.this, Sepet.class);
 
+                startActivity(intent);
+
+            }
+        });
         ProfilButon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

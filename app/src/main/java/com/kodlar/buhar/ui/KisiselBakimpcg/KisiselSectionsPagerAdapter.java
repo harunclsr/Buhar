@@ -10,6 +10,8 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 
 import com.kodlar.buhar.R;
+import com.kodlar.buhar.Sepet;
+
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
  * one of the sections/tabs/pages.
@@ -17,7 +19,7 @@ import com.kodlar.buhar.R;
 public class KisiselSectionsPagerAdapter extends FragmentPagerAdapter {
 
     @StringRes
-    private static final int[] TAB_TITLES = new int[]{R.string.tab_kisiselbakım_Agiz, R.string.tab_kisiselbakım_Cilt,R.string.tab_kisiselbakım_Sac};
+    private static final int[] TAB_TITLES = new int[]{R.string.tab_kisiselbakım_Agiz, R.string.tab_kisiselbakım_Cilt,R.string.tab_kisiselbakım_Sac,R.string.tab_sepet};
     private final Context mContext;
 
     public KisiselSectionsPagerAdapter(Context context, FragmentManager fm) {
@@ -39,6 +41,10 @@ public class KisiselSectionsPagerAdapter extends FragmentPagerAdapter {
             case 2:
                 fragment = new AgizBakim();
                 break;
+            case 3:
+                fragment = new Sepet();
+                break;
+
         }
         return fragment;
     }
@@ -51,6 +57,6 @@ public class KisiselSectionsPagerAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         // Show 2 total pages.
-        return 3;
+        return 4;
     }
 }

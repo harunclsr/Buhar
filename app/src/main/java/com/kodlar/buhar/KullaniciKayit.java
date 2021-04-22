@@ -22,6 +22,9 @@ public class KullaniciKayit extends AppCompatActivity {
     private Button Kaydet;
     private EditText Email;
     private EditText Password;
+    private EditText K_Adi;
+    private EditText K_Numara;
+    private EditText K_Adres;
     FirebaseAuth mAuth;
 
     private EditText Adi;
@@ -37,8 +40,9 @@ public class KullaniciKayit extends AppCompatActivity {
 
         Email = (EditText)findViewById(R.id.userEmail);
         Password = (EditText)findViewById(R.id.userSifre);
-        Adi = (EditText)findViewById(R.id.K_Adi);
-
+        K_Adi = (EditText)findViewById(R.id.K_Adi);
+        K_Numara = (EditText)findViewById(R.id.K_Numara);
+        K_Adres = (EditText)findViewById(R.id.K_Adres);
        mAuthStateListener= new FirebaseAuth.AuthStateListener() {
 
             @Override
@@ -71,6 +75,13 @@ public class KullaniciKayit extends AppCompatActivity {
             public void onClick(View view) {
                 String userEmail = Email.getText().toString();
                 String userSifre = Password.getText().toString();
+                String userAdi = K_Adi.getText().toString();
+                String userNumara = K_Numara.getText().toString();
+                String userAdres = K_Adres.getText().toString();
+
+
+
+
                 if(userEmail.isEmpty()){
                     Email.setError("Lütfen mail adresinizi girin");
                     Email.requestFocus();
@@ -89,6 +100,7 @@ public class KullaniciKayit extends AppCompatActivity {
                             if (!task.isSuccessful()) {
                                 Toast.makeText(KullaniciKayit.this, "Hatalı Kayıt,Tekrar deneyiniz", Toast.LENGTH_SHORT).show();
                             } else {
+
                                 Intent intToHome = new Intent(KullaniciKayit.this, GirisEkrani.class);
                                 startActivity(intToHome);
                             }

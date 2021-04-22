@@ -15,7 +15,7 @@ public class Adres {
         this.kategori = kategori;
         this.altkategori = altkategori;
     }
-
+//
     public String getKategori() {
         return kategori;
     }

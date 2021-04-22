@@ -63,7 +63,7 @@ public class Sepet extends Fragment {
 
 
         // ContacsRef = FirebaseDatabase.getInstance().getReference().child("Kampus").child("icecekler").child("Su").child(currentUserID);
-        SepetRef = FirebaseDatabase.getInstance().getReference().child("Sepet").child("Urunlistesi");
+        SepetRef = FirebaseDatabase.getInstance().getReference().child("Kullanıcılar");
 
 
 
@@ -85,7 +85,7 @@ public class Sepet extends Fragment {
 
                 String userIDs = getRef(i).getKey();
 
-                SepetRef.child(userIDs).addValueEventListener(new ValueEventListener(){
+                SepetRef.child("Kullanıcılar").child(userIDs).child("Sepet").child("Urunlistesi").addValueEventListener(new ValueEventListener(){
 
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot)
@@ -100,7 +100,7 @@ public class Sepet extends Fragment {
                         SepetViewHolder.urunfiyat.setText(urunfiyat);
                         SepetViewHolder.urunagirlik.setText(urunagirlik);
                         SepetViewHolder.sepettext.setText(miktar);
-                        Picasso.get().load(urunfotografi.toString()).into(SepetViewHolder.urunfotografi);
+//                        Picasso.get().load(urunfotografi.toString()).into(SepetViewHolder.urunfotografi);
                         Urun  urunleri= dataSnapshot.getValue(Urun.class);
 
 

@@ -113,7 +113,7 @@ public class Su extends Fragment  {
                         String urunid = dataSnapshot.child("urunid").getValue(String.class);
 
                         suViewHolder.urunadi.setText(urunadi);
-                        suViewHolder.urunfiyat.setText(urunfiyat);
+                        suViewHolder.urunfiyat.setText(""+urunfiyat);
                         suViewHolder.urunagirlik.setText(urunagirlik);
 
                         Picasso.get().load(urunfotografi.toString()).into(suViewHolder.urunfotografi);
@@ -237,6 +237,7 @@ public class Su extends Fragment  {
         private ImageButton sepetEksi;
         private TextView sepettext;
         private int miktar ;
+
         public SuViewHolder(@NonNull View itemView) {
             super(itemView);
             urunadi= itemView.findViewById(R.id.urunAdi);

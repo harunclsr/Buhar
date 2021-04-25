@@ -75,10 +75,10 @@ public class Gazsizicecek extends Fragment {
                     String urunfotografi = dataSnapshot.child("image").getValue(String.class);
                         String urunadi = dataSnapshot.child("urunadi").getValue(String.class);
                         String urunagirlik = dataSnapshot.child("urunagirlik").getValue(String.class);
-                        String urunfiyat = dataSnapshot.child("urunfiyati").getValue(String.class);
+                        Integer urunfiyat = dataSnapshot.child("urunfiyati").getValue(Integer.class);
 
                         GazsizViewHolder.urunadi.setText(urunadi);
-                        GazsizViewHolder.urunfiyat.setText(urunfiyat);
+                        GazsizViewHolder.urunfiyat.setText(""+urunfiyat);
                         GazsizViewHolder.urunagirlik.setText(urunagirlik);
 
                         Picasso.get().load(urunfotografi.toString()).into(GazsizViewHolder.urunfotografi);

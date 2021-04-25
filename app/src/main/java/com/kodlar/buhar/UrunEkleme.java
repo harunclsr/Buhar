@@ -397,7 +397,7 @@ public class UrunEkleme extends AppCompatActivity {
     UrunRef = FirebaseDatabase.getInstance().getReference().child(adres.getSubeadi()).child(adres.getKategori()).child(adres.getAltkategori());
     StorageReference fileRef =reference.child(System.currentTimeMillis()+"."+getFileExtension(imageUri));
     String  urunadi= urunAdi.getText().toString();
-    String  urunfiyati= urunFiyati.getText().toString();
+    Integer  urunfiyati= Integer.valueOf(urunFiyati.getText().toString());
     String  urunagirlik= urunAgirlik.getText().toString();
      String  urunid= idurun.getText().toString();
 
@@ -413,7 +413,7 @@ public class UrunEkleme extends AppCompatActivity {
 
                  String   image=uri.toString();
 
-                 Urun urunler = new Urun(urunadi,urunfiyati,urunagirlik,image,urunid);
+                 Urun urunler = new Urun(urunadi,urunagirlik,urunfiyati,image,urunid);
 
                     UrunRef.push().setValue(urunler);
 

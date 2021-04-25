@@ -4,8 +4,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class Urun {
-    public String urunadi, urunfiyati, urunagirlik, image,urunid;
-public String miktar;
+    public String urunadi, urunagirlik, image,urunid;
+public int miktar, urunfiyati;
 
     public String getUrunid() {
         return urunid;
@@ -19,11 +19,9 @@ public String miktar;
         this.image = image;
     }
 
-    public String getMiktar() {
-        return miktar;
-    }
 
-    public Urun(String urunadi, String urunfiyati, String urunagirlik, String image, String urunid, String miktar) {
+
+    public Urun(String urunadi, int urunfiyati, String urunagirlik, String image, String urunid, int miktar) {
         this.urunadi = urunadi;
         this.urunfiyati = urunfiyati;
         this.urunagirlik = urunagirlik;
@@ -32,7 +30,11 @@ public String miktar;
         this.miktar = miktar;
     }
 
-    public void setMiktar(String miktar) {
+    public int getMiktar() {
+        return miktar;
+    }
+
+    public void setMiktar(int miktar) {
         this.miktar = miktar;
     }
 
@@ -40,7 +42,7 @@ public String miktar;
 
     }
 
-    public Urun(String urunadi, String urunfiyati, String urunagirlik, String image, String urunid) {
+    public Urun(String urunadi, String urunagirlik, int urunfiyati, String image, String urunid) {
         this.urunadi = urunadi;
         this.urunfiyati = urunfiyati;
         this.urunagirlik = urunagirlik;
@@ -48,7 +50,7 @@ public String miktar;
         this.urunid = urunid;
     }
 
-    public Urun(String urunadi, String urunfiyati, String urunagirlik, String image) {
+    public Urun(String urunadi, int urunfiyati, String urunagirlik, String image) {
         this.urunadi = urunadi;
         this.urunfiyati = urunfiyati;
         this.urunagirlik = urunagirlik;
@@ -65,11 +67,11 @@ public String miktar;
         this.urunadi = urunadi;
     }
 
-    public String getUrunfiyati() {
+    public int getUrunfiyati() {
         return urunfiyati;
     }
 
-    public void setUrunfiyati(String urunfiyati) {
+    public void setUrunfiyati(int urunfiyati) {
         this.urunfiyati = urunfiyati;
     }
 

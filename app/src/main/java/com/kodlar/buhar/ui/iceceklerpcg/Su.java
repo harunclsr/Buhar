@@ -41,15 +41,15 @@ public class Su extends Fragment  {
 
     private View SuView;
     private RecyclerView mySulist;
-    private DatabaseReference SuRef,ContacsRef;
+    private DatabaseReference SuRef,SepetRef;
     private FirebaseAuth mAuth;
     private String currentUserID;
     private TextView denemetext;
     FirebaseDatabase db;
 
-public Su(){
+    public Su(){
 
-}
+    }
 
     @Nullable
     @Override
@@ -63,26 +63,42 @@ public Su(){
         currentUserID = mAuth.getCurrentUser().getUid();
 
 
-       // ContacsRef = FirebaseDatabase.getInstance().getReference().child("Kampus").child("icecekler").child("Su").child(currentUserID);
+        // ContacsRef = FirebaseDatabase.getInstance().getReference().child("Kampus").child("icecekler").child("Su").child(currentUserID);
         SuRef = FirebaseDatabase.getInstance().getReference().child("Kampus").child("icecekler").child("Su");
+        SepetRef = FirebaseDatabase.getInstance().getReference().child("Kullanıcılar").child(currentUserID).child("Sepet").child("Urunlistesi");
+        // urunekle(FirebaseDatabase.getInstance().getReference().child("Kampus").child("icecekler").child("Su");)
 
-// urunekle(FirebaseDatabase.getInstance().getReference().child("Kampus").child("icecekler").child("Su");)
-
-    return SuView;
+        return SuView;
     }
     @Override
     public void onStart(){
-    super.onStart();
-    FirebaseRecyclerOptions options=
-            new FirebaseRecyclerOptions.Builder<Urun>()
-            .setQuery(SuRef,Urun.class)
-                .build();
+        super.onStart();
+        FirebaseRecyclerOptions options=
+                new FirebaseRecyclerOptions.Builder<Urun>()
+                        .setQuery(SuRef,Urun.class)
+                        .build();
 
-     final  FirebaseRecyclerAdapter<Urun,SuViewHolder> adapter = new FirebaseRecyclerAdapter<Urun, SuViewHolder>(options) {
+        final  FirebaseRecyclerAdapter<Urun,SuViewHolder> adapter = new FirebaseRecyclerAdapter<Urun, SuViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull final SuViewHolder suViewHolder, int i, @NonNull Urun urun) {
 
                 String userIDs = getRef(i).getKey();
+
+                SepetRef.child(userIDs).addValueEventListener(new ValueEventListener(){
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot)
+                    {
+                        Integer miktar = dataSnapshot.child("miktar").getValue(Integer.class);
+
+                    }
+
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        Snackbar.make(SuView, "HATA!!!!!!", Snackbar.LENGTH_LONG)
+                                .setAction("Action", null).show();
+                    }
+                });
 
                 SuRef.child(userIDs).addValueEventListener(new ValueEventListener(){
 
@@ -90,40 +106,68 @@ public Su(){
                     public void onDataChange(DataSnapshot dataSnapshot)
                     {
 
-                            String urunfotografi = dataSnapshot.child("image").getValue(String.class);
-                            String urunadi = dataSnapshot.child("urunadi").getValue(String.class);
-                            String urunagirlik = dataSnapshot.child("urunagirlik").getValue(String.class);
-                            String urunfiyat = dataSnapshot.child("urunfiyati").getValue(String.class);
-                            String urunid = dataSnapshot.child("urunid").getValue(String.class);
-                            String miktar = dataSnapshot.child("miktar").getValue(String.class);
-                            suViewHolder.urunadi.setText(urunadi);
-                            suViewHolder.urunfiyat.setText(urunfiyat);
-                            suViewHolder.urunagirlik.setText(urunagirlik);
+                        String urunfotografi = dataSnapshot.child("image").getValue(String.class);
+                        String urunadi = dataSnapshot.child("urunadi").getValue(String.class);
+                        String urunagirlik = dataSnapshot.child("urunagirlik").getValue(String.class);
+                        Integer urunfiyat = dataSnapshot.child("urunfiyati").getValue(Integer.class);
+                        String urunid = dataSnapshot.child("urunid").getValue(String.class);
 
-                            Picasso.get().load(urunfotografi.toString()).into(suViewHolder.urunfotografi);
+                        suViewHolder.urunadi.setText(urunadi);
+                        suViewHolder.urunfiyat.setText(urunfiyat);
+                        suViewHolder.urunagirlik.setText(urunagirlik);
 
-                            suViewHolder.sepetArti.setOnClickListener(new View.OnClickListener() {
+                        Picasso.get().load(urunfotografi.toString()).into(suViewHolder.urunfotografi);
+
+                        suViewHolder.sepetArti.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+
+                                DatabaseReference SepetRef;
+                                SepetRef=FirebaseDatabase.getInstance().getReference().child("Kullanıcılar").child(currentUserID).child("Sepet").child("Urunlistesi");
+                            if(  suViewHolder.miktar==0) {
+                             suViewHolder.miktar++;
+
+                                SepetRef.child(userIDs).setValue(new Urun(urunadi, urunagirlik, urunfiyat, urunfotografi, urunid));
+                                SepetRef.child(userIDs).child("miktar").setValue(   suViewHolder.miktar);
+                                Snackbar.make(SuView, "EKELEME!!!!!!", Snackbar.LENGTH_LONG)
+                                        .setAction("Action", null).show();
+                            }else {
+
+                                suViewHolder.miktar++;
+
+                                SepetRef.child(userIDs).child("miktar").setValue(suViewHolder.miktar);
+                                suViewHolder.sepettext.setText("" + suViewHolder.miktar);
+                                urun.setMiktar(suViewHolder.miktar);
+                                Snackbar.make(SuView, "ARTTIRMA!!!!!!", Snackbar.LENGTH_LONG)
+                                        .setAction("Action", null).show();
+                            }
+                            }
+                        });
+                        suViewHolder.sepetEksi.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 DatabaseReference SepetRef;
                                 SepetRef=FirebaseDatabase.getInstance().getReference().child("Kullanıcılar").child(currentUserID).child("Sepet").child("Urunlistesi");
+                                if(  suViewHolder.miktar<2) {
+
+                                   SepetRef.child(userIDs).removeValue();
 
 
 
-                                suViewHolder.miktar++;
-                                suViewHolder.sepettext.setText(""+ suViewHolder.miktar);
+                                    Snackbar.make(SuView, "Silindi!!!!!!", Snackbar.LENGTH_LONG)
+                                            .setAction("Action", null).show();
+                                }else {
 
+                                    suViewHolder.miktar--;
 
-
-                                SepetRef.child(userIDs).setValue(new Urun(urunadi, urunagirlik, urunfiyat, urunfotografi, urunid, miktar));
-
-                                SepetRef.child(userIDs).child("miktar").setValue(Integer.toString( suViewHolder.miktar));
-
-
-
+                                    SepetRef.child(userIDs).child("miktar").setValue(suViewHolder.miktar);
+                                    suViewHolder.sepettext.setText("" + suViewHolder.miktar);
+                                    urun.setMiktar(suViewHolder.miktar);
+                                    Snackbar.make(SuView, "Eksiltme!!!!!!", Snackbar.LENGTH_LONG)
+                                            .setAction("Action", null).show();
+                                }
                             }
                         });
-
 
                     }
 
@@ -133,44 +177,76 @@ public Su(){
                                 .setAction("Action", null).show();
                     }
                 });
+
+                SepetRef.child(userIDs).addValueEventListener(new ValueEventListener(){
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot)
+                    {
+
+                      Integer miktar = dataSnapshot.child("miktar").getValue(Integer.class);
+                    if(miktar==null){
+                        miktar=0;
+                        suViewHolder.sepettext.setText("" + miktar);
+
+                        suViewHolder.miktar=miktar;
+                    }
+                        else {
+                        suViewHolder.sepettext.setText("" + miktar);
+                        suViewHolder.miktar=miktar;
+                    }
+                                        }
+
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        Snackbar.make(SuView, "HATA!!!!!!", Snackbar.LENGTH_LONG)
+                                .setAction("Action", null).show();
+                    }
+                });
+
+
+
+
+
             }
 
 
 
-         @NonNull
-         @Override
-         public SuViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
+            @NonNull
+            @Override
+            public SuViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
 
-             View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.urun,viewGroup,false);
-             SuViewHolder viewHolder = new SuViewHolder(view);
-             return viewHolder;
-         }
-     };
+                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.urun,viewGroup,false);
+                SuViewHolder viewHolder = new SuViewHolder(view);
+                return viewHolder;
+            }
+        };
 
         mySulist.setAdapter(adapter);
         adapter.startListening();
 
 
-}
+    }
+
 
     public static class SuViewHolder extends RecyclerView.ViewHolder{
 
-    TextView urunadi,urunfiyat,urunagirlik;
-    ImageFilterView urunfotografi;
+        TextView urunadi,urunfiyat,urunagirlik;
+        ImageFilterView urunfotografi;
         private ImageButton sepetArti;
         private ImageButton sepetEksi;
         private TextView sepettext;
-        private int miktar = 0;
-      public SuViewHolder(@NonNull View itemView) {
-        super(itemView);
-          urunadi= itemView.findViewById(R.id.urunAdi);
-          urunfiyat= itemView.findViewById(R.id.urunFiyat);
-          urunagirlik= itemView.findViewById(R.id.urunAgirlik);
-          urunfotografi=itemView.findViewById(R.id.urunfotografi);
-          sepetArti = itemView.findViewById(R.id.sepetarti);
-          sepettext=itemView.findViewById(R.id.sepettext);
-
+        private int miktar ;
+        public SuViewHolder(@NonNull View itemView) {
+            super(itemView);
+            urunadi= itemView.findViewById(R.id.urunAdi);
+            urunfiyat= itemView.findViewById(R.id.urunFiyat);
+            urunagirlik= itemView.findViewById(R.id.urunAgirlik);
+            urunfotografi=itemView.findViewById(R.id.urunfotografi);
+            sepetArti = itemView.findViewById(R.id.sepetarti);
+            sepettext=itemView.findViewById(R.id.sepettext);
+            sepetEksi = itemView.findViewById(R.id.sepeteksi);
+        }
     }
-}
 
 }

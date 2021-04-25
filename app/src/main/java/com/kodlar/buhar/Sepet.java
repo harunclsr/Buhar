@@ -59,11 +59,11 @@ public class Sepet extends Fragment {
         mySepetlist=(RecyclerView) SepetView.findViewById(R.id.sepet_list);
         mySepetlist.setLayoutManager(new LinearLayoutManager(getContext()));
         mAuth = FirebaseAuth.getInstance();
-
+        currentUserID = mAuth.getCurrentUser().getUid();
 
 
         // ContacsRef = FirebaseDatabase.getInstance().getReference().child("Kampus").child("icecekler").child("Su").child(currentUserID);
-        SepetRef = FirebaseDatabase.getInstance().getReference().child("Kullanıcılar");
+        SepetRef = FirebaseDatabase.getInstance().getReference().child("Kullanıcılar").child(currentUserID).child("Sepet").child("Urunlistesi");
 
 
 
@@ -85,7 +85,7 @@ public class Sepet extends Fragment {
 
                 String userIDs = getRef(i).getKey();
 
-                SepetRef.child("Kullanıcılar").child(userIDs).child("Sepet").child("Urunlistesi").addValueEventListener(new ValueEventListener(){
+                SepetRef.child(userIDs).addValueEventListener(new ValueEventListener(){
 
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot)
@@ -94,13 +94,13 @@ public class Sepet extends Fragment {
                         String urunfotografi = dataSnapshot.child("image").getValue(String.class);
                         String urunadi = dataSnapshot.child("urunadi").getValue(String.class);
                         String urunagirlik = dataSnapshot.child("urunagirlik").getValue(String.class);
-                        String urunfiyat = dataSnapshot.child("urunfiyati").getValue(String.class);
-                        String miktar = dataSnapshot.child("miktar").getValue(String.class);
+                        Integer urunfiyat = dataSnapshot.child("urunfiyati").getValue(Integer.class);
+                        Integer miktar = dataSnapshot.child("miktar").getValue(Integer.class);
                         SepetViewHolder.urunadi.setText(urunadi);
                         SepetViewHolder.urunfiyat.setText(urunfiyat);
                         SepetViewHolder.urunagirlik.setText(urunagirlik);
-                        SepetViewHolder.sepettext.setText(miktar);
-//                        Picasso.get().load(urunfotografi.toString()).into(SepetViewHolder.urunfotografi);
+                        SepetViewHolder.sepettext.setText(miktar.toString());
+                        Picasso.get().load(urunfotografi.toString()).into(SepetViewHolder.urunfotografi);
                         Urun  urunleri= dataSnapshot.getValue(Urun.class);
 
 

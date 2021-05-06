@@ -6,6 +6,19 @@ import android.widget.TextView;
 public class Urun {
     public String urunadi, urunagirlik, image,urunid;
 public int miktar, urunfiyati;
+public int uruntutari;
+
+    public int getUruntutari() {
+        return uruntutari;
+    }
+
+    public void setUruntutari(int uruntutari) {
+        this.uruntutari = uruntutari;
+    }
+
+    public Urun(int uruntutari) {
+        this.uruntutari = uruntutari;
+    }
 
     public String getUrunid() {
         return urunid;

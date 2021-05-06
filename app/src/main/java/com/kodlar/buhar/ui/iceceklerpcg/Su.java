@@ -68,6 +68,7 @@ public class Su extends Fragment  {
          SuRef = FirebaseDatabase.getInstance().getReference().child("Kampus").child("icecekler").child("Su");
         SepetRef = FirebaseDatabase.getInstance().getReference().child("Kullanıcılar").child(currentUserID).child("Sepet").child("Urunlistesi");
         SepetTutarRef = FirebaseDatabase.getInstance().getReference().child("Kullanıcılar").child(currentUserID).child("Sepet").child("SepetTutari");
+
         LayoutInflater lf = getActivity().getLayoutInflater();
 
 
@@ -113,7 +114,7 @@ public class Su extends Fragment  {
                         suViewHolder.sepetArti.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                int Tutar =0;
+
                                 DatabaseReference SepetRef;
                                 SepetRef=FirebaseDatabase.getInstance().getReference().child("Kullanıcılar").child(currentUserID).child("Sepet").child("Urunlistesi");
                             if(  suViewHolder.miktar==0) {
@@ -121,23 +122,17 @@ public class Su extends Fragment  {
 
                                 SepetRef.child(userIDs).setValue(new Urun(urunadi, urunagirlik, urunfiyat, urunfotografi, urunid));
                                 SepetRef.child(userIDs).child("miktar").setValue(   suViewHolder.miktar);
+
                                    Snackbar.make(SuView, "Sepetinize ürün eklendi.", Snackbar.LENGTH_LONG)
                                         .setAction("Action", null).show();
 
 
-                                for (DataSnapshot ds : dataSnapshot.child(userIDs).getChildren()) {
-                                    Integer urunmiktari = ds.child(userIDs).child("miktar").getValue(Integer.class);
-                                    suViewHolder.tutarlist.add(urunmiktari);
-                                    Integer urunfiyati = ds.child(userIDs).child("urunfiyati").getValue(Integer.class);
-                                    Log.d("TAG", urunmiktari + " / " + urunfiyati);
 
-                                }
+
+                                SepetTutarRef.child("TUTAR").setValue(  sepetislemleri.getToplamFiyat());
 
 
 
-                              //  suViewHolder.SepetTutar=+urunfiyat*suViewHolder.miktar;
-
-                                SepetTutarRef.push().child("TUTAR").setValue(  sepetislemleri.getToplamFiyat());
 
                             }else {
                                 suViewHolder.miktar++;
@@ -150,7 +145,7 @@ public class Su extends Fragment  {
 
 
 
-                              //  suViewHolder.SepetTutar=urunfiyat*suViewHolder.miktar;
+
 
 
 
@@ -158,7 +153,7 @@ public class Su extends Fragment  {
                           sepetislemleri.setToplamFiyat(tutar);
 
 
-                                SepetTutarRef.push().child("TUTAR").setValue(  sepetislemleri.getToplamFiyat());
+                                SepetTutarRef.child("TUTAR").setValue(  sepetislemleri.getToplamFiyat());
 
                             }
 

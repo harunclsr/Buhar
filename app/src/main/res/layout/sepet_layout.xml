@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".ui.iceceklerpcg.icecekler2">
 
+    <TextView
+        android:id="@+id/sepettutarucreti"
+        android:layout_width="123dp"
+        android:layout_height="27dp"
+        android:text="URUN TUTARI"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.944"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/sepet_list"
         android:layout_width="413dp"

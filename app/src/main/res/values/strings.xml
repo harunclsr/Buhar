@@ -46,6 +46,7 @@
     <string name="tab_kisiselbakım_Cilt">Cilt Bakım </string>
     <string name="tab_kisiselbakım_Sac">Saç Bakım</string>
     <string name="tab_sepet">Sepet</string>
+    <string name="title_activity_sepet">Sepet</string>
     <string name="title_activity_temizlik2">Temizlik</string>
     <string name="tab_Temizlik_Deterjan">Deterjan</string>
     <string name="tab_Temizlik_GenelTemizlik">Genel Temizlik</string>

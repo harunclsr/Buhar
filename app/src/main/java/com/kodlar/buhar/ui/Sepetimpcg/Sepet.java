@@ -1,4 +1,4 @@
-package com.kodlar.buhar;
+package com.kodlar.buhar.ui.Sepetimpcg;
 
 
 import android.content.ContentResolver;
@@ -37,6 +37,9 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.kodlar.buhar.R;
+import com.kodlar.buhar.Urun;
+import com.kodlar.buhar.ui.iceceklerpcg.Su;
 import com.squareup.picasso.Picasso;
 
 import static android.app.Activity.RESULT_OK;
@@ -60,6 +63,8 @@ public class Sepet extends Fragment {
         mySepetlist.setLayoutManager(new LinearLayoutManager(getContext()));
         mAuth = FirebaseAuth.getInstance();
         currentUserID = mAuth.getCurrentUser().getUid();
+
+
 
 
         // ContacsRef = FirebaseDatabase.getInstance().getReference().child("Kampus").child("icecekler").child("Su").child(currentUserID);
@@ -97,11 +102,15 @@ public class Sepet extends Fragment {
                         Integer urunfiyat = dataSnapshot.child("urunfiyati").getValue(Integer.class);
                         Integer miktar = dataSnapshot.child("miktar").getValue(Integer.class);
                         SepetViewHolder.urunadi.setText(urunadi);
-                        SepetViewHolder.urunfiyat.setText(urunfiyat);
+                        SepetViewHolder.urunfiyat.setText(""+urunfiyat);
                         SepetViewHolder.urunagirlik.setText(urunagirlik);
                         SepetViewHolder.sepettext.setText(miktar.toString());
                         Picasso.get().load(urunfotografi.toString()).into(SepetViewHolder.urunfotografi);
                         Urun  urunleri= dataSnapshot.getValue(Urun.class);
+                        SepetViewHolder.odenecekucret=+urunfiyat;
+
+
+
 
 
                     }
@@ -110,6 +119,30 @@ public class Sepet extends Fragment {
                     public void onCancelled(DatabaseError databaseError) {
                         Snackbar.make(SepetView, "HATA!!!!!!", Snackbar.LENGTH_LONG)
                                 .setAction("Action", null).show();
+                    }
+                });
+
+
+                SepetRef.child(userIDs).addValueEventListener(new ValueEventListener() {
+
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                        Integer urunfiyat = dataSnapshot.child("urunfiyati").getValue(Integer.class);
+                        Integer miktar = dataSnapshot.child("miktar").getValue(Integer.class);
+
+                        int ucret = urunfiyat * miktar;
+
+
+
+
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
                     }
                 });
             }
@@ -129,18 +162,19 @@ public class Sepet extends Fragment {
 
     }
 
+
     public static class SepetViewHolder extends RecyclerView.ViewHolder{
         private ImageButton sepetArti;
         private ImageButton sepetEksi;
         private TextView sepettext;
-
+        private TextView UcretToplami;
         private String miktar = "0";
         private int i=0;
         TextView urunadi,urunfiyat,urunagirlik;
         ImageFilterView urunfotografi;
 
         private DatabaseReference GenelRef,SepetRef;
-
+        private int odenecekucret;
         public SepetViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -152,62 +186,10 @@ public class Sepet extends Fragment {
             urunagirlik= itemView.findViewById(R.id.urunAgirlik);
             urunfotografi=itemView.findViewById(R.id.urunfotografi);
 
+
+
             Urun urun = new Urun();
-            sepettext.setText(miktar);
-
-
-
-
-
-
-
-
-/*
-        sepetArti.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                  i++;
-             urunMiktari.setText(""+i);
-
-
-                    StorageReference reference = FirebaseStorage.getInstance().getReference();
-                    DatabaseReference GenelRef,SepetRef;
-                    View SepetView = null;
-                    Uri imageUri;
-                    GenelRef=FirebaseDatabase.getInstance().getReference().child("Kampus");
-                    SepetRef=FirebaseDatabase.getInstance().getReference().child("Sepet");
-
-
-                    String urununid="12312";
-
-                    SepetRef.child(urununid).addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            Urun  urunleri= dataSnapshot.getValue(Urun.class);
-
-                            String urunid = dataSnapshot.child("urunid").getValue(String.class);
-                            String urunfotografi = dataSnapshot.child("image").getValue(String.class);
-                            String urunadi = dataSnapshot.child("urunadi").getValue(String.class);
-                            String urunagirlik = dataSnapshot.child("urunagirlik").getValue(String.class);
-                            String urunfiyat = dataSnapshot.child("urunfiyati").getValue(String.class);
-
-                            Urun urunler = new Urun(urunadi,urunfiyat,urunagirlik,urunfotografi,urunid);
-
-                            SepetRef.push().setValue(urunler);
-                        }
-
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
-
-                        }
-                    });
-
-
-
-                }
-            });*/
+            //sepettext.setText(miktar);
 
             sepetArti.setOnClickListener(new View.OnClickListener() {
                 @Override

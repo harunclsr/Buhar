@@ -10,6 +10,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.kodlar.buhar.ui.Etpcg.Et2;
 import com.kodlar.buhar.ui.Kahvaltilikpcg.Kahvaltilik;
 import com.kodlar.buhar.ui.KisiselBakimpcg.KisiselBakim;
+import com.kodlar.buhar.ui.Sepetimpcg.Sepetim;
 import com.kodlar.buhar.ui.TemelGidapcg.TemelGida;
 import com.kodlar.buhar.ui.Temizlikpcg.Temizlik2;
 import com.kodlar.buhar.ui.atistirmalikpcg.Atistirmalik2;
@@ -58,7 +59,7 @@ public class AnaEkran extends AppCompatActivity {
         Sepet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent( AnaEkran.this, Sepet.class);
+                Intent intent= new Intent( AnaEkran.this, Sepetim.class);
 
                 startActivity(intent);
 

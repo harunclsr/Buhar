@@ -19,11 +19,11 @@ public class User {
         return KAdsoyad;
     }
 
-    public User(String KAdsoyad, String adres, String telefonNo, String image) {
+    public User(String KAdsoyad, String adres, String telefonNo) {
         this.KAdsoyad = KAdsoyad;
         Adres = adres;
         TelefonNo = telefonNo;
-        this.image = image;
+
     }
 
     public User() {

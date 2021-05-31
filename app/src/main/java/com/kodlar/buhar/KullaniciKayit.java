@@ -16,18 +16,20 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class KullaniciKayit extends AppCompatActivity {
     private ImageButton B_Geri;
     private Button Kaydet;
     private EditText Email;
     private EditText Password;
-    private EditText K_Adi;
-    private EditText K_Numara;
-    private EditText K_Adres;
+
     FirebaseAuth mAuth;
 
-    private EditText Adi;
+
+
+
     private FirebaseAuth.AuthStateListener mAuthStateListener;
 
     @Override
@@ -38,11 +40,17 @@ public class KullaniciKayit extends AppCompatActivity {
         Kaydet = (Button) findViewById(R.id.Kaydet);
         mAuth = FirebaseAuth.getInstance();
 
+
+
         Email = (EditText)findViewById(R.id.userEmail);
         Password = (EditText)findViewById(R.id.userSifre);
-        K_Adi = (EditText)findViewById(R.id.K_Adi);
-        K_Numara = (EditText)findViewById(R.id.K_Numara);
-        K_Adres = (EditText)findViewById(R.id.K_Adres);
+
+
+
+
+
+
+
        mAuthStateListener= new FirebaseAuth.AuthStateListener() {
 
             @Override
@@ -75,9 +83,6 @@ public class KullaniciKayit extends AppCompatActivity {
             public void onClick(View view) {
                 String userEmail = Email.getText().toString();
                 String userSifre = Password.getText().toString();
-                String userAdi = K_Adi.getText().toString();
-                String userNumara = K_Numara.getText().toString();
-                String userAdres = K_Adres.getText().toString();
 
 
 

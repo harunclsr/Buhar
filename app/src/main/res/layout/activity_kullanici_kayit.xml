@@ -17,7 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.717" />
+        app:layout_constraintVertical_bias="0.431" />
 
     <EditText
         android:id="@+id/userEmail"
@@ -32,35 +32,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.833" />
-
-    <EditText
-        android:id="@+id/K_Adi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Ad Soyad"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/K_Numara"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.911" />
-
-    <EditText
-        android:id="@+id/K_Numara"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="124dp"
-        android:ems="10"
-        android:hint="Telefon Numarası"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/Kaydet"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
 
     <ImageButton
         android:id="@+id/B_Geri"
@@ -78,26 +49,14 @@
         android:id="@+id/userSifre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
         android:ems="10"
         android:hint="Sifre"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/K_Adi"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/K_Adres"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Adres"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/Kaydet"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/K_Numara"
-        app:layout_constraintVertical_bias="0.291" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.825" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

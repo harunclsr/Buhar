@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -71,16 +72,46 @@ public class Cips extends Fragment {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot)
                     {
-
                         String urunfotografi = dataSnapshot.child("image").getValue(String.class);
                         String urunadi = dataSnapshot.child("urunadi").getValue(String.class);
                         String urunagirlik = dataSnapshot.child("urunagirlik").getValue(String.class);
-                        String urunfiyat = dataSnapshot.child("urunfiyati").getValue(String.class);
+                        Integer urunfiyat = dataSnapshot.child("urunfiyati").getValue(Integer.class);
+                        String urunid = dataSnapshot.child("urunid").getValue(String.class);
 
                         CipsViewHolder.urunadi.setText(urunadi);
-                        CipsViewHolder.urunfiyat.setText(urunfiyat);
+                        CipsViewHolder.urunfiyat.setText(""+urunfiyat);
                         CipsViewHolder.urunagirlik.setText(urunagirlik);
+
                         Picasso.get().load(urunfotografi.toString()).into(CipsViewHolder.urunfotografi);
+
+                        CipsViewHolder.sepetArti.setOnClickListener(new View.OnClickListener() {
+
+                            @Override
+                            public void onClick(View v) {
+
+
+                                DatabaseReference SepetRef;
+                                SepetRef = FirebaseDatabase.getInstance().getReference().child("Kullanıcılar").child(currentUserID).child("Sepet").child("Urunlistesi");
+                                CipsViewHolder.miktar++;
+
+                                SepetRef.child(userIDs).setValue(new Urun1(urunadi, urunagirlik, urunfiyat, urunfotografi, urunid));
+                                SepetRef.child(userIDs).child("miktar").setValue(CipsViewHolder.miktar);
+                                SepetRef.child(userIDs).child("uruntutari").setValue(urun.getUruntutari());
+                                Snackbar.make(CipsView, "Sepetinize ürün eklendi.", Snackbar.LENGTH_LONG)
+                                        .setAction("Action", null).show();
+
+
+                                urun.setUruntutari(CipsViewHolder.miktar * urunfiyat);
+
+                                SepetRef.child(userIDs).child("uruntutari").setValue(urun.getUruntutari());
+
+
+                                Snackbar.make(CipsView, "Sepetinize ürün eklendi.", Snackbar.LENGTH_LONG)
+                                        .setAction("Action", null).show();
+                            }
+
+
+                        });
 
 
                     }
@@ -112,6 +143,12 @@ public class Cips extends Fragment {
 
         TextView urunadi,urunfiyat,urunagirlik;
         ImageFilterView urunfotografi;
+        private ImageButton sepetArti;
+
+
+        private int miktar ;
+        private int tutar;
+
 
         public CipsViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -119,6 +156,9 @@ public class Cips extends Fragment {
             urunfiyat= itemView.findViewById(R.id.urunFiyat);
             urunagirlik= itemView.findViewById(R.id.urunAgirlik);
             urunfotografi=itemView.findViewById(R.id.urunfotografi);
+            sepetArti = itemView.findViewById(R.id.sepetarti);
+
+
 
         }
     }

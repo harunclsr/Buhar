@@ -77,8 +77,7 @@ public class Su extends Fragment  {
             protected void onBindViewHolder(@NonNull final SuViewHolder suViewHolder, int i, @NonNull Urun1 urun) {
 
                 String userIDs = getRef(i).getKey();
-                SepetController sepetislemleri = new SepetController();
-                Sepet SepetTutar = new Sepet();
+
                 SuRef.child(userIDs).addValueEventListener(new ValueEventListener(){
 
                     @Override

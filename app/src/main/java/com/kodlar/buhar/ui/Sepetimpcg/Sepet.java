@@ -29,6 +29,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.kodlar.buhar.R;
 import com.kodlar.buhar.SepetController;
 import com.kodlar.buhar.Urun;
+import com.kodlar.buhar.Urun1;
 import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
@@ -114,20 +115,6 @@ public class Sepet extends Fragment {
                         int total =0;
 
 
-                        for (DataSnapshot DataSnapshot: dataSnapshot.getChildren()) {
-                            TutarListesi.add(DataSnapshot.child("uruntutari").getValue(Integer.class));
-
-                            for (int a = 0; a < TutarListesi.size(); a++) {
-                                if (TutarListesi == null) {
-                                    SepetRef.child("TOTAL").setValue("000");
-                                } else {
-                                    total += TutarListesi.get(a);
-                                }
-
-                            }
-                            SepetRef.child("TOTAL").setValue(total);
-
-                        }
 
 
 

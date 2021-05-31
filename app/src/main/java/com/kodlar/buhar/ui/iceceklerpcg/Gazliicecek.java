@@ -30,7 +30,7 @@ import com.squareup.picasso.Picasso;
 public class Gazliicecek extends Fragment {
     private View GazliView;
     private RecyclerView myGazliList;
-    private DatabaseReference GazliRef,ContacsRef;
+    private DatabaseReference GazliRef,SepetRef,SepetTutarRef;
     private FirebaseAuth mAuth;
     private String currentUserID;
 
@@ -125,7 +125,14 @@ public class Gazliicecek extends Fragment {
                                 .setAction("Action", null).show();
                     }
                 });
+
+
+
+
+
             }
+
+
 
             @NonNull
             @Override

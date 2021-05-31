@@ -140,46 +140,6 @@ public class Su extends Fragment  {
 
 
 
-                SepetRef.child(userIDs).addValueEventListener(new ValueEventListener(){
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot)
-                    {
-
-                      Integer miktar = dataSnapshot.child("miktar").getValue(Integer.class);
-                        Integer UrunTekTutar = dataSnapshot.child("uruntutari").getValue(Integer.class);
-                    if(miktar==null){
-                        miktar=0;
-
-
-                        suViewHolder.miktar=miktar;
-                    }
-                        else {
-
-                        suViewHolder.miktar=miktar;
-                    }
-
-                        if(UrunTekTutar==null){
-                            UrunTekTutar=0;
-
-                            suViewHolder.tutar=UrunTekTutar;
-                        }
-                        else {
-                            suViewHolder.tutar=UrunTekTutar;
-                        }
-
-
-
-                    }
-
-
-
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        Snackbar.make(SuView, "HATA!!!!!!", Snackbar.LENGTH_LONG)
-                                .setAction("Action", null).show();
-                    }
-                });
 
 
             }

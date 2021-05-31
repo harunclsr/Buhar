@@ -17,7 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.kodlar.buhar.R;
-import com.kodlar.buhar.Urun;
+import com.kodlar.buhar.Urun1;
 import com.squareup.picasso.Picasso;
 
 import android.os.Bundle;
@@ -59,13 +59,13 @@ public class SutveSuturunleri extends Fragment {
     public void onStart(){
         super.onStart();
         FirebaseRecyclerOptions options=
-                new FirebaseRecyclerOptions.Builder<Urun>()
-                        .setQuery(SutveSuturunleriRef,Urun.class)
+                new FirebaseRecyclerOptions.Builder<Urun1>()
+                        .setQuery(SutveSuturunleriRef, Urun1.class)
                         .build();
 
-        final FirebaseRecyclerAdapter<Urun, SutveSuturunleriViewHolder> adapter = new FirebaseRecyclerAdapter<Urun, SutveSuturunleriViewHolder>(options) {
+        final FirebaseRecyclerAdapter<Urun1, SutveSuturunleriViewHolder> adapter = new FirebaseRecyclerAdapter<Urun1, SutveSuturunleriViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull final SutveSuturunleriViewHolder SutveSuturunleriViewHolder, int i, @NonNull Urun urun) {
+            protected void onBindViewHolder(@NonNull final SutveSuturunleriViewHolder SutveSuturunleriViewHolder, int i, @NonNull Urun1 urun) {
 
                 String userIDs = getRef(i).getKey();
 
@@ -100,7 +100,7 @@ public class SutveSuturunleri extends Fragment {
             @Override
             public SutveSuturunleriViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
 
-                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.urun,viewGroup,false);
+                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.urun1,viewGroup,false);
                 SutveSuturunleriViewHolder viewHolder = new SutveSuturunleriViewHolder(view);
                 return viewHolder;
             }

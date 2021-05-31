@@ -23,8 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.kodlar.buhar.R;
-import com.kodlar.buhar.Urun;
-import com.kodlar.buhar.ui.iceceklerpcg.Gazliicecek;
+import com.kodlar.buhar.Urun1;
 import com.squareup.picasso.Picasso;
 
 public class Cikolata extends Fragment {
@@ -57,13 +56,13 @@ public class Cikolata extends Fragment {
     public void onStart(){
         super.onStart();
         FirebaseRecyclerOptions options=
-                new FirebaseRecyclerOptions.Builder<Urun>()
-                        .setQuery(CikolataRef,Urun.class)
+                new FirebaseRecyclerOptions.Builder<Urun1>()
+                        .setQuery(CikolataRef, Urun1.class)
                         .build();
 
-        final FirebaseRecyclerAdapter<Urun, CikolataViewHolder> adapter = new FirebaseRecyclerAdapter<Urun, CikolataViewHolder>(options) {
+        final FirebaseRecyclerAdapter<Urun1, CikolataViewHolder> adapter = new FirebaseRecyclerAdapter<Urun1, CikolataViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull final CikolataViewHolder CikolataViewHolder, int i, @NonNull Urun urun) {
+            protected void onBindViewHolder(@NonNull final CikolataViewHolder CikolataViewHolder, int i, @NonNull Urun1 urun) {
 
                 String userIDs = getRef(i).getKey();
 
@@ -98,7 +97,7 @@ public class Cikolata extends Fragment {
             @Override
             public CikolataViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
 
-                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.urun,viewGroup,false);
+                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.urun1,viewGroup,false);
                 CikolataViewHolder viewHolder = new CikolataViewHolder(view);
                 return viewHolder;
             }

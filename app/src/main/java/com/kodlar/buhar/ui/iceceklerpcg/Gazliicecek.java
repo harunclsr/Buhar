@@ -23,7 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.kodlar.buhar.R;
-import com.kodlar.buhar.Urun;
+import com.kodlar.buhar.Urun1;
 import com.squareup.picasso.Picasso;
 
 public class Gazliicecek extends Fragment {
@@ -56,13 +56,13 @@ public class Gazliicecek extends Fragment {
     public void onStart(){
         super.onStart();
         FirebaseRecyclerOptions options=
-                new FirebaseRecyclerOptions.Builder<Urun>()
-                        .setQuery(GazliRef,Urun.class)
+                new FirebaseRecyclerOptions.Builder<Urun1>()
+                        .setQuery(GazliRef, Urun1.class)
                         .build();
 
-        final FirebaseRecyclerAdapter<Urun, GazliViewHolder> adapter = new FirebaseRecyclerAdapter<Urun, GazliViewHolder>(options) {
+        final FirebaseRecyclerAdapter<Urun1, GazliViewHolder> adapter = new FirebaseRecyclerAdapter<Urun1, GazliViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull final GazliViewHolder GazliViewHolder, int i, @NonNull Urun urun) {
+            protected void onBindViewHolder(@NonNull final GazliViewHolder GazliViewHolder, int i, @NonNull Urun1 urun) {
 
                 String userIDs = getRef(i).getKey();
 
@@ -97,7 +97,7 @@ public class Gazliicecek extends Fragment {
             @Override
             public GazliViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
 
-                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.urun,viewGroup,false);
+                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.urun1,viewGroup,false);
                 GazliViewHolder viewHolder = new GazliViewHolder(view);
                 return viewHolder;
             }

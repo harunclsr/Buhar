@@ -23,11 +23,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.kodlar.buhar.R;
-import com.kodlar.buhar.Urun;
+import com.kodlar.buhar.Urun1;
 import com.squareup.picasso.Picasso;
-import androidx.appcompat.app.AppCompatActivity;
-import com.kodlar.buhar.R;
-import android.os.Bundle;
 
 public class TemizlikMalzemeleri extends Fragment {
     private View TemizlikMalzemeleriView;
@@ -59,13 +56,13 @@ public class TemizlikMalzemeleri extends Fragment {
     public void onStart(){
         super.onStart();
         FirebaseRecyclerOptions options=
-                new FirebaseRecyclerOptions.Builder<Urun>()
-                        .setQuery(TemizlikMalzemeleriRef,Urun.class)
+                new FirebaseRecyclerOptions.Builder<Urun1>()
+                        .setQuery(TemizlikMalzemeleriRef, Urun1.class)
                         .build();
 
-        final FirebaseRecyclerAdapter<Urun, TemizlikMalzemeleriViewHolder> adapter = new FirebaseRecyclerAdapter<Urun, TemizlikMalzemeleriViewHolder>(options) {
+        final FirebaseRecyclerAdapter<Urun1, TemizlikMalzemeleriViewHolder> adapter = new FirebaseRecyclerAdapter<Urun1, TemizlikMalzemeleriViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull final TemizlikMalzemeleriViewHolder TemizlikMalzemeleriViewHolder, int i, @NonNull Urun urun) {
+            protected void onBindViewHolder(@NonNull final TemizlikMalzemeleriViewHolder TemizlikMalzemeleriViewHolder, int i, @NonNull Urun1 urun) {
 
                 String userIDs = getRef(i).getKey();
 
@@ -100,7 +97,7 @@ public class TemizlikMalzemeleri extends Fragment {
             @Override
             public TemizlikMalzemeleriViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
 
-                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.urun,viewGroup,false);
+                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.urun1,viewGroup,false);
                 TemizlikMalzemeleriViewHolder viewHolder = new TemizlikMalzemeleriViewHolder(view);
                 return viewHolder;
             }

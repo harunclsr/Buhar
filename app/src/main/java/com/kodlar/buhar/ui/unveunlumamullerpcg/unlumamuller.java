@@ -2,7 +2,6 @@ package com.kodlar.buhar.ui.unveunlumamullerpcg;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.utils.widget.ImageFilterView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,7 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.kodlar.buhar.R;
-import com.kodlar.buhar.Urun;
+import com.kodlar.buhar.Urun1;
 import com.squareup.picasso.Picasso;
 
 public class unlumamuller extends Fragment {
@@ -58,13 +57,13 @@ public class unlumamuller extends Fragment {
     public void onStart(){
         super.onStart();
         FirebaseRecyclerOptions options=
-                new FirebaseRecyclerOptions.Builder<Urun>()
-                        .setQuery(UnluRef,Urun.class)
+                new FirebaseRecyclerOptions.Builder<Urun1>()
+                        .setQuery(UnluRef, Urun1.class)
                         .build();
 
-        final FirebaseRecyclerAdapter<Urun, UnluViewHolder> adapter = new FirebaseRecyclerAdapter<Urun, UnluViewHolder>(options) {
+        final FirebaseRecyclerAdapter<Urun1, UnluViewHolder> adapter = new FirebaseRecyclerAdapter<Urun1, UnluViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull final UnluViewHolder UnluViewHolder, int i, @NonNull Urun urun) {
+            protected void onBindViewHolder(@NonNull final UnluViewHolder UnluViewHolder, int i, @NonNull Urun1 urun) {
 
                 String userIDs = getRef(i).getKey();
 
@@ -99,7 +98,7 @@ public class unlumamuller extends Fragment {
             @Override
             public UnluViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
 
-                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.urun,viewGroup,false);
+                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.urun1,viewGroup,false);
                 UnluViewHolder viewHolder = new UnluViewHolder(view);
                 return viewHolder;
             }

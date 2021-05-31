@@ -28,6 +28,7 @@ public class ProfilEkrani extends AppCompatActivity {
  private TextView ProfilAd,ProfilTelefonno,ProfilAdres,Profilid;
     private FirebaseAuth mAuth;
     private DatabaseReference ProfilBilgileri;
+    private String currentUserID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,8 +39,8 @@ public class ProfilEkrani extends AppCompatActivity {
         ProfilAdres = findViewById(R.id.ProfilAdres);
         Profilid = findViewById(R.id.Profilid);
         final FirebaseAuth auth = FirebaseAuth.getInstance();
-        ProfilBilgileri = FirebaseDatabase.getInstance().getReference().child("Kullanıcılar").child("Profil");
 
+        ProfilBilgileri = FirebaseDatabase.getInstance().getReference().child("kullanıcılar");
 
 
         FirebaseUser user = auth.getCurrentUser();

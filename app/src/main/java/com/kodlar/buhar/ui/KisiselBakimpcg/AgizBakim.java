@@ -23,7 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.kodlar.buhar.R;
-import com.kodlar.buhar.Urun;
+import com.kodlar.buhar.Urun1;
 import com.squareup.picasso.Picasso;
 
 public class AgizBakim extends Fragment {
@@ -56,13 +56,13 @@ public class AgizBakim extends Fragment {
     public void onStart(){
         super.onStart();
         FirebaseRecyclerOptions options=
-                new FirebaseRecyclerOptions.Builder<Urun>()
-                        .setQuery(AgizRef,Urun.class)
+                new FirebaseRecyclerOptions.Builder<Urun1>()
+                        .setQuery(AgizRef, Urun1.class)
                         .build();
 
-        final FirebaseRecyclerAdapter<Urun, AgizViewHolder> adapter = new FirebaseRecyclerAdapter<Urun, AgizViewHolder>(options) {
+        final FirebaseRecyclerAdapter<Urun1, AgizViewHolder> adapter = new FirebaseRecyclerAdapter<Urun1, AgizViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull final AgizViewHolder AgizViewHolder, int i, @NonNull Urun urun) {
+            protected void onBindViewHolder(@NonNull final AgizViewHolder AgizViewHolder, int i, @NonNull Urun1 urun) {
 
                 String userIDs = getRef(i).getKey();
 
@@ -97,7 +97,7 @@ public class AgizBakim extends Fragment {
             @Override
             public AgizViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
 
-                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.urun,viewGroup,false);
+                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.urun1,viewGroup,false);
                 AgizViewHolder viewHolder = new AgizViewHolder(view);
                 return viewHolder;
             }

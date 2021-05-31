@@ -2,7 +2,6 @@ package com.kodlar.buhar.ui.Etpcg;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.utils.widget.ImageFilterView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,8 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.kodlar.buhar.R;
-import com.kodlar.buhar.Urun;
-import com.kodlar.buhar.ui.unveunlumamullerpcg.unlumamuller;
+import com.kodlar.buhar.Urun1;
 import com.squareup.picasso.Picasso;
 
 public class KirmiziEt extends Fragment {
@@ -59,13 +57,13 @@ public class KirmiziEt extends Fragment {
     public void onStart(){
         super.onStart();
         FirebaseRecyclerOptions options=
-                new FirebaseRecyclerOptions.Builder<Urun>()
-                        .setQuery(KirmiziEtRef,Urun.class)
+                new FirebaseRecyclerOptions.Builder<Urun1>()
+                        .setQuery(KirmiziEtRef, Urun1.class)
                         .build();
 
-        final FirebaseRecyclerAdapter<Urun, KirmiziEtViewHolder> adapter = new FirebaseRecyclerAdapter<Urun, KirmiziEtViewHolder>(options) {
+        final FirebaseRecyclerAdapter<Urun1, KirmiziEtViewHolder> adapter = new FirebaseRecyclerAdapter<Urun1, KirmiziEtViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull final KirmiziEtViewHolder KirmiziEtViewHolder, int i, @NonNull Urun urun) {
+            protected void onBindViewHolder(@NonNull final KirmiziEtViewHolder KirmiziEtViewHolder, int i, @NonNull Urun1 urun) {
 
                 String userIDs = getRef(i).getKey();
 
@@ -100,7 +98,7 @@ public class KirmiziEt extends Fragment {
             @Override
             public KirmiziEtViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
 
-                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.urun,viewGroup,false);
+                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.urun1,viewGroup,false);
                 KirmiziEtViewHolder viewHolder = new KirmiziEtViewHolder(view);
                 return viewHolder;
             }

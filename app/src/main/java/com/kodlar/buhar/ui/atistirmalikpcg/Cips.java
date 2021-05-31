@@ -23,7 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.kodlar.buhar.R;
-import com.kodlar.buhar.Urun;
+import com.kodlar.buhar.Urun1;
 import com.squareup.picasso.Picasso;
 
 public class Cips extends Fragment {
@@ -56,13 +56,13 @@ public class Cips extends Fragment {
     public void onStart(){
         super.onStart();
         FirebaseRecyclerOptions options=
-                new FirebaseRecyclerOptions.Builder<Urun>()
-                        .setQuery(CipsRef,Urun.class)
+                new FirebaseRecyclerOptions.Builder<Urun1>()
+                        .setQuery(CipsRef, Urun1.class)
                         .build();
 
-        final FirebaseRecyclerAdapter<Urun, CipsViewHolder> adapter = new FirebaseRecyclerAdapter<Urun, CipsViewHolder>(options) {
+        final FirebaseRecyclerAdapter<Urun1, CipsViewHolder> adapter = new FirebaseRecyclerAdapter<Urun1, CipsViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull final CipsViewHolder CipsViewHolder, int i, @NonNull Urun urun) {
+            protected void onBindViewHolder(@NonNull final CipsViewHolder CipsViewHolder, int i, @NonNull Urun1 urun) {
 
                 String userIDs = getRef(i).getKey();
 
@@ -97,7 +97,7 @@ public class Cips extends Fragment {
             @Override
             public CipsViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
 
-                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.urun,viewGroup,false);
+                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.urun1,viewGroup,false);
                 CipsViewHolder viewHolder = new CipsViewHolder(view);
                 return viewHolder;
             }

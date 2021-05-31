@@ -1,5 +1,9 @@
 package com.kodlar.buhar;
 
+import com.google.common.collect.ArrayListMultimap;
+
+import java.util.ArrayList;
+
 public class SepetController {
 
     private int miktar,fiyat,ToplamFiyat;
@@ -7,6 +11,8 @@ public class SepetController {
     public int getMiktar() {
         return miktar;
     }
+
+
 
     public SepetController() {
     }

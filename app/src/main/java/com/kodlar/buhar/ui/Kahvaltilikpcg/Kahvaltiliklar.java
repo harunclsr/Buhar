@@ -24,9 +24,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.kodlar.buhar.Urun;
+import com.kodlar.buhar.Urun1;
 import com.kodlar.buhar.R;
-import com.kodlar.buhar.ui.KisiselBakimpcg.AgizBakim;
 import com.squareup.picasso.Picasso;
 public class Kahvaltiliklar extends Fragment {
     private View KahvaltiliklarView;
@@ -58,13 +57,13 @@ public class Kahvaltiliklar extends Fragment {
     public void onStart(){
         super.onStart();
         FirebaseRecyclerOptions options=
-                new FirebaseRecyclerOptions.Builder<Urun>()
-                        .setQuery(KahvaltiliklarRef,Urun.class)
+                new FirebaseRecyclerOptions.Builder<Urun1>()
+                        .setQuery(KahvaltiliklarRef, Urun1.class)
                         .build();
 
-        final FirebaseRecyclerAdapter<Urun, KahvaltiliklarViewHolder> adapter = new FirebaseRecyclerAdapter<Urun, KahvaltiliklarViewHolder>(options) {
+        final FirebaseRecyclerAdapter<Urun1, KahvaltiliklarViewHolder> adapter = new FirebaseRecyclerAdapter<Urun1, KahvaltiliklarViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull final KahvaltiliklarViewHolder KahvaltiliklarViewHolder, int i, @NonNull Urun urun) {
+            protected void onBindViewHolder(@NonNull final KahvaltiliklarViewHolder KahvaltiliklarViewHolder, int i, @NonNull Urun1 urun) {
 
                 String userIDs = getRef(i).getKey();
 
@@ -99,7 +98,7 @@ public class Kahvaltiliklar extends Fragment {
             @Override
             public KahvaltiliklarViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
 
-                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.urun,viewGroup,false);
+                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.urun1,viewGroup,false);
                 KahvaltiliklarViewHolder viewHolder = new KahvaltiliklarViewHolder(view);
                 return viewHolder;
             }

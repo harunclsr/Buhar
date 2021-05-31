@@ -2,7 +2,6 @@ package com.kodlar.buhar.ui.Etpcg;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.utils.widget.ImageFilterView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,8 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.kodlar.buhar.R;
-import com.kodlar.buhar.Urun;
-import com.kodlar.buhar.ui.unveunlumamullerpcg.unlumamuller;
+import com.kodlar.buhar.Urun1;
 import com.squareup.picasso.Picasso;
 
 public class BeyazEt extends Fragment {
@@ -59,13 +57,13 @@ public class BeyazEt extends Fragment {
     public void onStart(){
         super.onStart();
         FirebaseRecyclerOptions options=
-                new FirebaseRecyclerOptions.Builder<Urun>()
-                        .setQuery(BeyazEtRef,Urun.class)
+                new FirebaseRecyclerOptions.Builder<Urun1>()
+                        .setQuery(BeyazEtRef, Urun1.class)
                         .build();
 
-        final FirebaseRecyclerAdapter<Urun, BeyazEtViewHolder> adapter = new FirebaseRecyclerAdapter<Urun, BeyazEtViewHolder>(options) {
+        final FirebaseRecyclerAdapter<Urun1, BeyazEtViewHolder> adapter = new FirebaseRecyclerAdapter<Urun1, BeyazEtViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull final BeyazEtViewHolder BeyazEtViewHolder, int i, @NonNull Urun urun) {
+            protected void onBindViewHolder(@NonNull final BeyazEtViewHolder BeyazEtViewHolder, int i, @NonNull Urun1 urun) {
 
                 String userIDs = getRef(i).getKey();
 
@@ -100,7 +98,7 @@ public class BeyazEt extends Fragment {
             @Override
             public BeyazEtViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
 
-                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.urun,viewGroup,false);
+                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.urun1,viewGroup,false);
                 BeyazEtViewHolder viewHolder = new BeyazEtViewHolder(view);
                 return viewHolder;
             }

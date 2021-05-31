@@ -1,11 +1,8 @@
 package com.kodlar.buhar.ui.iceceklerpcg;
 import android.os.Bundle;
-import android.text.method.ScrollingMovementMethod;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.ConsoleMessage;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -19,7 +16,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.FirebaseError;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -27,14 +23,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.kodlar.buhar.SepetController;
-import com.kodlar.buhar.Urun;
+import com.kodlar.buhar.Urun1;
 import com.kodlar.buhar.R;
 import com.kodlar.buhar.ui.Sepetimpcg.Sepet;
 import com.squareup.picasso.Picasso;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class Su extends Fragment  {
@@ -44,7 +36,7 @@ public class Su extends Fragment  {
     private DatabaseReference SuRef,SepetRef,SepetTutarRef;
     private FirebaseAuth mAuth;
     private String currentUserID;
-
+    int count=0;
     private TextView uruntutar;
 
 
@@ -69,30 +61,24 @@ public class Su extends Fragment  {
         SepetRef = FirebaseDatabase.getInstance().getReference().child("Kullanıcılar").child(currentUserID).child("Sepet").child("Urunlistesi");
         SepetTutarRef = FirebaseDatabase.getInstance().getReference().child("Kullanıcılar").child(currentUserID).child("Sepet").child("SepetTutari");
 
-        LayoutInflater lf = getActivity().getLayoutInflater();
 
-
-        TextView   text = (TextView)SuView.findViewById(R.id.denemetxt);
-
-
-        text.setText("123123123");
         return SuView;
     }
     @Override
     public void onStart(){
         super.onStart();
         FirebaseRecyclerOptions options=
-                new FirebaseRecyclerOptions.Builder<Urun>()
-                        .setQuery(SuRef,Urun.class)
+                new FirebaseRecyclerOptions.Builder<Urun1>()
+                        .setQuery(SuRef, Urun1.class)
                         .build();
 
-        final  FirebaseRecyclerAdapter<Urun,SuViewHolder> adapter = new FirebaseRecyclerAdapter<Urun, SuViewHolder>(options) {
+        final  FirebaseRecyclerAdapter<Urun1,SuViewHolder> adapter = new FirebaseRecyclerAdapter<Urun1, SuViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull final SuViewHolder suViewHolder, int i, @NonNull Urun urun) {
+            protected void onBindViewHolder(@NonNull final SuViewHolder suViewHolder, int i, @NonNull Urun1 urun) {
 
                 String userIDs = getRef(i).getKey();
                 SepetController sepetislemleri = new SepetController();
-
+                Sepet SepetTutar = new Sepet();
                 SuRef.child(userIDs).addValueEventListener(new ValueEventListener(){
 
                     @Override
@@ -111,80 +97,37 @@ public class Su extends Fragment  {
 
                         Picasso.get().load(urunfotografi.toString()).into(suViewHolder.urunfotografi);
 
-                        suViewHolder.sepetArti.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
+                suViewHolder.sepetArti.setOnClickListener(new View.OnClickListener() {
 
-                                DatabaseReference SepetRef;
-                                SepetRef=FirebaseDatabase.getInstance().getReference().child("Kullanıcılar").child(currentUserID).child("Sepet").child("Urunlistesi");
-                            if(  suViewHolder.miktar==0) {
-                             suViewHolder.miktar++;
-
-                                SepetRef.child(userIDs).setValue(new Urun(urunadi, urunagirlik, urunfiyat, urunfotografi, urunid));
-                                SepetRef.child(userIDs).child("miktar").setValue(   suViewHolder.miktar);
-
-                                   Snackbar.make(SuView, "Sepetinize ürün eklendi.", Snackbar.LENGTH_LONG)
-                                        .setAction("Action", null).show();
+                    @Override
+                    public void onClick(View v) {
 
 
+                        DatabaseReference SepetRef;
+                        SepetRef = FirebaseDatabase.getInstance().getReference().child("Kullanıcılar").child(currentUserID).child("Sepet").child("Urunlistesi");
+                        suViewHolder.miktar++;
+
+                        SepetRef.child(userIDs).setValue(new Urun1(urunadi, urunagirlik, urunfiyat, urunfotografi, urunid));
+                        SepetRef.child(userIDs).child("miktar").setValue(suViewHolder.miktar);
+                        SepetRef.child(userIDs).child("uruntutari").setValue(urun.getUruntutari());
+                        Snackbar.make(SuView, "Sepetinize ürün eklendi.", Snackbar.LENGTH_LONG)
+                                .setAction("Action", null).show();
 
 
-                                SepetTutarRef.child("TUTAR").setValue(  sepetislemleri.getToplamFiyat());
+                        urun.setUruntutari(suViewHolder.miktar * urunfiyat);
+
+                        SepetRef.child(userIDs).child("uruntutari").setValue(urun.getUruntutari());
 
 
+                        Snackbar.make(SuView, "Sepetinize ürün eklendi.", Snackbar.LENGTH_LONG)
+                                .setAction("Action", null).show();
+                    }
 
 
-                            }else {
-                                suViewHolder.miktar++;
-
-
-
-                                SepetRef.child(userIDs).child("miktar").setValue(suViewHolder.miktar);
-                                suViewHolder.sepettext.setText("" + suViewHolder.miktar);
-                                urun.setMiktar(suViewHolder.miktar);
-
-
-
-
-
-
-
-                          int tutar=+ urunfiyat*suViewHolder.miktar;
-                          sepetislemleri.setToplamFiyat(tutar);
-
-
-                                SepetTutarRef.child("TUTAR").setValue(  sepetislemleri.getToplamFiyat());
-
-                            }
-
-                            }
                         });
 
 
-                        suViewHolder.sepetEksi.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                DatabaseReference SepetRef;
-                                SepetRef=FirebaseDatabase.getInstance().getReference().child("Kullanıcılar").child(currentUserID).child("Sepet").child("Urunlistesi");
-                                if(  suViewHolder.miktar<2) {
 
-                                   SepetRef.child(userIDs).removeValue();
-
-
-
-                                    Snackbar.make(SuView, "Sepetinizden ürün silindi.", Snackbar.LENGTH_LONG)
-                                            .setAction("Action", null).show();
-                                }else {
-
-                                    suViewHolder.miktar--;
-
-                                    SepetRef.child(userIDs).child("miktar").setValue(suViewHolder.miktar);
-                                    suViewHolder.sepettext.setText("" + suViewHolder.miktar);
-                                    urun.setMiktar(suViewHolder.miktar);
-
-                                }
-                            }
-                        });
 
                     }
 
@@ -204,19 +147,26 @@ public class Su extends Fragment  {
                     {
 
                       Integer miktar = dataSnapshot.child("miktar").getValue(Integer.class);
-
+                        Integer UrunTekTutar = dataSnapshot.child("uruntutari").getValue(Integer.class);
                     if(miktar==null){
                         miktar=0;
-                        suViewHolder.sepettext.setText("" + miktar);
+
 
                         suViewHolder.miktar=miktar;
                     }
                         else {
-                        suViewHolder.sepettext.setText("" + miktar);
+
                         suViewHolder.miktar=miktar;
                     }
 
+                        if(UrunTekTutar==null){
+                            UrunTekTutar=0;
 
+                            suViewHolder.tutar=UrunTekTutar;
+                        }
+                        else {
+                            suViewHolder.tutar=UrunTekTutar;
+                        }
 
 
 
@@ -231,32 +181,7 @@ public class Su extends Fragment  {
                                 .setAction("Action", null).show();
                     }
                 });
-                SepetTutarRef.child(userIDs).addValueEventListener(new ValueEventListener(){
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot)
-                    {
 
-                        Integer tutar = dataSnapshot.child("TUTAR").getValue(Integer.class);
-
-                        if(tutar==null){
-                            tutar=0;
-
-
-                           sepetislemleri.setToplamFiyat(tutar);
-                        }
-                        else {
-
-                            sepetislemleri.setToplamFiyat(tutar);
-                        }
-                    }
-
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        Snackbar.make(SuView, "HATA!!!!!!", Snackbar.LENGTH_LONG)
-                                .setAction("Action", null).show();
-                    }
-                });
 
             }
 
@@ -266,7 +191,7 @@ public class Su extends Fragment  {
             @Override
             public SuViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
 
-                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.urun,viewGroup,false);
+                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.urun1,viewGroup,false);
                 SuViewHolder viewHolder = new SuViewHolder(view);
                 return viewHolder;
             }
@@ -285,11 +210,11 @@ public class Su extends Fragment  {
         TextView urunadi,urunfiyat,urunagirlik;
         ImageFilterView urunfotografi;
         private ImageButton sepetArti;
-        private ImageButton sepetEksi;
-        private TextView sepettext;
+
+
         private int miktar ;
         private int tutar;
-        ArrayList<Integer> tutarlist = new ArrayList<>();
+
 
         public SuViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -298,8 +223,8 @@ public class Su extends Fragment  {
             urunagirlik= itemView.findViewById(R.id.urunAgirlik);
             urunfotografi=itemView.findViewById(R.id.urunfotografi);
             sepetArti = itemView.findViewById(R.id.sepetarti);
-            sepettext=itemView.findViewById(R.id.sepettext);
-            sepetEksi = itemView.findViewById(R.id.sepeteksi);
+
+
 
         }
     }

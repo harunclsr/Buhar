@@ -22,7 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.kodlar.buhar.R;
-import com.kodlar.buhar.Urun;
+import com.kodlar.buhar.Urun1;
 import com.squareup.picasso.Picasso;
 
 
@@ -56,13 +56,13 @@ public class Yag extends Fragment {
     public void onStart(){
         super.onStart();
         FirebaseRecyclerOptions options=
-                new FirebaseRecyclerOptions.Builder<Urun>()
-                        .setQuery(YagRef,Urun.class)
+                new FirebaseRecyclerOptions.Builder<Urun1>()
+                        .setQuery(YagRef, Urun1.class)
                         .build();
 
-        final FirebaseRecyclerAdapter<Urun, YagViewHolder> adapter = new FirebaseRecyclerAdapter<Urun, YagViewHolder>(options) {
+        final FirebaseRecyclerAdapter<Urun1, YagViewHolder> adapter = new FirebaseRecyclerAdapter<Urun1, YagViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull final YagViewHolder YagViewHolder, int i, @NonNull Urun urun) {
+            protected void onBindViewHolder(@NonNull final YagViewHolder YagViewHolder, int i, @NonNull Urun1 urun) {
 
                 String userIDs = getRef(i).getKey();
 
@@ -97,7 +97,7 @@ public class Yag extends Fragment {
             @Override
             public YagViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
 
-                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.urun,viewGroup,false);
+                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.urun1,viewGroup,false);
                 YagViewHolder viewHolder = new YagViewHolder(view);
                 return viewHolder;
             }

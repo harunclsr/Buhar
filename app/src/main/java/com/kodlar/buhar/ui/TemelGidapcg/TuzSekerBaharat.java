@@ -2,7 +2,6 @@ package com.kodlar.buhar.ui.TemelGidapcg;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.utils.widget.ImageFilterView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,7 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.kodlar.buhar.R;
-import com.kodlar.buhar.Urun;
+import com.kodlar.buhar.Urun1;
 import com.squareup.picasso.Picasso;
 
 public class TuzSekerBaharat extends Fragment {
@@ -57,13 +56,13 @@ public class TuzSekerBaharat extends Fragment {
     public void onStart(){
         super.onStart();
         FirebaseRecyclerOptions options=
-                new FirebaseRecyclerOptions.Builder<Urun>()
-                        .setQuery(TSBRef,Urun.class)
+                new FirebaseRecyclerOptions.Builder<Urun1>()
+                        .setQuery(TSBRef, Urun1.class)
                         .build();
 
-        final FirebaseRecyclerAdapter<Urun, TSBViewHolder> adapter = new FirebaseRecyclerAdapter<Urun, TSBViewHolder>(options) {
+        final FirebaseRecyclerAdapter<Urun1, TSBViewHolder> adapter = new FirebaseRecyclerAdapter<Urun1, TSBViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull final TSBViewHolder TSBViewHolder, int i, @NonNull Urun urun) {
+            protected void onBindViewHolder(@NonNull final TSBViewHolder TSBViewHolder, int i, @NonNull Urun1 urun) {
 
                 String userIDs = getRef(i).getKey();
 
@@ -98,7 +97,7 @@ public class TuzSekerBaharat extends Fragment {
             @Override
             public TSBViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
 
-                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.urun,viewGroup,false);
+                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.urun1,viewGroup,false);
                 TSBViewHolder viewHolder = new TSBViewHolder(view);
                 return viewHolder;
             }

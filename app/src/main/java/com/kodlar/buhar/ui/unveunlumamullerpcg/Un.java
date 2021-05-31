@@ -23,7 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.kodlar.buhar.R;
-import com.kodlar.buhar.Urun;
+import com.kodlar.buhar.Urun1;
 
 import com.squareup.picasso.Picasso;
 
@@ -57,13 +57,13 @@ public class Un extends Fragment {
     public void onStart(){
         super.onStart();
         FirebaseRecyclerOptions options=
-                new FirebaseRecyclerOptions.Builder<Urun>()
-                        .setQuery(UnRef,Urun.class)
+                new FirebaseRecyclerOptions.Builder<Urun1>()
+                        .setQuery(UnRef, Urun1.class)
                         .build();
 
-        final FirebaseRecyclerAdapter<Urun, UnViewHolder> adapter = new FirebaseRecyclerAdapter<Urun, UnViewHolder>(options) {
+        final FirebaseRecyclerAdapter<Urun1, UnViewHolder> adapter = new FirebaseRecyclerAdapter<Urun1, UnViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull final UnViewHolder UnViewHolder, int i, @NonNull Urun urun) {
+            protected void onBindViewHolder(@NonNull final UnViewHolder UnViewHolder, int i, @NonNull Urun1 urun) {
 
                 String userIDs = getRef(i).getKey();
 
@@ -98,7 +98,7 @@ public class Un extends Fragment {
             @Override
             public UnViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
 
-                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.urun,viewGroup,false);
+                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.urun1,viewGroup,false);
                 UnViewHolder viewHolder = new UnViewHolder(view);
                 return viewHolder;
             }

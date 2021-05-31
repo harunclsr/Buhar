@@ -1,14 +1,12 @@
 package com.kodlar.buhar;
+
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class Urun {
-
-
-
+public class Urun1 {
     public String urunadi, urunagirlik, image,urunid;
-    public int miktar, urunfiyati;
-    public int uruntutari;
+public int miktar, urunfiyati;
+public int uruntutari;
 
     public int getUruntutari() {
         return uruntutari;
@@ -18,7 +16,7 @@ public class Urun {
         this.uruntutari = uruntutari;
     }
 
-    public Urun(int uruntutari) {
+    public Urun1(int uruntutari) {
         this.uruntutari = uruntutari;
     }
 
@@ -30,13 +28,13 @@ public class Urun {
         this.urunid = urunid;
     }
 
-    public Urun(String image) {
+    public Urun1(String image) {
         this.image = image;
     }
 
 
 
-    public Urun(String urunadi, int urunfiyati, String urunagirlik, String image, String urunid, int miktar) {
+    public Urun1(String urunadi, int urunfiyati, String urunagirlik, String image, String urunid, int miktar) {
         this.urunadi = urunadi;
         this.urunfiyati = urunfiyati;
         this.urunagirlik = urunagirlik;
@@ -53,11 +51,11 @@ public class Urun {
         this.miktar = miktar;
     }
 
-    public Urun() {
+    public Urun1() {
 
     }
 
-    public Urun(String urunadi, String urunagirlik, int urunfiyati, String image, String urunid) {
+    public Urun1(String urunadi, String urunagirlik, int urunfiyati, String image, String urunid) {
         this.urunadi = urunadi;
         this.urunfiyati = urunfiyati;
         this.urunagirlik = urunagirlik;
@@ -65,7 +63,7 @@ public class Urun {
         this.urunid = urunid;
     }
 
-    public Urun(String urunadi, int urunfiyati, String urunagirlik, String image) {
+    public Urun1(String urunadi, int urunfiyati, String urunagirlik, String image) {
         this.urunadi = urunadi;
         this.urunfiyati = urunfiyati;
         this.urunagirlik = urunagirlik;

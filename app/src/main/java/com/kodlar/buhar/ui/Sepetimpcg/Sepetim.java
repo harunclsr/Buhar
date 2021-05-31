@@ -18,7 +18,6 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -27,11 +26,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.kodlar.buhar.AnaEkran;
 import com.kodlar.buhar.R;
-import com.kodlar.buhar.Urun;
-import com.kodlar.buhar.ui.KisiselBakimpcg.KisiselBakim;
-import com.kodlar.buhar.ui.KisiselBakimpcg.KisiselSectionsPagerAdapter;
-import com.kodlar.buhar.ui.Sepetimpcg.*;
-import com.squareup.picasso.Picasso;
+import com.kodlar.buhar.Urun1;
 
 public class Sepetim extends AppCompatActivity {
     private ImageButton Anasayfadonuskisisel;
@@ -84,13 +79,13 @@ public class Sepetim extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         FirebaseRecyclerOptions options =
-                new FirebaseRecyclerOptions.Builder<Urun>()
-                        .setQuery(SepetRef, Urun.class)
+                new FirebaseRecyclerOptions.Builder<Urun1>()
+                        .setQuery(SepetRef, Urun1.class)
                         .build();
 
-        final FirebaseRecyclerAdapter<Urun,SepetimViewHolder> adapter = new FirebaseRecyclerAdapter<Urun, SepetimViewHolder>(options) {
+        final FirebaseRecyclerAdapter<Urun1,SepetimViewHolder> adapter = new FirebaseRecyclerAdapter<Urun1, SepetimViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull final SepetimViewHolder SepetimViewHolder, int i, @NonNull Urun urun) {
+            protected void onBindViewHolder(@NonNull final SepetimViewHolder SepetimViewHolder, int i, @NonNull Urun1 urun) {
 
                 String userIDs = getRef(i).getKey();
 
@@ -124,7 +119,7 @@ public class Sepetim extends AppCompatActivity {
             @Override
             public SepetimViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
 
-                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.urun, viewGroup, false);
+                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.urun1, viewGroup, false);
                 SepetimViewHolder viewHolder = new SepetimViewHolder(view);
                 return viewHolder;
             }

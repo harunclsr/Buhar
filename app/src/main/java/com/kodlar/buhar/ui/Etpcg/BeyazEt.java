@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -30,7 +31,7 @@ public class BeyazEt extends Fragment {
 
     private View beyazEtView;
     private RecyclerView myBeyazEtList;
-    private DatabaseReference BeyazEtRef,ContacsRef;
+    private DatabaseReference BeyazEtRef,SepetRef,SepetTutarRef;
     private FirebaseAuth mAuth;
     private String currentUserID;
 
@@ -48,6 +49,8 @@ public class BeyazEt extends Fragment {
 
         // ContacsRef = FirebaseDatabase.getInstance().getReference().child("Kampus").child("icecekler").child("Su").child(currentUserID);
         BeyazEtRef = FirebaseDatabase.getInstance().getReference().child("Kampus").child("Et").child("Beyaz Et");
+        SepetRef = FirebaseDatabase.getInstance().getReference().child("Kullanıcılar").child(currentUserID).child("Sepet").child("Urunlistesi");
+        SepetTutarRef = FirebaseDatabase.getInstance().getReference().child("Kullanıcılar").child(currentUserID).child("Sepet").child("SepetTutari");
 
 
 
@@ -72,19 +75,52 @@ public class BeyazEt extends Fragment {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot)
                     {
-
                         String urunfotografi = dataSnapshot.child("image").getValue(String.class);
                         String urunadi = dataSnapshot.child("urunadi").getValue(String.class);
                         String urunagirlik = dataSnapshot.child("urunagirlik").getValue(String.class);
-                        String urunfiyat = dataSnapshot.child("urunfiyati").getValue(String.class);
+                        Integer urunfiyat = dataSnapshot.child("urunfiyati").getValue(Integer.class);
+                        String urunid = dataSnapshot.child("urunid").getValue(String.class);
 
                         BeyazEtViewHolder.urunadi.setText(urunadi);
-                        BeyazEtViewHolder.urunfiyat.setText(urunfiyat);
+                        BeyazEtViewHolder.urunfiyat.setText(""+urunfiyat);
                         BeyazEtViewHolder.urunagirlik.setText(urunagirlik);
+
                         Picasso.get().load(urunfotografi.toString()).into(BeyazEtViewHolder.urunfotografi);
+
+                        BeyazEtViewHolder.sepetArti.setOnClickListener(new View.OnClickListener() {
+
+                            @Override
+                            public void onClick(View v) {
+
+
+                                DatabaseReference SepetRef;
+                                SepetRef = FirebaseDatabase.getInstance().getReference().child("Kullanıcılar").child(currentUserID).child("Sepet").child("Urunlistesi");
+                                BeyazEtViewHolder.miktar++;
+
+                                SepetRef.child(userIDs).setValue(new Urun1(urunadi, urunagirlik, urunfiyat, urunfotografi, urunid));
+                                SepetRef.child(userIDs).child("miktar").setValue(BeyazEtViewHolder.miktar);
+                                SepetRef.child(userIDs).child("uruntutari").setValue(urun.getUruntutari());
+                                Snackbar.make(beyazEtView, "Sepetinize ürün eklendi.", Snackbar.LENGTH_LONG)
+                                        .setAction("Action", null).show();
+
+
+                                urun.setUruntutari(BeyazEtViewHolder.miktar * urunfiyat);
+
+                                SepetRef.child(userIDs).child("uruntutari").setValue(urun.getUruntutari());
+
+
+                                Snackbar.make(beyazEtView, "Sepetinize ürün eklendi.", Snackbar.LENGTH_LONG)
+                                        .setAction("Action", null).show();
+                            }
+
+
+                        });
+
+
 
 
                     }
+
 
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
@@ -113,6 +149,12 @@ public class BeyazEt extends Fragment {
 
         TextView urunadi,urunfiyat,urunagirlik;
         ImageFilterView urunfotografi;
+        private ImageButton sepetArti;
+
+
+        private int miktar ;
+        private int tutar;
+
 
         public BeyazEtViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -120,6 +162,9 @@ public class BeyazEt extends Fragment {
             urunfiyat= itemView.findViewById(R.id.urunFiyat);
             urunagirlik= itemView.findViewById(R.id.urunAgirlik);
             urunfotografi=itemView.findViewById(R.id.urunfotografi);
+            sepetArti = itemView.findViewById(R.id.sepetarti);
+
+
 
         }
     }

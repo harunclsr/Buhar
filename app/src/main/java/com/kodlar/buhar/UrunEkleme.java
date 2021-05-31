@@ -397,7 +397,7 @@ public class UrunEkleme extends AppCompatActivity {
     String  urunadi= urunAdi.getText().toString();
     Integer  urunfiyati= Integer.valueOf(urunFiyati.getText().toString());
     String  urunagirlik= urunAgirlik.getText().toString();
-     String  urunid= idurun.getText().toString();
+    String  urunid= idurun.getText().toString();
 
 
 

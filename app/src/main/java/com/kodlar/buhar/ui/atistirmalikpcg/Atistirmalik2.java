@@ -11,7 +11,9 @@ import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.kodlar.buhar.AnaEkran;
+import com.kodlar.buhar.AramaEkrani;
 import com.kodlar.buhar.R;
+import com.kodlar.buhar.ui.Sepetimpcg.Sepetim;
 
 import android.view.View;
 import android.widget.ImageButton;
@@ -42,8 +44,9 @@ public class Atistirmalik2 extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent= new Intent( Atistirmalik2.this, Sepetim.class);
+
+                startActivity(intent);
             }
         });
     }

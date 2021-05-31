@@ -16,7 +16,9 @@ import android.widget.ImageButton;
 import com.google.firebase.database.FirebaseDatabase;
 import com.kodlar.buhar.AnaEkran;
 
+import com.kodlar.buhar.AramaEkrani;
 import com.kodlar.buhar.R;
+import com.kodlar.buhar.ui.Sepetimpcg.Sepetim;
 
 public class icecekler2 extends AppCompatActivity {
 
@@ -48,7 +50,7 @@ public class icecekler2 extends AppCompatActivity {
         Anasayfadonus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(icecekler2.this, AnaEkran.class);
+                Intent intent= new Intent( icecekler2.this, Sepetim.class);
 
                 startActivity(intent);
 

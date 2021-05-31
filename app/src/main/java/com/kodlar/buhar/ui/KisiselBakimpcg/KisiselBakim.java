@@ -14,7 +14,9 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.kodlar.buhar.AnaEkran;
+import com.kodlar.buhar.AramaEkrani;
 import com.kodlar.buhar.R;
+import com.kodlar.buhar.ui.Sepetimpcg.Sepetim;
 
 public class KisiselBakim extends AppCompatActivity {
     private ImageButton Anasayfadonuskisisel;
@@ -41,9 +43,9 @@ public class KisiselBakim extends AppCompatActivity {
         Anasayfadonuskisisel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(KisiselBakim.this, AnaEkran.class);
-                startActivity(intent);
+                Intent intent= new Intent( KisiselBakim.this, Sepetim.class);
 
+                startActivity(intent);
             }
         });
     }

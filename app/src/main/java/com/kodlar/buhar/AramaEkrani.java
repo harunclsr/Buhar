@@ -6,6 +6,8 @@ import android.os.Bundle;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.kodlar.buhar.ui.Sepetimpcg.Sepet;
+import com.kodlar.buhar.ui.Sepetimpcg.Sepetim;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -30,8 +32,9 @@ public class AramaEkrani extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent= new Intent( AramaEkrani.this, Sepetim.class);
+
+                startActivity(intent);
             }
         });
         Anasayfadonus.setOnClickListener(new View.OnClickListener() {

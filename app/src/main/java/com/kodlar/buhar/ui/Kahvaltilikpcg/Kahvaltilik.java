@@ -11,7 +11,9 @@ import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.kodlar.buhar.AnaEkran;
+import com.kodlar.buhar.AramaEkrani;
 import com.kodlar.buhar.R;
+import com.kodlar.buhar.ui.Sepetimpcg.Sepetim;
 
 import android.view.View;
 import android.widget.ImageButton;
@@ -40,7 +42,7 @@ public class Kahvaltilik extends AppCompatActivity {
         Anasayfadonus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Kahvaltilik.this, AnaEkran.class);
+                Intent intent= new Intent( Kahvaltilik.this, Sepetim.class);
 
                 startActivity(intent);
 

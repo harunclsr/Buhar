@@ -39,8 +39,10 @@ public class ProfilEkrani extends AppCompatActivity {
         ProfilAdres = findViewById(R.id.ProfilAdres);
         Profilid = findViewById(R.id.Profilid);
         final FirebaseAuth auth = FirebaseAuth.getInstance();
+        mAuth=FirebaseAuth.getInstance();
+        currentUserID = mAuth.getCurrentUser().getUid();
 
-        ProfilBilgileri = FirebaseDatabase.getInstance().getReference().child("kullanıcılar");
+        ProfilBilgileri = FirebaseDatabase.getInstance().getReference().child("Kullanıcılar").child(currentUserID).child("Profil");
 
 
         FirebaseUser user = auth.getCurrentUser();
@@ -52,7 +54,7 @@ public class ProfilEkrani extends AppCompatActivity {
 
                 String userIDs = user.getUid();
 
-                ProfilBilgileri.child(userIDs).addValueEventListener(new ValueEventListener(){
+                ProfilBilgileri.addValueEventListener(new ValueEventListener(){
 
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot)

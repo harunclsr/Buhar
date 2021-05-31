@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.kodlar.buhar.AnaEkran;
 import com.kodlar.buhar.R;
-import com.kodlar.buhar.ui.unveunlumamullerpcg.UnveUnluMamuller;
 
 import android.view.View;
 import android.widget.ImageButton;
@@ -28,7 +27,7 @@ public class Et2 extends AppCompatActivity {
         viewPager.setAdapter(etSectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
-        FloatingActionButton fab = findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.SepetButonu);
         AnasayfadonusEt = (ImageButton) findViewById(R.id.AnasayfadonusEt);
         AnasayfadonusEt.setOnClickListener(new View.OnClickListener() {
             @Override

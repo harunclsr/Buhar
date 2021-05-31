@@ -27,7 +27,7 @@ public class UnveUnluMamuller extends AppCompatActivity {
         viewPager.setAdapter(unSectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
-        FloatingActionButton fab = findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.SepetButonu);
         Anasayfadonus = (ImageButton) findViewById(R.id.Anasayfadonusunveunlu);
         Anasayfadonus.setOnClickListener(new View.OnClickListener() {
             @Override

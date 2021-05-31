@@ -22,7 +22,7 @@ public class BilgiislemEkrani extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Urunekleme=(Button)findViewById(R.id.eklemeEkrani);
-        FloatingActionButton fab = findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.SepetButonu);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

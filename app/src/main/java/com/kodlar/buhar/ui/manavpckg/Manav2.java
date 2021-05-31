@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.kodlar.buhar.AnaEkran;
 import com.kodlar.buhar.R;
-import com.kodlar.buhar.ui.iceceklerpcg.icecekler2;
 
 import android.view.View;
 import android.widget.ImageButton;
@@ -29,7 +28,7 @@ public class Manav2 extends AppCompatActivity {
         viewPager.setAdapter(manavSectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
-        FloatingActionButton fab = findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.SepetButonu);
 
         Anasayfadonus.setOnClickListener(new View.OnClickListener() {
             @Override

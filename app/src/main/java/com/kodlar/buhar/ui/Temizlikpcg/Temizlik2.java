@@ -6,11 +6,8 @@ import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
-import com.google.firebase.database.FirebaseDatabase;
 import com.kodlar.buhar.AnaEkran;
 import com.kodlar.buhar.R;
-import com.kodlar.buhar.ui.atistirmalikpcg.Atistirmalik2;
-import com.kodlar.buhar.ui.iceceklerpcg.iceceklerSectionsPagerAdapter;
 
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,7 +30,7 @@ public class Temizlik2 extends AppCompatActivity {
         viewPager.setAdapter(TemizlikSectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
-        FloatingActionButton fab = findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.SepetButonu);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

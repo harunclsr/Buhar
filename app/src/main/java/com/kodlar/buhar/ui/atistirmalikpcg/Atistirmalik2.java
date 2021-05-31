@@ -29,7 +29,7 @@ public class Atistirmalik2 extends AppCompatActivity {
         viewPager.setAdapter(atistirmalikSectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
-        FloatingActionButton fab = findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.SepetButonu);
 
         Anasayfadonus.setOnClickListener(new View.OnClickListener() {
             @Override

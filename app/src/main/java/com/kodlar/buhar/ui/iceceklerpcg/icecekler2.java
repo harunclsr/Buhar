@@ -36,7 +36,7 @@ public class icecekler2 extends AppCompatActivity {
         viewPager.setAdapter(iceceklerSectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
-        FloatingActionButton fab = findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.SepetButonu);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

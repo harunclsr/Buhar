@@ -15,7 +15,6 @@ import android.widget.ImageButton;
 
 import com.kodlar.buhar.AnaEkran;
 import com.kodlar.buhar.R;
-import com.kodlar.buhar.ui.atistirmalikpcg.Atistirmalik2;
 
 public class KisiselBakim extends AppCompatActivity {
     private ImageButton Anasayfadonuskisisel;
@@ -30,7 +29,7 @@ public class KisiselBakim extends AppCompatActivity {
         viewPager.setAdapter(kisiselSectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
-        FloatingActionButton fab = findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.SepetButonu);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

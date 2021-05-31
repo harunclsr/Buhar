@@ -114,20 +114,6 @@ public class Sepet extends Fragment {
 
                         int total =0;
 
-
-
-
-
-
-
-
-
-                        if (urunfotografi == null || urunadi == null || urunagirlik == null || urunfiyat == null || miktar == null || urunid == null||SepetViewHolder.urunfotografi==null) {
-
-                            Snackbar.make(SepetView, "Sepetinizde ürün bulunmamaktadır!", Snackbar.LENGTH_LONG)
-                                    .setAction("Action", null).show();
-                        } else {
-
                             SepetViewHolder.urunadi.setText(urunadi);
                             SepetViewHolder.urunfiyat.setText("" + urunfiyat);
                             SepetViewHolder.urunagirlik.setText(urunagirlik);
@@ -149,16 +135,8 @@ public class Sepet extends Fragment {
 
 
 
-
-
-
                                     Snackbar.make(SepetView, "Sepetinize ürün eklendi.", Snackbar.LENGTH_LONG)
                                                 .setAction("Action", null).show();
-
-
-
-
-
 
 
                                 }
@@ -195,20 +173,6 @@ public class Sepet extends Fragment {
 
                                 }
                             });
-
-
-
-
-
-                        }
-
-
-
-
-
-
-
-
 
 
                     }

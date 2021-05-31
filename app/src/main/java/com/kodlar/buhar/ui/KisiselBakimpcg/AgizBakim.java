@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -70,21 +71,51 @@ public class AgizBakim extends Fragment {
 
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot)
-                    {
-
-                        String urunfotografi = dataSnapshot.child("image").getValue(String.class);
+                    {String urunfotografi = dataSnapshot.child("image").getValue(String.class);
                         String urunadi = dataSnapshot.child("urunadi").getValue(String.class);
                         String urunagirlik = dataSnapshot.child("urunagirlik").getValue(String.class);
-                        String urunfiyat = dataSnapshot.child("urunfiyati").getValue(String.class);
+                        Integer urunfiyat = dataSnapshot.child("urunfiyati").getValue(Integer.class);
+                        String urunid = dataSnapshot.child("urunid").getValue(String.class);
 
-                        AgizViewHolder.urunadi.setText(urunadi);
-                        AgizViewHolder.urunfiyat.setText(urunfiyat);
+                      AgizViewHolder.urunadi.setText(urunadi);
+                        AgizViewHolder.urunfiyat.setText(""+urunfiyat);
                         AgizViewHolder.urunagirlik.setText(urunagirlik);
+
                         Picasso.get().load(urunfotografi.toString()).into(AgizViewHolder.urunfotografi);
+
+                      AgizViewHolder.sepetArti.setOnClickListener(new View.OnClickListener() {
+
+                            @Override
+                            public void onClick(View v) {
+
+
+                                DatabaseReference SepetRef;
+                                SepetRef = FirebaseDatabase.getInstance().getReference().child("Kullanıcılar").child(currentUserID).child("Sepet").child("Urunlistesi");
+                                AgizViewHolder.miktar++;
+
+                                SepetRef.child(userIDs).setValue(new Urun1(urunadi, urunagirlik, urunfiyat, urunfotografi, urunid));
+                                SepetRef.child(userIDs).child("miktar").setValue(AgizViewHolder.miktar);
+                                SepetRef.child(userIDs).child("uruntutari").setValue(urun.getUruntutari());
+                                Snackbar.make(AgizView, "Sepetinize ürün eklendi.", Snackbar.LENGTH_LONG)
+                                        .setAction("Action", null).show();
+
+
+                                urun.setUruntutari(AgizViewHolder.miktar * urunfiyat);
+
+                                SepetRef.child(userIDs).child("uruntutari").setValue(urun.getUruntutari());
+
+
+                                Snackbar.make(AgizView, "Sepetinize ürün eklendi.", Snackbar.LENGTH_LONG)
+                                        .setAction("Action", null).show();
+                            }
+
+
+                        });
+
+
 
 
                     }
-
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
                         Snackbar.make(AgizView, "HATA!!!!!!", Snackbar.LENGTH_LONG)
@@ -112,6 +143,12 @@ public class AgizBakim extends Fragment {
 
         TextView urunadi,urunfiyat,urunagirlik;
         ImageFilterView urunfotografi;
+        private ImageButton sepetArti;
+
+
+        private int miktar ;
+        private int tutar;
+
 
         public AgizViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -119,6 +156,7 @@ public class AgizBakim extends Fragment {
             urunfiyat= itemView.findViewById(R.id.urunFiyat);
             urunagirlik= itemView.findViewById(R.id.urunAgirlik);
             urunfotografi=itemView.findViewById(R.id.urunfotografi);
+            sepetArti = itemView.findViewById(R.id.sepetarti);
 
         }
     }

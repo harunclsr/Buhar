@@ -24,6 +24,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class SutveSuturunleri extends Fragment {
@@ -78,15 +79,49 @@ public class SutveSuturunleri extends Fragment {
                         String urunfotografi = dataSnapshot.child("image").getValue(String.class);
                         String urunadi = dataSnapshot.child("urunadi").getValue(String.class);
                         String urunagirlik = dataSnapshot.child("urunagirlik").getValue(String.class);
-                        String urunfiyat = dataSnapshot.child("urunfiyati").getValue(String.class);
+                        Integer urunfiyat = dataSnapshot.child("urunfiyati").getValue(Integer.class);
+                        String urunid = dataSnapshot.child("urunid").getValue(String.class);
 
                         SutveSuturunleriViewHolder.urunadi.setText(urunadi);
-                        SutveSuturunleriViewHolder.urunfiyat.setText(urunfiyat);
+                        SutveSuturunleriViewHolder.urunfiyat.setText(""+urunfiyat);
                         SutveSuturunleriViewHolder.urunagirlik.setText(urunagirlik);
+
                         Picasso.get().load(urunfotografi.toString()).into(SutveSuturunleriViewHolder.urunfotografi);
+
+                        SutveSuturunleriViewHolder.sepetArti.setOnClickListener(new View.OnClickListener() {
+
+                            @Override
+                            public void onClick(View v) {
+
+
+                                DatabaseReference SepetRef;
+                                SepetRef = FirebaseDatabase.getInstance().getReference().child("Kullanıcılar").child(currentUserID).child("Sepet").child("Urunlistesi");
+                                SutveSuturunleriViewHolder.miktar++;
+
+                                SepetRef.child(userIDs).setValue(new Urun1(urunadi, urunagirlik, urunfiyat, urunfotografi, urunid));
+                                SepetRef.child(userIDs).child("miktar").setValue(SutveSuturunleriViewHolder.miktar);
+                                SepetRef.child(userIDs).child("uruntutari").setValue(urun.getUruntutari());
+                                Snackbar.make(SutveSuturunleriView, "Sepetinize ürün eklendi.", Snackbar.LENGTH_LONG)
+                                        .setAction("Action", null).show();
+
+
+                                urun.setUruntutari(SutveSuturunleriViewHolder.miktar * urunfiyat);
+
+                                SepetRef.child(userIDs).child("uruntutari").setValue(urun.getUruntutari());
+
+
+                                Snackbar.make(SutveSuturunleriView, "Sepetinize ürün eklendi.", Snackbar.LENGTH_LONG)
+                                        .setAction("Action", null).show();
+                            }
+
+
+                        });
+
+
 
 
                     }
+
 
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
@@ -115,6 +150,12 @@ public class SutveSuturunleri extends Fragment {
 
         TextView urunadi,urunfiyat,urunagirlik;
         ImageFilterView urunfotografi;
+        private ImageButton sepetArti;
+
+
+        private int miktar ;
+        private int tutar;
+
 
         public SutveSuturunleriViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -122,6 +163,7 @@ public class SutveSuturunleri extends Fragment {
             urunfiyat= itemView.findViewById(R.id.urunFiyat);
             urunagirlik= itemView.findViewById(R.id.urunAgirlik);
             urunfotografi=itemView.findViewById(R.id.urunfotografi);
+            sepetArti = itemView.findViewById(R.id.sepetarti);
 
         }
     }

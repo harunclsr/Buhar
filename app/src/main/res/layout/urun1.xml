@@ -53,8 +53,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:id="@+id/urunFiyat"
@@ -64,6 +63,7 @@
                     android:textAlignment="textStart"
                     android:textSize="18sp"
                     android:textStyle="bold" />
+
             </LinearLayout>
 
             <LinearLayout

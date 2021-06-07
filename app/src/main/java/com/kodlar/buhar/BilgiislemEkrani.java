@@ -22,14 +22,8 @@ public class BilgiislemEkrani extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Urunekleme=(Button)findViewById(R.id.eklemeEkrani);
-        FloatingActionButton fab = findViewById(R.id.SepetButonu);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
+
         Urunekleme.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){

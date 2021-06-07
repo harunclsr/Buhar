@@ -39,7 +39,7 @@ import java.util.ArrayList;
 public class Sepet extends Fragment {
     private View SepetView;
     private RecyclerView mySepetlist;
-    private TextView uruntutarmiktari;
+
     private ImageView imageView;
     private DatabaseReference SepetRef,SepetTutarRef;
     private String currentUserID;
@@ -65,7 +65,7 @@ public class Sepet extends Fragment {
         mySepetlist.setLayoutManager(new LinearLayoutManager(getContext()));
         mAuth = FirebaseAuth.getInstance();
         currentUserID = mAuth.getCurrentUser().getUid();
-        uruntutarmiktari=(TextView) SepetView.findViewById(R.id.sepettutarucreti);
+
 
 
 
@@ -152,12 +152,12 @@ public class Sepet extends Fragment {
                                     if (urun.miktar < 2) {
 
                                         SepetRef.child(userIDs).removeValue();
-
+                                        SepetRef.child(userIDs).child("uruntutari").removeValue();
 
 
                                         urun.setUruntutari(urun.miktar*urunfiyat);
 
-                                        SepetRef.child(userIDs).child("uruntutari").setValue(urun.getUruntutari());
+                                    //    SepetRef.child(userIDs).child("uruntutari").setValue(urun.getUruntutari());
                                     } else {
 
                                         urun.miktar--;
